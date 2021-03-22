@@ -1,0 +1,66 @@
+http://localhost
+
+route /open-banking/accounts/v1/* {
+	uri strip_prefix /accounts
+	reverse_proxy accounts:4010
+}
+
+route /open-banking/admin/v1/* {
+	uri strip_prefix /admin
+	reverse_proxy admin:4010
+}
+
+route /open-banking/channels/v1/* {
+	uri strip_prefix /channels
+	reverse_proxy channels:4010
+}
+
+route /open-banking/common/v1/* {
+	uri strip_prefix /common
+	reverse_proxy common:4010
+}
+
+route /open-banking/consents/v1/* {
+	uri strip_prefix /consents
+	reverse_proxy consents:4010
+}
+
+route /open-banking/credit_cards/v1/* {
+	uri strip_prefix /credit_cards
+	reverse_proxy credit_cards:4010
+}
+
+route /open-banking/customers/v1/* {
+	uri strip_prefix /customers
+	reverse_proxy customers:4010
+}
+
+route /open-banking/financings/v1/* {
+	uri strip_prefix /financings
+	reverse_proxy financings:4010
+}
+
+route /open-banking/invoice_financings/v1/* {
+	uri strip_prefix /invoice_financings
+	reverse_proxy invoice_financings:4010
+}
+
+route /open-banking/loans/v1/* {
+	uri strip_prefix /loans
+	reverse_proxy loans:4010
+}
+
+route /open-banking/participants/v1/* {
+	uri strip_prefix /participants
+	reverse_proxy participants:4010
+}
+
+route /open-banking/product_services/v1/* {
+	uri strip_prefix /product_services
+	reverse_proxy product_services:4010
+}
+
+route /open-banking/unarranged_accounts_overdraft/v1/* {
+	uri strip_prefix /unarranged_accounts_overdraft
+	reverse_proxy unarranged_accounts_overdraft:4010
+}

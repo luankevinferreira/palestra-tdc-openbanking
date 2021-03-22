@@ -1,0 +1,87 @@
+version: '3'
+services:
+  proxy:
+    image: caddy
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+    ports:
+      - '8080:80'
+    depends_on:
+      - accounts
+      - admin
+      - channels
+      - common
+      - consents
+      - credit_cards
+      - customers
+      - financings
+      - invoice_financings
+      - loans
+      - participants
+      - product_services
+      - unarranged_accounts_overdraft
+  accounts:
+    image: stoplight/prism:4
+    command: >
+      mock -p 4010 --host 0.0.0.0
+      https://raw.githubusercontent.com/OpenBanking-Brasil/areadesenvolvedor-fase2/gh-pages/swagger/swagger_accounts_apis.yaml
+  admin:
+    image: stoplight/prism:4
+    command: >
+      mock -p 4010 --host 0.0.0.0
+      https://raw.githubusercontent.com/OpenBanking-Brasil/areadesenvolvedor/master/documentation/source/swagger/swagger_admin_apis.yaml
+  channels:
+    image: stoplight/prism:4
+    command: >
+      mock -p 4010 --host 0.0.0.0
+      https://raw.githubusercontent.com/OpenBanking-Brasil/areadesenvolvedor/master/documentation/source/swagger/swagger_channels_apis.yaml
+  common:
+    image: stoplight/prism:4
+    command: >
+      mock -p 4010 --host 0.0.0.0
+      https://raw.githubusercontent.com/OpenBanking-Brasil/areadesenvolvedor/master/documentation/source/swagger/swagger_common_apis.yaml
+  consents:
+    image: stoplight/prism:4
+    command: >
+      mock -p 4010 --host 0.0.0.0
+      https://raw.githubusercontent.com/OpenBanking-Brasil/areadesenvolvedor-fase2/gh-pages/swagger/swagger_consents.yaml
+  credit_cards:
+    image: stoplight/prism:4
+    command: >
+      mock -p 4010 --host 0.0.0.0
+      https://raw.githubusercontent.com/OpenBanking-Brasil/areadesenvolvedor-fase2/gh-pages/swagger/swagger_credit_cards_apis.yaml
+  customers:
+    image: stoplight/prism:4
+    command: >
+      mock -p 4010 --host 0.0.0.0
+      https://raw.githubusercontent.com/OpenBanking-Brasil/areadesenvolvedor-fase2/gh-pages/swagger/swagger_customers_apis.yaml
+  financings:
+    image: stoplight/prism:4
+    command: >
+      mock -p 4010 --host 0.0.0.0
+      https://raw.githubusercontent.com/OpenBanking-Brasil/areadesenvolvedor-fase2/gh-pages/swagger/swagger_financings_apis.yaml
+  invoice_financings:
+    image: stoplight/prism:4
+    command: >
+      mock -p 4010 --host 0.0.0.0
+      https://raw.githubusercontent.com/OpenBanking-Brasil/areadesenvolvedor-fase2/gh-pages/swagger/swagger_invoice_financings_apis.yaml
+  loans:
+    image: stoplight/prism:4
+    command: >
+      mock -p 4010 --host 0.0.0.0
+      https://raw.githubusercontent.com/OpenBanking-Brasil/areadesenvolvedor-fase2/gh-pages/swagger/swagger_loans_apis.yaml
+  participants:
+    image: stoplight/prism:4
+    command: >
+      mock -p 4010 --host 0.0.0.0
+      https://github.com/OpenBanking-Brasil/areadesenvolvedor-fase2/blob/gh-pages/swagger/swagger_participants.yaml
+  product_services:
+    image: stoplight/prism:4
+    command: >
+      mock -p 4010 --host 0.0.0.0
+      https://github.com/OpenBanking-Brasil/areadesenvolvedor/blob/master/documentation/source/swagger/swagger_products_services_apis.yaml
+  unarranged_accounts_overdraft:
+    image: stoplight/prism:4
+    command: >
+      mock -p 4010 --host 0.0.0.0
+      https://raw.githubusercontent.com/OpenBanking-Brasil/areadesenvolvedor-fase2/gh-pages/swagger/swagger_unarranged_accounts_overdraft_apis.yaml
