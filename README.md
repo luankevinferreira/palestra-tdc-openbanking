@@ -36,3 +36,5 @@ Obs.: É possível importar as coleções do Postman disponíveis neste reposit�
 - [Stoplight Prism website](https://stoplight.io/open-source/prism/)
 - [Guia de instalação Stoplight Prism](https://github.com/stoplightio/prism#-installation-and-Usage)
 - [Documentação Stoplight Prism](https://meta.stoplight.io/docs/prism/README.md)
+- [API de produção dos participantes](https://data.directory.openbankingbrasil.org.br/participants)
+- [Consumo dos campos da API dos participantes](https://openbanking-brasil.github.io/areadesenvolvedor-fase2/#participantes-open-banking-brasil)

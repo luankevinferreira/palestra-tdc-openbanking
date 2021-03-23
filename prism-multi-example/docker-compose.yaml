@@ -12,14 +12,14 @@ services:
       - channels
       - common
       - consents
-      - credit_cards
+      - credit-cards-accounts
       - customers
       - financings
-      - invoice_financings
+      - invoice-financings
       - loans
       - participants
-      - product_services
-      - unarranged_accounts_overdraft
+      - products-services
+      - unarranged-accounts-overdraft
   accounts:
     image: stoplight/prism:4
     command: >
@@ -45,7 +45,7 @@ services:
     command: >
       mock -p 4010 --host 0.0.0.0
       https://raw.githubusercontent.com/OpenBanking-Brasil/areadesenvolvedor-fase2/gh-pages/swagger/swagger_consents.yaml
-  credit_cards:
+  credit-cards-accounts:
     image: stoplight/prism:4
     command: >
       mock -p 4010 --host 0.0.0.0
@@ -60,7 +60,7 @@ services:
     command: >
       mock -p 4010 --host 0.0.0.0
       https://raw.githubusercontent.com/OpenBanking-Brasil/areadesenvolvedor-fase2/gh-pages/swagger/swagger_financings_apis.yaml
-  invoice_financings:
+  invoice-financings:
     image: stoplight/prism:4
     command: >
       mock -p 4010 --host 0.0.0.0
@@ -74,13 +74,13 @@ services:
     image: stoplight/prism:4
     command: >
       mock -p 4010 --host 0.0.0.0
-      https://github.com/OpenBanking-Brasil/areadesenvolvedor-fase2/blob/gh-pages/swagger/swagger_participants.yaml
-  product_services:
+      https://raw.githubusercontent.com/OpenBanking-Brasil/areadesenvolvedor-fase2/gh-pages/swagger/swagger_participants.yaml
+  products-services:
     image: stoplight/prism:4
     command: >
       mock -p 4010 --host 0.0.0.0
-      https://github.com/OpenBanking-Brasil/areadesenvolvedor/blob/master/documentation/source/swagger/swagger_products_services_apis.yaml
-  unarranged_accounts_overdraft:
+      https://raw.githubusercontent.com/OpenBanking-Brasil/areadesenvolvedor/master/documentation/source/swagger/swagger_products_services_apis.yaml
+  unarranged-accounts-overdraft:
     image: stoplight/prism:4
     command: >
       mock -p 4010 --host 0.0.0.0
