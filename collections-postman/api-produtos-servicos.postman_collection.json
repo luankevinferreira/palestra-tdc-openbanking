@@ -1,0 +1,852 @@
+{
+	"info": {
+		"_postman_id": "450f56c7-04b7-46b8-9b33-e98e5c25c4d7",
+		"name": "API - Produtos e serviços",
+		"description": "As API's descritas neste documento são referentes as API's da fase OpenData do Open Banking Brasil.\n\nContact Support:\n Email: apiteam@swagger.io",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Obtém dados das contas pessoa natural",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/personal-accounts?page=1&page-size=25",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"personal-accounts"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "Número da página que está sendo requisitada (o valor da primeira página é 1)."
+						},
+						{
+							"key": "page-size",
+							"value": "25",
+							"description": "Quantidade total de registros por páginas."
+						}
+					]
+				},
+				"description": "Obtém dados das contas"
+			},
+			"response": [
+				{
+					"name": "Dados sobre contas pessoa natural obtidos com sucesso.",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/personal-accounts?page=1&page-size=25",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"personal-accounts"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "page-size",
+									"value": "25"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"data\": {\n  \"brand\": {\n   \"name\": \"Organização A\",\n   \"companies\": [\n    {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n   ]\n  }\n },\n \"links\": {\n  \"self\": \"https://api.banco.com.br/open-banking/products-services/v1/<resource>\",\n  \"first\": \"https://api.banco.com.br/open-banking/products-services/v1/<resource>\",\n  \"prev\": \"sit fugiat Lorem\",\n  \"next\": \"ut pariatur mollit dolore\",\n  \"last\": \"https://api.banco.com.br/open-banking/products-services/v1/<resource>\"\n },\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtém dados das contas pessoa jurídica",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/business-accounts?page=1&page-size=25",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"business-accounts"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "Número da página que está sendo requisitada (o valor da primeira página é 1)."
+						},
+						{
+							"key": "page-size",
+							"value": "25",
+							"description": "Quantidade total de registros por páginas."
+						}
+					]
+				},
+				"description": "Obtém dados das contas pessoa jurídica"
+			},
+			"response": [
+				{
+					"name": "Dados sobre contas pessoa jurídica obtidos com sucesso.",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/business-accounts?page=1&page-size=25",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"business-accounts"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "page-size",
+									"value": "25"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"data\": {\n  \"brand\": {\n   \"name\": \"Organização A\",\n   \"companies\": [\n    {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n   ]\n  }\n },\n \"links\": {\n  \"self\": \"https://api.banco.com.br/open-banking/products-services/v1/<resource>\",\n  \"first\": \"https://api.banco.com.br/open-banking/products-services/v1/<resource>\",\n  \"prev\": \"irure\",\n  \"next\": \"sit fugiat\",\n  \"last\": \"https://api.banco.com.br/open-banking/products-services/v1/<resource>\"\n },\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtém dados sobre empréstimos pessoa natural",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/personal-loans?page=1&page-size=25",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"personal-loans"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "Número da página que está sendo requisitada (o valor da primeira página é 1)."
+						},
+						{
+							"key": "page-size",
+							"value": "25",
+							"description": "Quantidade total de registros por páginas."
+						}
+					]
+				},
+				"description": "Obtém dados sobre empréstimos pessoa natural"
+			},
+			"response": [
+				{
+					"name": "Dados sobre empréstimos pessoa natural obtidos com sucesso.",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/personal-loans?page=1&page-size=25",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"personal-loans"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "page-size",
+									"value": "25"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"data\": {\n  \"brand\": {\n   \"name\": \"Organização A\",\n   \"companies\": [\n    {\n     \"cnpjNumber\": \"50685362000135\"\n    }\n   ]\n  }\n },\n \"links\": {\n  \"self\": \"https://api.banco.com.br/open-banking/products-services/v1/<resource>\",\n  \"first\": \"https://api.banco.com.br/open-banking/products-services/v1/<resource>\",\n  \"prev\": \"cupidatat consequat velit\",\n  \"next\": \"veniam occaecat\",\n  \"last\": \"https://api.banco.com.br/open-banking/products-services/v1/<resource>\"\n },\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtém dados sobre empréstimos pessoa jurídica",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/business-loans?page=1&page-size=25",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"business-loans"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "Número da página que está sendo requisitada (o valor da primeira página é 1)."
+						},
+						{
+							"key": "page-size",
+							"value": "25",
+							"description": "Quantidade total de registros por páginas."
+						}
+					]
+				},
+				"description": "Obtém dados sobre empréstimos pessoa jurídica"
+			},
+			"response": [
+				{
+					"name": "Dados sobre empréstimos pessoa jurídica obtidos com sucesso.",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/business-loans?page=1&page-size=25",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"business-loans"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "page-size",
+									"value": "25"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"data\": {\n  \"brand\": {\n   \"name\": \"Organização A\",\n   \"companies\": [\n    {\n     \"cnpjNumber\": \"50685362000135\"\n    }\n   ]\n  }\n },\n \"links\": {\n  \"self\": \"https://api.banco.com.br/open-banking/products-services/v1/<resource>\",\n  \"first\": \"https://api.banco.com.br/open-banking/products-services/v1/<resource>\",\n  \"prev\": \"veniam consectetur\",\n  \"next\": \"aute commodo\",\n  \"last\": \"https://api.banco.com.br/open-banking/products-services/v1/<resource>\"\n },\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtém dados sobre cartões de crédito pessoa natural",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/personal-credit-cards?page=1&page-size=25",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"personal-credit-cards"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "Número da página que está sendo requisitada (o valor da primeira página é 1)."
+						},
+						{
+							"key": "page-size",
+							"value": "25",
+							"description": "Quantidade total de registros por páginas."
+						}
+					]
+				},
+				"description": "Obtém dados sobre cartões de crédito pessoa natural"
+			},
+			"response": [
+				{
+					"name": "Dados sobre cartão de crédito pessoa natural obtidos com sucesso.",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/personal-credit-cards?page=1&page-size=25",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"personal-credit-cards"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "page-size",
+									"value": "25"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"data\": {\n  \"brand\": {\n   \"name\": \"Organização A\"\n  }\n },\n \"links\": {\n  \"self\": \"https://api.banco.com.br/open-banking/products-services/v1/<resource>\",\n  \"first\": \"https://api.banco.com.br/open-banking/products-services/v1/<resource>\",\n  \"prev\": \"Duis\",\n  \"next\": \"exercitation aute Ut in\",\n  \"last\": \"https://api.banco.com.br/open-banking/products-services/v1/<resource>\"\n },\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtém dados sobre cartões de crédito pessoa jurídica",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/business-credit-cards?page=1&page-size=25",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"business-credit-cards"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "Número da página que está sendo requisitada (o valor da primeira página é 1)."
+						},
+						{
+							"key": "page-size",
+							"value": "25",
+							"description": "Quantidade total de registros por páginas."
+						}
+					]
+				},
+				"description": "Obtém dados sobre cartões de crédito pessoa jurídica"
+			},
+			"response": [
+				{
+					"name": "Dados sobre cartões de crédito pessoa jurídica obtidos com sucesso.",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/business-credit-cards?page=1&page-size=25",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"business-credit-cards"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "page-size",
+									"value": "25"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"data\": {\n  \"brand\": {\n   \"name\": \"Organização A\"\n  }\n },\n \"links\": {\n  \"self\": \"https://api.banco.com.br/open-banking/products-services/v1/<resource>\",\n  \"first\": \"https://api.banco.com.br/open-banking/products-services/v1/<resource>\",\n  \"prev\": \"Duis\",\n  \"next\": \"exercitation aute Ut in\",\n  \"last\": \"https://api.banco.com.br/open-banking/products-services/v1/<resource>\"\n },\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtém a lista de Financiamentos de Pessoa Natural.",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/personal-financings?page=1&page-size=25",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"personal-financings"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "Número da página que está sendo requisitada (o valor da primeira página é 1)."
+						},
+						{
+							"key": "page-size",
+							"value": "25",
+							"description": "Quantidade total de registros por páginas."
+						}
+					]
+				},
+				"description": "Obtém a lista de Financiamentos de Pessoa Natural"
+			},
+			"response": [
+				{
+					"name": "Lista de financiamentos de pessoa natural obtida com sucesso.",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/personal-financings?page=1&page-size=25",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"personal-financings"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "page-size",
+									"value": "25"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"data\": {\n  \"brand\": {\n   \"name\": \"Organização A\"\n  }\n },\n \"links\": {\n  \"self\": \"https://api.banco.com.br/open-banking/products-services/v1/<resource>\",\n  \"first\": \"https://api.banco.com.br/open-banking/products-services/v1/<resource>\",\n  \"prev\": \"Duis\",\n  \"next\": \"exercitation aute Ut in\",\n  \"last\": \"https://api.banco.com.br/open-banking/products-services/v1/<resource>\"\n },\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtém a lista de Financiamentos de Pessoa Jurídica.",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/business-financings?page=1&page-size=25",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"business-financings"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "Número da página que está sendo requisitada (o valor da primeira página é 1)."
+						},
+						{
+							"key": "page-size",
+							"value": "25",
+							"description": "Quantidade total de registros por páginas."
+						}
+					]
+				},
+				"description": "Obtém a lista de Financiamentos de Pessoa Jurídica."
+			},
+			"response": [
+				{
+					"name": "Lista de financiamentos de pessoa jurídica obtida com sucesso.",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/business-financings?page=1&page-size=25",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"business-financings"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "page-size",
+									"value": "25"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"data\": {\n  \"brand\": {\n   \"name\": \"Organização A\"\n  }\n },\n \"links\": {\n  \"self\": \"https://api.banco.com.br/open-banking/products-services/v1/<resource>\",\n  \"first\": \"https://api.banco.com.br/open-banking/products-services/v1/<resource>\",\n  \"prev\": \"Duis\",\n  \"next\": \"exercitation aute Ut in\",\n  \"last\": \"https://api.banco.com.br/open-banking/products-services/v1/<resource>\"\n },\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtém a lista de Adiantamento de Recebíveis de Pessoa Natural.",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/personal-invoice-financings?page=1&page-size=25",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"personal-invoice-financings"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "Número da página que está sendo requisitada (o valor da primeira página é 1)."
+						},
+						{
+							"key": "page-size",
+							"value": "25",
+							"description": "Quantidade total de registros por páginas."
+						}
+					]
+				},
+				"description": "Obtém a lista de Adiantamento de Recebíveis de Pessoa Natural."
+			},
+			"response": [
+				{
+					"name": "Lista de adiantamento de recebíveis de pessoa natural obtida com sucesso.",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/personal-invoice-financings?page=1&page-size=25",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"personal-invoice-financings"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "page-size",
+									"value": "25"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"data\": {\n  \"brand\": {\n   \"name\": \"Organização A\",\n   \"companies\": [\n    {\n     \"cnpjNumber\": \"50685362000135\"\n    }\n   ]\n  }\n },\n \"links\": {\n  \"self\": \"https://api.banco.com.br/open-banking/products-services/v1/<resource>\",\n  \"first\": \"https://api.banco.com.br/open-banking/products-services/v1/<resource>\",\n  \"prev\": \"aliquip labore velit sed\",\n  \"next\": \"in sed\",\n  \"last\": \"https://api.banco.com.br/open-banking/products-services/v1/<resource>\"\n },\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtém a lista de Adiantamento de Recebíveis de Pessoa Jurídica.",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/business-invoice-financings?page=1&page-size=25",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"business-invoice-financings"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "Número da página que está sendo requisitada (o valor da primeira página é 1)."
+						},
+						{
+							"key": "page-size",
+							"value": "25",
+							"description": "Quantidade total de registros por páginas."
+						}
+					]
+				},
+				"description": "Obtém a lista de Adiantamento de Recebíveis de Pessoa Jurídica."
+			},
+			"response": [
+				{
+					"name": "Lista de adiantamento de recebíveis de pessoa jurídica obtida com sucesso.",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/business-invoice-financings?page=1&page-size=25",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"business-invoice-financings"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "page-size",
+									"value": "25"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"data\": {\n  \"brand\": {\n   \"name\": \"Marca A\",\n   \"companies\": [\n    {\n     \"cnpjNumber\": \"50685362000135\"\n    }\n   ]\n  }\n },\n \"links\": {\n  \"self\": \"https://api.banco.com.br/open-banking/products-services/v1/<resource>\",\n  \"first\": \"https://api.banco.com.br/open-banking/products-services/v1/<resource>\",\n  \"prev\": \"ut pariatur sint\",\n  \"next\": \"esse dolore\",\n  \"last\": \"https://api.banco.com.br/open-banking/products-services/v1/<resource>\"\n },\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtém a lista de adiantamento de depositante de Pessoa Natural.",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/personal-unarranged-account-overdraft?page=1&page-size=25",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"personal-unarranged-account-overdraft"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "Número da página que está sendo requisitada (o valor da primeira página é 1)."
+						},
+						{
+							"key": "page-size",
+							"value": "25",
+							"description": "Quantidade total de registros por páginas."
+						}
+					]
+				},
+				"description": "Obtém a lista de adiantamento de depositante de Pessoa Natural."
+			},
+			"response": [
+				{
+					"name": "Lista de adiantamento de depositante de pessoa natural obtida com sucesso.",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/personal-unarranged-account-overdraft?page=1&page-size=25",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"personal-unarranged-account-overdraft"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "page-size",
+									"value": "25"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"data\": {\n  \"brand\": {\n   \"name\": \"Organização A\",\n   \"companies\": [\n    {\n     \"cnpjNumber\": \"50685362000135\"\n    },\n    {\n     \"cnpjNumber\": \"50685362000135\"\n    }\n   ]\n  }\n },\n \"links\": {\n  \"self\": \"https://api.banco.com.br/open-banking/products-services/v1/<resource>\",\n  \"first\": \"https://api.banco.com.br/open-banking/products-services/v1/<resource>\",\n  \"prev\": \"quis\",\n  \"next\": \"voluptate\",\n  \"last\": \"https://api.banco.com.br/open-banking/products-services/v1/<resource>\"\n },\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtém a lista de adiantamento de depositante de Pessoa Jurídica.",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/business-unarranged-account-overdraft?page=1&page-size=25",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"business-unarranged-account-overdraft"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "Número da página que está sendo requisitada (o valor da primeira página é 1)."
+						},
+						{
+							"key": "page-size",
+							"value": "25",
+							"description": "Quantidade total de registros por páginas."
+						}
+					]
+				},
+				"description": "Obtém a lista de adiantamento de depositante de Pessoa Jurídica."
+			},
+			"response": [
+				{
+					"name": "Lista de adiantamento de depositante de pessoa jurídica obtida com sucesso.",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/business-unarranged-account-overdraft?page=1&page-size=25",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"business-unarranged-account-overdraft"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "page-size",
+									"value": "25"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"data\": {\n  \"brand\": {\n   \"name\": \"Organização A\",\n   \"companies\": [\n    {\n     \"cnpjNumber\": \"50685362000135\"\n    },\n    {\n     \"cnpjNumber\": \"50685362000135\"\n    }\n   ]\n  }\n },\n \"links\": {\n  \"self\": \"https://api.banco.com.br/open-banking/products-services/v1/<resource>\",\n  \"first\": \"https://api.banco.com.br/open-banking/products-services/v1/<resource>\",\n  \"prev\": \"quis\",\n  \"next\": \"voluptate\",\n  \"last\": \"https://api.banco.com.br/open-banking/products-services/v1/<resource>\"\n },\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://api.banco.com.br/open-banking/products-services/v2"
+		}
+	]
+}

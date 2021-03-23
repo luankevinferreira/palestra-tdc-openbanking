@@ -1,0 +1,172 @@
+{
+	"info": {
+		"_postman_id": "acf9be90-e779-495d-9d63-d41e51334f17",
+		"name": "API - Comuns",
+		"description": "As APIs descritas neste documento são referentes as APIs da fase OpenData do Open Banking Brasil.\n\nContact Support:\n Email: apiteam@swagger.io",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "a descrição referente ao código de status retornado pelas APIs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/status?page=1&page-size=25",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"status"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "Número da página que está sendo requisitada (o valor da primeira página é 1)."
+						},
+						{
+							"key": "page-size",
+							"value": "25",
+							"description": "Quantidade total de registros por páginas."
+						}
+					]
+				},
+				"description": " descrição referente ao código de status retornado pelas APIs"
+			},
+			"response": [
+				{
+					"name": "código de status retornado pelas APIs",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/status?page=1&page-size=25",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"status"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "page-size",
+									"value": "25"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"data\": {\n  \"status\": [\n   {\n    \"code\": \"OK\",\n    \"explanation\": \"Retorno com Sucesso\",\n    \"detectionTime\": \"2020-07-21T08:30:00Z\",\n    \"expectedResolutionTime\": \"2020-07-21T08:30:00Z\",\n    \"updateTime\": \"2020-01-02T01:00:00Z\",\n    \"unavailableEndpoints\": [\n     \"https://api.banco.com.br/open-banking/channels/v1/electronic-channels\"\n    ]\n   },\n   {\n    \"code\": \"OK\",\n    \"explanation\": \"Retorno com Sucesso\",\n    \"detectionTime\": \"2020-07-21T08:30:00Z\",\n    \"expectedResolutionTime\": \"2020-07-21T08:30:00Z\",\n    \"updateTime\": \"2020-01-02T01:00:00Z\",\n    \"unavailableEndpoints\": [\n     \"https://api.banco.com.br/open-banking/channels/v1/electronic-channels\"\n    ]\n   }\n  ]\n },\n \"links\": {\n  \"self\": \"https://api.banco.com.br/open-banking/channels/v1/<resource>\",\n  \"first\": \"https://api.banco.com.br/open-banking/channels/v1/<resource>\",\n  \"prev\": \"ullamco\",\n  \"next\": \"nisi incid\",\n  \"last\": \"https://api.banco.com.br/open-banking/channels/v1/<resource>\"\n },\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+				}
+			]
+		},
+		{
+			"name": "a descrição referente ao código de status retornado pelas APIs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/outages?page=1&page-size=25",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"outages"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "Número da página que está sendo requisitada (o valor da primeira página é 1)."
+						},
+						{
+							"key": "page-size",
+							"value": "25",
+							"description": "Quantidade total de registros por páginas."
+						}
+					]
+				},
+				"description": "a descrição referente ao código de status retornado pelas APIs"
+			},
+			"response": [
+				{
+					"name": "código de status retornado pelas APIs",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/outages?page=1&page-size=25",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"outages"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "page-size",
+									"value": "25"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"data\": [\n  {\n   \"outageTime\": \"2020-07-21T08:30:00Z\",\n   \"duration\": \"PT2H30M\",\n   \"isPartial\": false,\n   \"explanation\": \"Atualização do API Gateway\"\n  },\n  {\n   \"outageTime\": \"2020-07-21T08:30:00Z\",\n   \"duration\": \"PT2H30M\",\n   \"isPartial\": false,\n   \"explanation\": \"Atualização do API Gateway\"\n  }\n ],\n \"links\": {\n  \"self\": \"https://api.banco.com.br/open-banking/channels/v1/<resource>\",\n  \"first\": \"https://api.banco.com.br/open-banking/channels/v1/<resource>\",\n  \"prev\": \"pariatur elit nostrud eiusmod\",\n  \"next\": \"nostrud nisi eiusmod velit aliqua\",\n  \"last\": \"https://api.banco.com.br/open-banking/channels/v1/<resource>\"\n },\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://api.banco.com.br/open-banking/discovery/v1"
+		}
+	]
+}

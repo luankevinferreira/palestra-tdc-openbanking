@@ -1,0 +1,197 @@
+{
+	"info": {
+		"_postman_id": "e1e8860f-808e-420d-a07e-b8017eee7b6b",
+		"name": "API - Participantes",
+		"description": "Informações sobre os participantes do Open Banking Brasil que estão registrados no Diretório.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Recupera informações técnicas sobre Participantes registrados no diretório, essas informações permitem identificar e consumir as APIs dos participantes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/participants",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"participants"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Export the open-data for all the organisations",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/participants",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"participants"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "[\n {\n  \"OrganisationId\": \"labo\",\n  \"Status\": \"Active\",\n  \"OrganisationName\": \"dol\",\n  \"CreatedOn\": \"pr\",\n  \"LegalEntityName\": \"m\",\n  \"CountryOfRegistration\": \"la\",\n  \"CompanyRegister\": \"q\",\n  \"RegistrationNumber\": \"la\",\n  \"RegistrationId\": \"do\",\n  \"RegisteredName\": \"lab\",\n  \"AddressLine1\": \"u\",\n  \"AddressLine2\": \"E\",\n  \"City\": \"e\",\n  \"Postcode\": \"m\",\n  \"Country\": \"non\",\n  \"ParentOrganisationReference\": \"\",\n  \"Contacts\": [\n   {\n    \"ContactId\": \"consequat\",\n    \"OrganisationId\": \"in e\",\n    \"ContactType\": \"Business\",\n    \"FirstName\": \"labo\",\n    \"LastName\": \"\",\n    \"Department\": \"p\",\n    \"EmailAddress\": \"z;rY\",\n    \"PhoneNumber\": \"d\",\n    \"AddressLine1\": \"et\",\n    \"AddressLine2\": \"e\",\n    \"City\": \"\",\n    \"Postcode\": \"ad\",\n    \"Country\": \"con\",\n    \"AdditionalInformation\": \"mo\",\n    \"PgpPublicKey\": \"i\"\n   },\n   {\n    \"ContactId\": \"id qui\",\n    \"OrganisationId\": \"elit\",\n    \"ContactType\": \"Business\",\n    \"FirstName\": \"in E\",\n    \"LastName\": \"labo\",\n    \"Department\": \"nis\",\n    \"EmailAddress\": \"F]3H\",\n    \"PhoneNumber\": \"am\",\n    \"AddressLine1\": \"qu\",\n    \"AddressLine2\": \"co\",\n    \"City\": \"fu\",\n    \"Postcode\": \"nu\",\n    \"Country\": \"null\",\n    \"AdditionalInformation\": \"min\",\n    \"PgpPublicKey\": \"p\"\n   }\n  ],\n  \"AuthorisationServers\": [\n   {\n    \"AuthorisationServerId\": \"\",\n    \"OrganisationId\": \"esse\",\n    \"AutoRegistrationSupported\": false,\n    \"ApiResources\": [\n     {\n      \"ApiResourceId\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"ApiFamilyType\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"ApiVersion\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"ApiDiscoveryEndpoints\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n     },\n     {\n      \"ApiResourceId\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"ApiFamilyType\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"ApiVersion\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"ApiDiscoveryEndpoints\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n     }\n    ],\n    \"CustomerFriendlyDescription\": \"in \",\n    \"CustomerFriendlyLogoUri\": \"http\",\n    \"CustomerFriendlyName\": \"L\",\n    \"DeveloperPortalUri\": \"http\",\n    \"TermsOfServiceUri\": \"http\",\n    \"NotificationWebhook\": \"http\",\n    \"NotificationWebhookStatus\": \"dol\",\n    \"OpenIDDiscoveryDocument\": \"http\",\n    \"PayloadSigningCertLocationUri\": \"http\",\n    \"ParentAuthorisationServerId\": \"d\"\n   },\n   {\n    \"AuthorisationServerId\": \"com\",\n    \"OrganisationId\": \"in a\",\n    \"AutoRegistrationSupported\": true,\n    \"ApiResources\": [\n     {\n      \"ApiResourceId\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"ApiFamilyType\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"ApiVersion\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"ApiDiscoveryEndpoints\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n     },\n     {\n      \"ApiResourceId\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"ApiFamilyType\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"ApiVersion\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"ApiDiscoveryEndpoints\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n     }\n    ],\n    \"CustomerFriendlyDescription\": \"d\",\n    \"CustomerFriendlyLogoUri\": \"http\",\n    \"CustomerFriendlyName\": \"s\",\n    \"DeveloperPortalUri\": \"http\",\n    \"TermsOfServiceUri\": \"http\",\n    \"NotificationWebhook\": \"http\",\n    \"NotificationWebhookStatus\": \"exercitation laboris ex\",\n    \"OpenIDDiscoveryDocument\": \"http\",\n    \"PayloadSigningCertLocationUri\": \"http\",\n    \"ParentAuthorisationServerId\": \"q\"\n   }\n  ],\n  \"OrgDomainClaims\": [\n   {\n    \"OrganisationAuthorityDomainClaimId\": \"exercitation in et\",\n    \"AuthorisationDomainName\": \"exercit\",\n    \"AuthorityId\": \"nisi id\",\n    \"AuthorityName\": \"laborum in\",\n    \"RegistrationId\": \"culpa Excepteur laboris eu sunt\",\n    \"Status\": \"Active\"\n   },\n   {\n    \"OrganisationAuthorityDomainClaimId\": \"pariat\",\n    \"AuthorisationDomainName\": \"reprehenderit nulla adipisicing cillum\",\n    \"AuthorityId\": \"est Excepteur et\",\n    \"AuthorityName\": \"aute exercitation id anim\",\n    \"RegistrationId\": \"exercitation id\",\n    \"Status\": \"Active\"\n   }\n  ],\n  \"OrgDomainRoleClaims\": [\n   {\n    \"OrganisationId\": \"sit \",\n    \"OrganisationAuthorityClaimId\": \"sint\",\n    \"AuthorityId\": \"ut t\",\n    \"Status\": \"Active\",\n    \"AuthorisationDomain\": \"do\",\n    \"Role\": \"volu\",\n    \"Authorisations\": [\n     {\n      \"Status\": \"Active\",\n      \"MemberState\": \"d\"\n     },\n     {\n      \"Status\": \"Active\",\n      \"MemberState\": \"\"\n     }\n    ],\n    \"RegistrationId\": \"a\",\n    \"UniqueTechnicalIdenifier\": [\n     \"tem\",\n     \"\"\n    ]\n   },\n   {\n    \"OrganisationId\": \"qui \",\n    \"OrganisationAuthorityClaimId\": \"null\",\n    \"AuthorityId\": \"sit \",\n    \"Status\": \"Active\",\n    \"AuthorisationDomain\": \"in\",\n    \"Role\": \"sed\",\n    \"Authorisations\": [\n     {\n      \"Status\": \"Active\",\n      \"MemberState\": \"d\"\n     },\n     {\n      \"Status\": \"Active\",\n      \"MemberState\": \"s\"\n     }\n    ],\n    \"RegistrationId\": \"i\",\n    \"UniqueTechnicalIdenifier\": [\n     \"co\",\n     \"dolo\"\n    ]\n   }\n  ]\n },\n {\n  \"OrganisationId\": \"veli\",\n  \"Status\": \"Active\",\n  \"OrganisationName\": \"cil\",\n  \"CreatedOn\": \"of\",\n  \"LegalEntityName\": \"dol\",\n  \"CountryOfRegistration\": \"ad\",\n  \"CompanyRegister\": \"s\",\n  \"RegistrationNumber\": \"in \",\n  \"RegistrationId\": \"anim\",\n  \"RegisteredName\": \"a\",\n  \"AddressLine1\": \"ei\",\n  \"AddressLine2\": \"al\",\n  \"City\": \"Lor\",\n  \"Postcode\": \"pr\",\n  \"Country\": \"\",\n  \"ParentOrganisationReference\": \"a\",\n  \"Contacts\": [\n   {\n    \"ContactId\": \"culpa commodo\",\n    \"OrganisationId\": \"esse\",\n    \"ContactType\": \"Business\",\n    \"FirstName\": \"pa\",\n    \"LastName\": \"cul\",\n    \"Department\": \"la\",\n    \"EmailAddress\": \"rfF+\",\n    \"PhoneNumber\": \"adi\",\n    \"AddressLine1\": \"\",\n    \"AddressLine2\": \"\",\n    \"City\": \"mag\",\n    \"Postcode\": \"\",\n    \"Country\": \"in\",\n    \"AdditionalInformation\": \"in \",\n    \"PgpPublicKey\": \"of\"\n   },\n   {\n    \"ContactId\": \"adipisicing occaecat sit velit\",\n    \"OrganisationId\": \"cupi\",\n    \"ContactType\": \"Business\",\n    \"FirstName\": \"an\",\n    \"LastName\": \"ut\",\n    \"Department\": \"su\",\n    \"EmailAddress\": \"Aj:(\",\n    \"PhoneNumber\": \"dol\",\n    \"AddressLine1\": \"de\",\n    \"AddressLine2\": \"dol\",\n    \"City\": \"do\",\n    \"Postcode\": \"no\",\n    \"Country\": \"ad\",\n    \"AdditionalInformation\": \"\",\n    \"PgpPublicKey\": \"u\"\n   }\n  ],\n  \"AuthorisationServers\": [\n   {\n    \"AuthorisationServerId\": \"e\",\n    \"OrganisationId\": \"in i\",\n    \"AutoRegistrationSupported\": true,\n    \"ApiResources\": [\n     {\n      \"ApiResourceId\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"ApiFamilyType\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"ApiVersion\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"ApiDiscoveryEndpoints\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n     },\n     {\n      \"ApiResourceId\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"ApiFamilyType\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"ApiVersion\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"ApiDiscoveryEndpoints\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n     }\n    ],\n    \"CustomerFriendlyDescription\": \"fug\",\n    \"CustomerFriendlyLogoUri\": \"http\",\n    \"CustomerFriendlyName\": \"ea\",\n    \"DeveloperPortalUri\": \"http\",\n    \"TermsOfServiceUri\": \"http\",\n    \"NotificationWebhook\": \"http\",\n    \"NotificationWebhookStatus\": \"irure\",\n    \"OpenIDDiscoveryDocument\": \"http\",\n    \"PayloadSigningCertLocationUri\": \"http\",\n    \"ParentAuthorisationServerId\": \"iru\"\n   },\n   {\n    \"AuthorisationServerId\": \"u\",\n    \"OrganisationId\": \"temp\",\n    \"AutoRegistrationSupported\": true,\n    \"ApiResources\": [\n     {\n      \"ApiResourceId\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"ApiFamilyType\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"ApiVersion\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"ApiDiscoveryEndpoints\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n     },\n     {\n      \"ApiResourceId\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"ApiFamilyType\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"ApiVersion\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"ApiDiscoveryEndpoints\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n     }\n    ],\n    \"CustomerFriendlyDescription\": \"\",\n    \"CustomerFriendlyLogoUri\": \"http\",\n    \"CustomerFriendlyName\": \"am\",\n    \"DeveloperPortalUri\": \"http\",\n    \"TermsOfServiceUri\": \"http\",\n    \"NotificationWebhook\": \"http\",\n    \"NotificationWebhookStatus\": \"laborum qui\",\n    \"OpenIDDiscoveryDocument\": \"http\",\n    \"PayloadSigningCertLocationUri\": \"http\",\n    \"ParentAuthorisationServerId\": \"sun\"\n   }\n  ],\n  \"OrgDomainClaims\": [\n   {\n    \"OrganisationAuthorityDomainClaimId\": \"amet id ut do\",\n    \"AuthorisationDomainName\": \"ut minim mollit laboris\",\n    \"AuthorityId\": \"ipsum\",\n    \"AuthorityName\": \"adipisicing\",\n    \"RegistrationId\": \"incididunt enim\",\n    \"Status\": \"Active\"\n   },\n   {\n    \"OrganisationAuthorityDomainClaimId\": \"ex do cupidatat\",\n    \"AuthorisationDomainName\": \"cillum laborum\",\n    \"AuthorityId\": \"pariatur et nostrud\",\n    \"AuthorityName\": \"sed est id\",\n    \"RegistrationId\": \"irure ea dolore ad laborum\",\n    \"Status\": \"Active\"\n   }\n  ],\n  \"OrgDomainRoleClaims\": [\n   {\n    \"OrganisationId\": \"do l\",\n    \"OrganisationAuthorityClaimId\": \"dolo\",\n    \"AuthorityId\": \"ipsu\",\n    \"Status\": \"Active\",\n    \"AuthorisationDomain\": \"des\",\n    \"Role\": \"d\",\n    \"Authorisations\": [\n     {\n      \"Status\": \"Active\",\n      \"MemberState\": \"m\"\n     },\n     {\n      \"Status\": \"Active\",\n      \"MemberState\": \"\"\n     }\n    ],\n    \"RegistrationId\": \"sunt\",\n    \"UniqueTechnicalIdenifier\": [\n     \"a\",\n     \"ex \"\n    ]\n   },\n   {\n    \"OrganisationId\": \"aliq\",\n    \"OrganisationAuthorityClaimId\": \"sunt\",\n    \"AuthorityId\": \"cons\",\n    \"Status\": \"Active\",\n    \"AuthorisationDomain\": \"labo\",\n    \"Role\": \"pr\",\n    \"Authorisations\": [\n     {\n      \"Status\": \"Active\",\n      \"MemberState\": \"e\"\n     },\n     {\n      \"Status\": \"Active\",\n      \"MemberState\": \"\"\n     }\n    ],\n    \"RegistrationId\": \"qu\",\n    \"UniqueTechnicalIdenifier\": [\n     \"\",\n     \"v\"\n    ]\n   }\n  ]\n }\n]"
+				},
+				{
+					"name": "Forbidden",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/participants",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"participants"
+							]
+						}
+					},
+					"status": "Forbidden",
+					"code": 403,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"name": "Unauthorized",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/participants",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"participants"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"name": "Bad Gateway",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/participants",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"participants"
+							]
+						}
+					},
+					"status": "Bad Gateway",
+					"code": 502,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"name": "Internal Server Error",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/participants",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"participants"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"name": "The specified key does not exist",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/participants",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"participants"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://data.directory.openbankingbrasil.org.br",
+			"type": "string"
+		}
+	]
+}

@@ -1,0 +1,113 @@
+{
+	"info": {
+		"_postman_id": "7349001f-0aa8-4813-88f8-6d8062526ded",
+		"name": "API - Admin",
+		"description": "As API's administrativas são recursos que podem ser consumidos apenas pelo diretório para avaliação e controle da qualidade dos serviços fornecidos pelas instituições financeiras\n\nContact Support:\n Email: apiteam@swagger.io",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Obtém as métricas de disponibilidade das APIs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/metrics?page=1&page-size=25&period=ALL",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"metrics"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "Número da página que está sendo requisitada (o valor da primeira página é 1)."
+						},
+						{
+							"key": "page-size",
+							"value": "25",
+							"description": "Quantidade total de registros por páginas."
+						},
+						{
+							"key": "period",
+							"value": "ALL",
+							"description": "Período a ser consultado\n  * `CURRENT` - Métricas do dia atual.\n  * `ALL` - Métricas de todo o período disponível.\n"
+						}
+					]
+				},
+				"description": "Obtém as métricas de disponibilidade das APIs"
+			},
+			"response": [
+				{
+					"name": "Dados das métricas",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/metrics?page=1&page-size=25&period=ALL",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"metrics"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "page-size",
+									"value": "25"
+								},
+								{
+									"key": "period",
+									"value": "ALL"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"data\": {\n  \"requestTime\": \"1959-06-14T21:01:56.951Z\",\n  \"availability\": {\n   \"uptime\": {\n    \"generalUptimeRate\": \"culpa aliquip\",\n    \"endpoints\": {\n     \"url\": \"eu anim\",\n     \"uptimeRate\": \"labore sed cupidatat\"\n    }\n   },\n   \"downtime\": {\n    \"generalDowntime\": 49612247,\n    \"scheduledOutage\": -48332442,\n    \"endpoints\": {\n     \"url\": \"ut culpa\",\n     \"partialDowntime\": 89178559\n    }\n   }\n  },\n  \"invocations\": {\n   \"unauthenticated\": {\n    \"currentDay\": -39436938,\n    \"previousDays\": [\n     10874614,\n     40160651\n    ]\n   },\n   \"highPriority\": {\n    \"currentDay\": 37346471,\n    \"previousDays\": [\n     75876947,\n     27739942\n    ]\n   },\n   \"mediumPriority\": {\n    \"currentDay\": 3668455,\n    \"previousDays\": [\n     -83185962,\n     -50063714\n    ]\n   },\n   \"unattended\": {\n    \"currentDay\": -59544822,\n    \"previousDays\": [\n     50878026,\n     32304053\n    ]\n   }\n  },\n  \"averageResponse\": {\n   \"unauthenticated\": {\n    \"currentDay\": -12533481,\n    \"previousDays\": [\n     -59377430,\n     51695634\n    ]\n   },\n   \"highPriority\": {\n    \"currentDay\": -68864800,\n    \"previousDays\": [\n     28265346,\n     -3864047\n    ]\n   },\n   \"mediumPriority\": {\n    \"currentDay\": 94666667,\n    \"previousDays\": [\n     -62252418,\n     -79094670\n    ]\n   },\n   \"unattended\": {\n    \"currentDay\": 37688567,\n    \"previousDays\": [\n     -71921940,\n     -86640078\n    ]\n   }\n  },\n  \"averageTps\": {\n   \"currentDay\": 82679056,\n   \"previousDays\": [\n    74647793,\n    -93826908\n   ]\n  },\n  \"peakTps\": {\n   \"currentDay\": 13498714,\n   \"previousDays\": [\n    34195213,\n    -73580980\n   ]\n  },\n  \"errors\": {\n   \"currentDay\": -45164685,\n   \"previousDays\": [\n    -59609088,\n    -67849124\n   ]\n  },\n  \"rejections\": {\n   \"currentDay\": -89551834,\n   \"previousDays\": [\n    -71964556,\n    48068033\n   ]\n  }\n },\n \"links\": {\n  \"self\": \"https://api.banco.com.br/open-banking/admin/v1/<resource>\",\n  \"first\": \"https://api.banco.com.br/open-banking/admin/v1/<resource>\",\n  \"prev\": \"ipsum in et\",\n  \"next\": \"ipsum\",\n  \"last\": \"https://api.banco.com.br/open-banking/admin/v1/<resource>\"\n },\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://api.banco.com.br/open-banking/admin/v1"
+		}
+	]
+}

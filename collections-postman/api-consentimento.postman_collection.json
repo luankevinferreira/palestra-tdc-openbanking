@@ -1,0 +1,2167 @@
+{
+	"info": {
+		"_postman_id": "f94f7b72-05e8-4cea-be21-98b1f812646d",
+		"name": "API - Consentimento",
+		"description": "API que trata da criação, consulta e revogação de consentimentos para o Open Banking Brasil- Fase 2 e posteriores.\n\nContact Support:\n Name: Governança do Open Banking Brasil - Interfaces\n Email: gt-interfaces@openbankingbr.org",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "consents",
+			"item": [
+				{
+					"name": "{consent Id}",
+					"item": [
+						{
+							"name": "Obter detalhes do consentimento identificado por consentId.",
+							"request": {
+								"auth": {
+									"type": "oauth2"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor.\nRepresentada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).\n  Exemplo: Sun, 10 Sep 2017 19:43:31 UTC\n",
+										"key": "x-fapi-auth-date",
+										"value": "Sun, 96 Mar 3001 15:53:29 UTC"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.\n",
+										"key": "x-fapi-customer-ip-address",
+										"value": "non eiusmod culpa"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n",
+										"key": "x-fapi-interaction-id",
+										"value": "non eiusmod culpa"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "non eiusmod culpa"
+									},
+									{
+										"key": "authorization",
+										"value": "Bearer token",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/consents/:consentId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"consents",
+										":consentId"
+									],
+									"variable": [
+										{
+											"key": "consentId",
+											"value": "ah4pOjfnAoH7G7H3TfsImK8lfLUhT1iXlCpw4x88HFEideVwt7R1-KM80bovGtvY",
+											"type": "string",
+											"description": "(Required) Identificador do consentimento."
+										}
+									]
+								},
+								"description": "Método para obter detalhes do consentimento identificado por consentId."
+							},
+							"response": [
+								{
+									"name": "Internal Server Error",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: oauth2",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "<token>"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor.\nRepresentada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).\n  Exemplo: Sun, 10 Sep 2017 19:43:31 UTC\n",
+												"key": "x-fapi-auth-date",
+												"value": "Sun, 96 Mar 3001 15:53:29 UTC"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.\n",
+												"key": "x-fapi-customer-ip-address",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n",
+												"key": "x-fapi-interaction-id",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "(Required) An Authorisation Token as per https://tools.ietf.org/html/rfc6750",
+												"key": "Authorization",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "non eiusmod culpa"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/consents/:consentId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"consents",
+												":consentId"
+											],
+											"variable": [
+												{
+													"key": "consentId"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "x-fapi-interaction-id",
+											"value": "non eiusmod culpa",
+											"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"Code\": \"labo\",\n \"Message\": \"labo\",\n \"Errors\": [\n  {\n   \"ErrorCode\": \"nulla id fugiat Lorem\",\n   \"Message\": \"Duis\",\n   \"Path\": \"magn\",\n   \"Url\": \"ad cupidatat\"\n  }\n ],\n \"Id\": \"anim\"\n}"
+								},
+								{
+									"name": "Bad request",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: oauth2",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "<token>"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor.\nRepresentada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).\n  Exemplo: Sun, 10 Sep 2017 19:43:31 UTC\n",
+												"key": "x-fapi-auth-date",
+												"value": "Sun, 96 Mar 3001 15:53:29 UTC"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.\n",
+												"key": "x-fapi-customer-ip-address",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n",
+												"key": "x-fapi-interaction-id",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "(Required) An Authorisation Token as per https://tools.ietf.org/html/rfc6750",
+												"key": "Authorization",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "non eiusmod culpa"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/consents/:consentId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"consents",
+												":consentId"
+											],
+											"variable": [
+												{
+													"key": "consentId"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "x-fapi-interaction-id",
+											"value": "non eiusmod culpa",
+											"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"Code\": \"labo\",\n \"Message\": \"labo\",\n \"Errors\": [\n  {\n   \"ErrorCode\": \"nulla id fugiat Lorem\",\n   \"Message\": \"Duis\",\n   \"Path\": \"magn\",\n   \"Url\": \"ad cupidatat\"\n  }\n ],\n \"Id\": \"anim\"\n}"
+								},
+								{
+									"name": "Too Many Requests",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: oauth2",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "<token>"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor.\nRepresentada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).\n  Exemplo: Sun, 10 Sep 2017 19:43:31 UTC\n",
+												"key": "x-fapi-auth-date",
+												"value": "Sun, 96 Mar 3001 15:53:29 UTC"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.\n",
+												"key": "x-fapi-customer-ip-address",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n",
+												"key": "x-fapi-interaction-id",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "(Required) An Authorisation Token as per https://tools.ietf.org/html/rfc6750",
+												"key": "Authorization",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "non eiusmod culpa"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/consents/:consentId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"consents",
+												":consentId"
+											],
+											"variable": [
+												{
+													"key": "consentId"
+												}
+											]
+										}
+									},
+									"status": "Too Many Requests",
+									"code": 429,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Retry-After",
+											"value": "-43040602",
+											"description": "Number in seconds to wait"
+										},
+										{
+											"key": "x-fapi-interaction-id",
+											"value": "non eiusmod culpa",
+											"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n"
+										},
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Consents Read",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: oauth2",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "<token>"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor.\nRepresentada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).\n  Exemplo: Sun, 10 Sep 2017 19:43:31 UTC\n",
+												"key": "x-fapi-auth-date",
+												"value": "Sun, 96 Mar 3001 15:53:29 UTC"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.\n",
+												"key": "x-fapi-customer-ip-address",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n",
+												"key": "x-fapi-interaction-id",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "(Required) An Authorisation Token as per https://tools.ietf.org/html/rfc6750",
+												"key": "Authorization",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "non eiusmod culpa"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/consents/:consentId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"consents",
+												":consentId"
+											],
+											"variable": [
+												{
+													"key": "consentId"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "x-fapi-interaction-id",
+											"value": "non eiusmod culpa",
+											"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"Data\": {\n  \"ConsentId\": \"cons\",\n  \"CreationDateTime\": \"1970-11-02T01:32:38.736Z\",\n  \"Status\": \"Revoked\",\n  \"StatusUpdateDateTime\": \"1967-10-10T03:26:34.703Z\",\n  \"Permissions\": [\n   \"ReadPartyPSU\"\n  ],\n  \"ExpirationDateTime\": \"2005-04-04T13:03:33.948Z\",\n  \"TransactionFromDateTime\": \"1964-12-31T18:58:46.683Z\",\n  \"TransactionToDateTime\": \"2015-05-05T09:50:40.497Z\"\n },\n \"Risk\": {},\n \"Links\": {\n  \"Self\": \"https://TYErwcvPPuTWGi.ngnTFlUpQdkPvUEpQm0EBajmalOZ5j6JZOlYuzttpEevoacvoqlfavfN9Ft,ry\",\n  \"First\": \"https://bXnlp.swyrUUwtjF-b2JkdBR9AhALA9ZUgMfloap4YiarT3LDEVOLxvzjdVkr\",\n  \"Prev\": \"https://CH.kjhfi-kjNEdiOBIST0U.oY+df2.eVBWkH+YxNKFeyF.l78p+Tjul0dnFO7FwBIzsj1gmaM5uRZROVr1JZsxc\",\n  \"Next\": \"http://fzwSpZoEwuq.cqkJvIT9qxNmzryuIiKDTaR\",\n  \"Last\": \"http://VdDsmXRCYWtqeWROARbjYnwFgxvRhfv.szsS,ohXCPddTgP\"\n },\n \"Meta\": {\n  \"TotalPages\": 66417624,\n  \"FirstAvailableDateTime\": \"2000-01-19T01:50:06.346Z\",\n  \"LastAvailableDateTime\": \"1993-07-09T16:16:05.852Z\"\n }\n}"
+								},
+								{
+									"name": "Method Not Allowed",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: oauth2",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "<token>"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor.\nRepresentada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).\n  Exemplo: Sun, 10 Sep 2017 19:43:31 UTC\n",
+												"key": "x-fapi-auth-date",
+												"value": "Sun, 96 Mar 3001 15:53:29 UTC"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.\n",
+												"key": "x-fapi-customer-ip-address",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n",
+												"key": "x-fapi-interaction-id",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "(Required) An Authorisation Token as per https://tools.ietf.org/html/rfc6750",
+												"key": "Authorization",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "non eiusmod culpa"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/consents/:consentId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"consents",
+												":consentId"
+											],
+											"variable": [
+												{
+													"key": "consentId"
+												}
+											]
+										}
+									},
+									"status": "Method Not Allowed",
+									"code": 405,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "x-fapi-interaction-id",
+											"value": "non eiusmod culpa",
+											"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n"
+										},
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Not found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: oauth2",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "<token>"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor.\nRepresentada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).\n  Exemplo: Sun, 10 Sep 2017 19:43:31 UTC\n",
+												"key": "x-fapi-auth-date",
+												"value": "Sun, 96 Mar 3001 15:53:29 UTC"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.\n",
+												"key": "x-fapi-customer-ip-address",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n",
+												"key": "x-fapi-interaction-id",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "(Required) An Authorisation Token as per https://tools.ietf.org/html/rfc6750",
+												"key": "Authorization",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "non eiusmod culpa"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/consents/:consentId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"consents",
+												":consentId"
+											],
+											"variable": [
+												{
+													"key": "consentId"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "x-fapi-interaction-id",
+											"value": "non eiusmod culpa",
+											"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n"
+										},
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Forbidden",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: oauth2",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "<token>"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor.\nRepresentada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).\n  Exemplo: Sun, 10 Sep 2017 19:43:31 UTC\n",
+												"key": "x-fapi-auth-date",
+												"value": "Sun, 96 Mar 3001 15:53:29 UTC"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.\n",
+												"key": "x-fapi-customer-ip-address",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n",
+												"key": "x-fapi-interaction-id",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "(Required) An Authorisation Token as per https://tools.ietf.org/html/rfc6750",
+												"key": "Authorization",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "non eiusmod culpa"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/consents/:consentId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"consents",
+												":consentId"
+											],
+											"variable": [
+												{
+													"key": "consentId"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "x-fapi-interaction-id",
+											"value": "non eiusmod culpa",
+											"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"Code\": \"labo\",\n \"Message\": \"labo\",\n \"Errors\": [\n  {\n   \"ErrorCode\": \"nulla id fugiat Lorem\",\n   \"Message\": \"Duis\",\n   \"Path\": \"magn\",\n   \"Url\": \"ad cupidatat\"\n  }\n ],\n \"Id\": \"anim\"\n}"
+								},
+								{
+									"name": "Not Acceptable",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: oauth2",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "<token>"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor.\nRepresentada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).\n  Exemplo: Sun, 10 Sep 2017 19:43:31 UTC\n",
+												"key": "x-fapi-auth-date",
+												"value": "Sun, 96 Mar 3001 15:53:29 UTC"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.\n",
+												"key": "x-fapi-customer-ip-address",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n",
+												"key": "x-fapi-interaction-id",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "(Required) An Authorisation Token as per https://tools.ietf.org/html/rfc6750",
+												"key": "Authorization",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "non eiusmod culpa"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/consents/:consentId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"consents",
+												":consentId"
+											],
+											"variable": [
+												{
+													"key": "consentId"
+												}
+											]
+										}
+									},
+									"status": "Not Acceptable",
+									"code": 406,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "x-fapi-interaction-id",
+											"value": "non eiusmod culpa",
+											"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n"
+										},
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: oauth2",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "<token>"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor.\nRepresentada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).\n  Exemplo: Sun, 10 Sep 2017 19:43:31 UTC\n",
+												"key": "x-fapi-auth-date",
+												"value": "Sun, 96 Mar 3001 15:53:29 UTC"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.\n",
+												"key": "x-fapi-customer-ip-address",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n",
+												"key": "x-fapi-interaction-id",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "(Required) An Authorisation Token as per https://tools.ietf.org/html/rfc6750",
+												"key": "Authorization",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "non eiusmod culpa"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/consents/:consentId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"consents",
+												":consentId"
+											],
+											"variable": [
+												{
+													"key": "consentId"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "x-fapi-interaction-id",
+											"value": "non eiusmod culpa",
+											"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n"
+										},
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Deletar/revogar o consentimento identificado por consentId.",
+							"request": {
+								"auth": {
+									"type": "oauth2"
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor.\nRepresentada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).\n  Exemplo: Sun, 10 Sep 2017 19:43:31 UTC\n",
+										"key": "x-fapi-auth-date",
+										"value": "Sun, 96 Mar 3001 15:53:29 UTC"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.\n",
+										"key": "x-fapi-customer-ip-address",
+										"value": "non eiusmod culpa"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n",
+										"key": "x-fapi-interaction-id",
+										"value": "non eiusmod culpa"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "non eiusmod culpa"
+									},
+									{
+										"key": "authorization",
+										"value": "Bearer token",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/consents/:consentId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"consents",
+										":consentId"
+									],
+									"variable": [
+										{
+											"key": "consentId",
+											"value": "ah4pOjfnAoH7G7H3TfsImK8lfLUhT1iXlCpw4x88HFEideVwt7R1-KM80bovGtvY",
+											"type": "string",
+											"description": "(Required) Identificador do consentimento."
+										}
+									]
+								},
+								"description": "Método para deletar/revogar o consentimento identificado por consentId."
+							},
+							"response": [
+								{
+									"name": "Forbidden",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: oauth2",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "<token>"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor.\nRepresentada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).\n  Exemplo: Sun, 10 Sep 2017 19:43:31 UTC\n",
+												"key": "x-fapi-auth-date",
+												"value": "Sun, 96 Mar 3001 15:53:29 UTC"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.\n",
+												"key": "x-fapi-customer-ip-address",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n",
+												"key": "x-fapi-interaction-id",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "(Required) An Authorisation Token as per https://tools.ietf.org/html/rfc6750",
+												"key": "Authorization",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "non eiusmod culpa"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/consents/:consentId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"consents",
+												":consentId"
+											],
+											"variable": [
+												{
+													"key": "consentId"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "x-fapi-interaction-id",
+											"value": "non eiusmod culpa",
+											"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"Code\": \"labo\",\n \"Message\": \"labo\",\n \"Errors\": [\n  {\n   \"ErrorCode\": \"nulla id fugiat Lorem\",\n   \"Message\": \"Duis\",\n   \"Path\": \"magn\",\n   \"Url\": \"ad cupidatat\"\n  }\n ],\n \"Id\": \"anim\"\n}"
+								},
+								{
+									"name": "Bad request",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: oauth2",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "<token>"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor.\nRepresentada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).\n  Exemplo: Sun, 10 Sep 2017 19:43:31 UTC\n",
+												"key": "x-fapi-auth-date",
+												"value": "Sun, 96 Mar 3001 15:53:29 UTC"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.\n",
+												"key": "x-fapi-customer-ip-address",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n",
+												"key": "x-fapi-interaction-id",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "(Required) An Authorisation Token as per https://tools.ietf.org/html/rfc6750",
+												"key": "Authorization",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "non eiusmod culpa"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/consents/:consentId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"consents",
+												":consentId"
+											],
+											"variable": [
+												{
+													"key": "consentId"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "x-fapi-interaction-id",
+											"value": "non eiusmod culpa",
+											"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"Code\": \"labo\",\n \"Message\": \"labo\",\n \"Errors\": [\n  {\n   \"ErrorCode\": \"nulla id fugiat Lorem\",\n   \"Message\": \"Duis\",\n   \"Path\": \"magn\",\n   \"Url\": \"ad cupidatat\"\n  }\n ],\n \"Id\": \"anim\"\n}"
+								},
+								{
+									"name": "Internal Server Error",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: oauth2",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "<token>"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor.\nRepresentada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).\n  Exemplo: Sun, 10 Sep 2017 19:43:31 UTC\n",
+												"key": "x-fapi-auth-date",
+												"value": "Sun, 96 Mar 3001 15:53:29 UTC"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.\n",
+												"key": "x-fapi-customer-ip-address",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n",
+												"key": "x-fapi-interaction-id",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "(Required) An Authorisation Token as per https://tools.ietf.org/html/rfc6750",
+												"key": "Authorization",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "non eiusmod culpa"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/consents/:consentId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"consents",
+												":consentId"
+											],
+											"variable": [
+												{
+													"key": "consentId"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "x-fapi-interaction-id",
+											"value": "non eiusmod culpa",
+											"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"Code\": \"labo\",\n \"Message\": \"labo\",\n \"Errors\": [\n  {\n   \"ErrorCode\": \"nulla id fugiat Lorem\",\n   \"Message\": \"Duis\",\n   \"Path\": \"magn\",\n   \"Url\": \"ad cupidatat\"\n  }\n ],\n \"Id\": \"anim\"\n}"
+								},
+								{
+									"name": "Too Many Requests",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: oauth2",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "<token>"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor.\nRepresentada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).\n  Exemplo: Sun, 10 Sep 2017 19:43:31 UTC\n",
+												"key": "x-fapi-auth-date",
+												"value": "Sun, 96 Mar 3001 15:53:29 UTC"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.\n",
+												"key": "x-fapi-customer-ip-address",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n",
+												"key": "x-fapi-interaction-id",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "(Required) An Authorisation Token as per https://tools.ietf.org/html/rfc6750",
+												"key": "Authorization",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "non eiusmod culpa"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/consents/:consentId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"consents",
+												":consentId"
+											],
+											"variable": [
+												{
+													"key": "consentId"
+												}
+											]
+										}
+									},
+									"status": "Too Many Requests",
+									"code": 429,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Retry-After",
+											"value": "-43040602",
+											"description": "Number in seconds to wait"
+										},
+										{
+											"key": "x-fapi-interaction-id",
+											"value": "non eiusmod culpa",
+											"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n"
+										},
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Not Acceptable",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: oauth2",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "<token>"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor.\nRepresentada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).\n  Exemplo: Sun, 10 Sep 2017 19:43:31 UTC\n",
+												"key": "x-fapi-auth-date",
+												"value": "Sun, 96 Mar 3001 15:53:29 UTC"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.\n",
+												"key": "x-fapi-customer-ip-address",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n",
+												"key": "x-fapi-interaction-id",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "(Required) An Authorisation Token as per https://tools.ietf.org/html/rfc6750",
+												"key": "Authorization",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "non eiusmod culpa"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/consents/:consentId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"consents",
+												":consentId"
+											],
+											"variable": [
+												{
+													"key": "consentId"
+												}
+											]
+										}
+									},
+									"status": "Not Acceptable",
+									"code": 406,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "x-fapi-interaction-id",
+											"value": "non eiusmod culpa",
+											"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n"
+										},
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Method Not Allowed",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: oauth2",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "<token>"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor.\nRepresentada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).\n  Exemplo: Sun, 10 Sep 2017 19:43:31 UTC\n",
+												"key": "x-fapi-auth-date",
+												"value": "Sun, 96 Mar 3001 15:53:29 UTC"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.\n",
+												"key": "x-fapi-customer-ip-address",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n",
+												"key": "x-fapi-interaction-id",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "(Required) An Authorisation Token as per https://tools.ietf.org/html/rfc6750",
+												"key": "Authorization",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "non eiusmod culpa"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/consents/:consentId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"consents",
+												":consentId"
+											],
+											"variable": [
+												{
+													"key": "consentId"
+												}
+											]
+										}
+									},
+									"status": "Method Not Allowed",
+									"code": 405,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "x-fapi-interaction-id",
+											"value": "non eiusmod culpa",
+											"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n"
+										},
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: oauth2",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "<token>"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor.\nRepresentada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).\n  Exemplo: Sun, 10 Sep 2017 19:43:31 UTC\n",
+												"key": "x-fapi-auth-date",
+												"value": "Sun, 96 Mar 3001 15:53:29 UTC"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.\n",
+												"key": "x-fapi-customer-ip-address",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n",
+												"key": "x-fapi-interaction-id",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "(Required) An Authorisation Token as per https://tools.ietf.org/html/rfc6750",
+												"key": "Authorization",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "non eiusmod culpa"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/consents/:consentId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"consents",
+												":consentId"
+											],
+											"variable": [
+												{
+													"key": "consentId"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "x-fapi-interaction-id",
+											"value": "non eiusmod culpa",
+											"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n"
+										},
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Consents Deleted",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: oauth2",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "<token>"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor.\nRepresentada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).\n  Exemplo: Sun, 10 Sep 2017 19:43:31 UTC\n",
+												"key": "x-fapi-auth-date",
+												"value": "Sun, 96 Mar 3001 15:53:29 UTC"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.\n",
+												"key": "x-fapi-customer-ip-address",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n",
+												"key": "x-fapi-interaction-id",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "(Required) An Authorisation Token as per https://tools.ietf.org/html/rfc6750",
+												"key": "Authorization",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "non eiusmod culpa"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/consents/:consentId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"consents",
+												":consentId"
+											],
+											"variable": [
+												{
+													"key": "consentId"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "x-fapi-interaction-id",
+											"value": "non eiusmod culpa",
+											"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n"
+										},
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Not found",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: oauth2",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "<token>"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor.\nRepresentada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).\n  Exemplo: Sun, 10 Sep 2017 19:43:31 UTC\n",
+												"key": "x-fapi-auth-date",
+												"value": "Sun, 96 Mar 3001 15:53:29 UTC"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.\n",
+												"key": "x-fapi-customer-ip-address",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n",
+												"key": "x-fapi-interaction-id",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "(Required) An Authorisation Token as per https://tools.ietf.org/html/rfc6750",
+												"key": "Authorization",
+												"value": "non eiusmod culpa"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "non eiusmod culpa"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/consents/:consentId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"consents",
+												":consentId"
+											],
+											"variable": [
+												{
+													"key": "consentId"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "x-fapi-interaction-id",
+											"value": "non eiusmod culpa",
+											"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n"
+										},
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Criar consentimento.",
+					"request": {
+						"auth": {
+							"type": "oauth2"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"description": "Data em que o usuário logou pela última vez com o receptor.\nRepresentada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).\n  Exemplo: Sun, 10 Sep 2017 19:43:31 UTC\n",
+								"key": "x-fapi-auth-date",
+								"value": "Sun, 96 Mar 3001 15:53:29 UTC"
+							},
+							{
+								"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.\n",
+								"key": "x-fapi-customer-ip-address",
+								"value": "non eiusmod culpa"
+							},
+							{
+								"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n",
+								"key": "x-fapi-interaction-id",
+								"value": "non eiusmod culpa"
+							},
+							{
+								"description": "Indica o user-agent que o usuário utiliza.",
+								"key": "x-customer-user-agent",
+								"value": "non eiusmod culpa"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "authorization",
+								"value": "Bearer token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Data\": {\n        \"Permissions\": [\n            \"ReadAccountsDetail\"\n        ],\n        \"ExpirationDateTime\": \"1973-04-25T01:49:51.970Z\",\n        \"TransactionFromDateTime\": \"1963-03-26T17:37:23.560Z\",\n        \"TransactionToDateTime\": \"1977-06-22T21:23:44.827Z\"\n    },\n    \"Risk\": {}\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/consents",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"consents"
+							]
+						},
+						"description": "Método para a criação de um novo consentimento."
+					},
+					"response": [
+						{
+							"name": "Method Not Allowed",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": {
+											"content": "Added as a part of security scheme: oauth2",
+											"type": "text/plain"
+										},
+										"key": "Authorization",
+										"value": "<token>"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor.\nRepresentada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).\n  Exemplo: Sun, 10 Sep 2017 19:43:31 UTC\n",
+										"key": "x-fapi-auth-date",
+										"value": "Sun, 96 Mar 3001 15:53:29 UTC"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.\n",
+										"key": "x-fapi-customer-ip-address",
+										"value": "non eiusmod culpa"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n",
+										"key": "x-fapi-interaction-id",
+										"value": "non eiusmod culpa"
+									},
+									{
+										"description": "(Required) An Authorisation Token as per https://tools.ietf.org/html/rfc6750",
+										"key": "Authorization",
+										"value": "non eiusmod culpa"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "non eiusmod culpa"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"Data\": {\n        \"Permissions\": [\n            \"ReadAccountsDetail\"\n        ],\n        \"ExpirationDateTime\": \"1973-04-25T01:49:51.970Z\",\n        \"TransactionFromDateTime\": \"1963-03-26T17:37:23.560Z\",\n        \"TransactionToDateTime\": \"1977-06-22T21:23:44.827Z\"\n    },\n    \"Risk\": {}\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/consents",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"consents"
+									]
+								}
+							},
+							"status": "Method Not Allowed",
+							"code": 405,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "x-fapi-interaction-id",
+									"value": "non eiusmod culpa",
+									"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Unsupported Media Type",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": {
+											"content": "Added as a part of security scheme: oauth2",
+											"type": "text/plain"
+										},
+										"key": "Authorization",
+										"value": "<token>"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor.\nRepresentada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).\n  Exemplo: Sun, 10 Sep 2017 19:43:31 UTC\n",
+										"key": "x-fapi-auth-date",
+										"value": "Sun, 96 Mar 3001 15:53:29 UTC"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.\n",
+										"key": "x-fapi-customer-ip-address",
+										"value": "non eiusmod culpa"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n",
+										"key": "x-fapi-interaction-id",
+										"value": "non eiusmod culpa"
+									},
+									{
+										"description": "(Required) An Authorisation Token as per https://tools.ietf.org/html/rfc6750",
+										"key": "Authorization",
+										"value": "non eiusmod culpa"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "non eiusmod culpa"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"Data\": {\n        \"Permissions\": [\n            \"ReadAccountsDetail\"\n        ],\n        \"ExpirationDateTime\": \"1973-04-25T01:49:51.970Z\",\n        \"TransactionFromDateTime\": \"1963-03-26T17:37:23.560Z\",\n        \"TransactionToDateTime\": \"1977-06-22T21:23:44.827Z\"\n    },\n    \"Risk\": {}\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/consents",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"consents"
+									]
+								}
+							},
+							"status": "Unsupported Media Type",
+							"code": 415,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "x-fapi-interaction-id",
+									"value": "non eiusmod culpa",
+									"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Bad request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": {
+											"content": "Added as a part of security scheme: oauth2",
+											"type": "text/plain"
+										},
+										"key": "Authorization",
+										"value": "<token>"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor.\nRepresentada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).\n  Exemplo: Sun, 10 Sep 2017 19:43:31 UTC\n",
+										"key": "x-fapi-auth-date",
+										"value": "Sun, 96 Mar 3001 15:53:29 UTC"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.\n",
+										"key": "x-fapi-customer-ip-address",
+										"value": "non eiusmod culpa"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n",
+										"key": "x-fapi-interaction-id",
+										"value": "non eiusmod culpa"
+									},
+									{
+										"description": "(Required) An Authorisation Token as per https://tools.ietf.org/html/rfc6750",
+										"key": "Authorization",
+										"value": "non eiusmod culpa"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "non eiusmod culpa"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"Data\": {\n        \"Permissions\": [\n            \"ReadAccountsDetail\"\n        ],\n        \"ExpirationDateTime\": \"1973-04-25T01:49:51.970Z\",\n        \"TransactionFromDateTime\": \"1963-03-26T17:37:23.560Z\",\n        \"TransactionToDateTime\": \"1977-06-22T21:23:44.827Z\"\n    },\n    \"Risk\": {}\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/consents",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"consents"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-fapi-interaction-id",
+									"value": "non eiusmod culpa",
+									"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"Code\": \"labo\",\n \"Message\": \"labo\",\n \"Errors\": [\n  {\n   \"ErrorCode\": \"nulla id fugiat Lorem\",\n   \"Message\": \"Duis\",\n   \"Path\": \"magn\",\n   \"Url\": \"ad cupidatat\"\n  }\n ],\n \"Id\": \"anim\"\n}"
+						},
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": {
+											"content": "Added as a part of security scheme: oauth2",
+											"type": "text/plain"
+										},
+										"key": "Authorization",
+										"value": "<token>"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor.\nRepresentada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).\n  Exemplo: Sun, 10 Sep 2017 19:43:31 UTC\n",
+										"key": "x-fapi-auth-date",
+										"value": "Sun, 96 Mar 3001 15:53:29 UTC"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.\n",
+										"key": "x-fapi-customer-ip-address",
+										"value": "non eiusmod culpa"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n",
+										"key": "x-fapi-interaction-id",
+										"value": "non eiusmod culpa"
+									},
+									{
+										"description": "(Required) An Authorisation Token as per https://tools.ietf.org/html/rfc6750",
+										"key": "Authorization",
+										"value": "non eiusmod culpa"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "non eiusmod culpa"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"Data\": {\n        \"Permissions\": [\n            \"ReadAccountsDetail\"\n        ],\n        \"ExpirationDateTime\": \"1973-04-25T01:49:51.970Z\",\n        \"TransactionFromDateTime\": \"1963-03-26T17:37:23.560Z\",\n        \"TransactionToDateTime\": \"1977-06-22T21:23:44.827Z\"\n    },\n    \"Risk\": {}\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/consents",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"consents"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "x-fapi-interaction-id",
+									"value": "non eiusmod culpa",
+									"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Internal Server Error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": {
+											"content": "Added as a part of security scheme: oauth2",
+											"type": "text/plain"
+										},
+										"key": "Authorization",
+										"value": "<token>"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor.\nRepresentada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).\n  Exemplo: Sun, 10 Sep 2017 19:43:31 UTC\n",
+										"key": "x-fapi-auth-date",
+										"value": "Sun, 96 Mar 3001 15:53:29 UTC"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.\n",
+										"key": "x-fapi-customer-ip-address",
+										"value": "non eiusmod culpa"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n",
+										"key": "x-fapi-interaction-id",
+										"value": "non eiusmod culpa"
+									},
+									{
+										"description": "(Required) An Authorisation Token as per https://tools.ietf.org/html/rfc6750",
+										"key": "Authorization",
+										"value": "non eiusmod culpa"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "non eiusmod culpa"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"Data\": {\n        \"Permissions\": [\n            \"ReadAccountsDetail\"\n        ],\n        \"ExpirationDateTime\": \"1973-04-25T01:49:51.970Z\",\n        \"TransactionFromDateTime\": \"1963-03-26T17:37:23.560Z\",\n        \"TransactionToDateTime\": \"1977-06-22T21:23:44.827Z\"\n    },\n    \"Risk\": {}\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/consents",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"consents"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-fapi-interaction-id",
+									"value": "non eiusmod culpa",
+									"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"Code\": \"labo\",\n \"Message\": \"labo\",\n \"Errors\": [\n  {\n   \"ErrorCode\": \"nulla id fugiat Lorem\",\n   \"Message\": \"Duis\",\n   \"Path\": \"magn\",\n   \"Url\": \"ad cupidatat\"\n  }\n ],\n \"Id\": \"anim\"\n}"
+						},
+						{
+							"name": "Consents Created",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": {
+											"content": "Added as a part of security scheme: oauth2",
+											"type": "text/plain"
+										},
+										"key": "Authorization",
+										"value": "<token>"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor.\nRepresentada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).\n  Exemplo: Sun, 10 Sep 2017 19:43:31 UTC\n",
+										"key": "x-fapi-auth-date",
+										"value": "Sun, 96 Mar 3001 15:53:29 UTC"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.\n",
+										"key": "x-fapi-customer-ip-address",
+										"value": "non eiusmod culpa"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n",
+										"key": "x-fapi-interaction-id",
+										"value": "non eiusmod culpa"
+									},
+									{
+										"description": "(Required) An Authorisation Token as per https://tools.ietf.org/html/rfc6750",
+										"key": "Authorization",
+										"value": "non eiusmod culpa"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "non eiusmod culpa"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"Data\": {\n        \"Permissions\": [\n            \"ReadAccountsDetail\"\n        ],\n        \"ExpirationDateTime\": \"1973-04-25T01:49:51.970Z\",\n        \"TransactionFromDateTime\": \"1963-03-26T17:37:23.560Z\",\n        \"TransactionToDateTime\": \"1977-06-22T21:23:44.827Z\"\n    },\n    \"Risk\": {}\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/consents",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"consents"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-fapi-interaction-id",
+									"value": "non eiusmod culpa",
+									"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"Data\": {\n  \"ConsentId\": \"cons\",\n  \"CreationDateTime\": \"1970-11-02T01:32:38.736Z\",\n  \"Status\": \"Revoked\",\n  \"StatusUpdateDateTime\": \"1967-10-10T03:26:34.703Z\",\n  \"Permissions\": [\n   \"ReadPartyPSU\"\n  ],\n  \"ExpirationDateTime\": \"2005-04-04T13:03:33.948Z\",\n  \"TransactionFromDateTime\": \"1964-12-31T18:58:46.683Z\",\n  \"TransactionToDateTime\": \"2015-05-05T09:50:40.497Z\"\n },\n \"Risk\": {},\n \"Links\": {\n  \"Self\": \"https://TYErwcvPPuTWGi.ngnTFlUpQdkPvUEpQm0EBajmalOZ5j6JZOlYuzttpEevoacvoqlfavfN9Ft,ry\",\n  \"First\": \"https://bXnlp.swyrUUwtjF-b2JkdBR9AhALA9ZUgMfloap4YiarT3LDEVOLxvzjdVkr\",\n  \"Prev\": \"https://CH.kjhfi-kjNEdiOBIST0U.oY+df2.eVBWkH+YxNKFeyF.l78p+Tjul0dnFO7FwBIzsj1gmaM5uRZROVr1JZsxc\",\n  \"Next\": \"http://fzwSpZoEwuq.cqkJvIT9qxNmzryuIiKDTaR\",\n  \"Last\": \"http://VdDsmXRCYWtqeWROARbjYnwFgxvRhfv.szsS,ohXCPddTgP\"\n },\n \"Meta\": {\n  \"TotalPages\": 66417624,\n  \"FirstAvailableDateTime\": \"2000-01-19T01:50:06.346Z\",\n  \"LastAvailableDateTime\": \"1993-07-09T16:16:05.852Z\"\n }\n}"
+						},
+						{
+							"name": "Forbidden",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": {
+											"content": "Added as a part of security scheme: oauth2",
+											"type": "text/plain"
+										},
+										"key": "Authorization",
+										"value": "<token>"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor.\nRepresentada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).\n  Exemplo: Sun, 10 Sep 2017 19:43:31 UTC\n",
+										"key": "x-fapi-auth-date",
+										"value": "Sun, 96 Mar 3001 15:53:29 UTC"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.\n",
+										"key": "x-fapi-customer-ip-address",
+										"value": "non eiusmod culpa"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n",
+										"key": "x-fapi-interaction-id",
+										"value": "non eiusmod culpa"
+									},
+									{
+										"description": "(Required) An Authorisation Token as per https://tools.ietf.org/html/rfc6750",
+										"key": "Authorization",
+										"value": "non eiusmod culpa"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "non eiusmod culpa"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"Data\": {\n        \"Permissions\": [\n            \"ReadAccountsDetail\"\n        ],\n        \"ExpirationDateTime\": \"1973-04-25T01:49:51.970Z\",\n        \"TransactionFromDateTime\": \"1963-03-26T17:37:23.560Z\",\n        \"TransactionToDateTime\": \"1977-06-22T21:23:44.827Z\"\n    },\n    \"Risk\": {}\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/consents",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"consents"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-fapi-interaction-id",
+									"value": "non eiusmod culpa",
+									"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"Code\": \"labo\",\n \"Message\": \"labo\",\n \"Errors\": [\n  {\n   \"ErrorCode\": \"nulla id fugiat Lorem\",\n   \"Message\": \"Duis\",\n   \"Path\": \"magn\",\n   \"Url\": \"ad cupidatat\"\n  }\n ],\n \"Id\": \"anim\"\n}"
+						},
+						{
+							"name": "Not Acceptable",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": {
+											"content": "Added as a part of security scheme: oauth2",
+											"type": "text/plain"
+										},
+										"key": "Authorization",
+										"value": "<token>"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor.\nRepresentada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).\n  Exemplo: Sun, 10 Sep 2017 19:43:31 UTC\n",
+										"key": "x-fapi-auth-date",
+										"value": "Sun, 96 Mar 3001 15:53:29 UTC"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.\n",
+										"key": "x-fapi-customer-ip-address",
+										"value": "non eiusmod culpa"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n",
+										"key": "x-fapi-interaction-id",
+										"value": "non eiusmod culpa"
+									},
+									{
+										"description": "(Required) An Authorisation Token as per https://tools.ietf.org/html/rfc6750",
+										"key": "Authorization",
+										"value": "non eiusmod culpa"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "non eiusmod culpa"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"Data\": {\n        \"Permissions\": [\n            \"ReadAccountsDetail\"\n        ],\n        \"ExpirationDateTime\": \"1973-04-25T01:49:51.970Z\",\n        \"TransactionFromDateTime\": \"1963-03-26T17:37:23.560Z\",\n        \"TransactionToDateTime\": \"1977-06-22T21:23:44.827Z\"\n    },\n    \"Risk\": {}\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/consents",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"consents"
+									]
+								}
+							},
+							"status": "Not Acceptable",
+							"code": 406,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "x-fapi-interaction-id",
+									"value": "non eiusmod culpa",
+									"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Too Many Requests",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": {
+											"content": "Added as a part of security scheme: oauth2",
+											"type": "text/plain"
+										},
+										"key": "Authorization",
+										"value": "<token>"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor.\nRepresentada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).\n  Exemplo: Sun, 10 Sep 2017 19:43:31 UTC\n",
+										"key": "x-fapi-auth-date",
+										"value": "Sun, 96 Mar 3001 15:53:29 UTC"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.\n",
+										"key": "x-fapi-customer-ip-address",
+										"value": "non eiusmod culpa"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n",
+										"key": "x-fapi-interaction-id",
+										"value": "non eiusmod culpa"
+									},
+									{
+										"description": "(Required) An Authorisation Token as per https://tools.ietf.org/html/rfc6750",
+										"key": "Authorization",
+										"value": "non eiusmod culpa"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "non eiusmod culpa"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"Data\": {\n        \"Permissions\": [\n            \"ReadAccountsDetail\"\n        ],\n        \"ExpirationDateTime\": \"1973-04-25T01:49:51.970Z\",\n        \"TransactionFromDateTime\": \"1963-03-26T17:37:23.560Z\",\n        \"TransactionToDateTime\": \"1977-06-22T21:23:44.827Z\"\n    },\n    \"Risk\": {}\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/consents",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"consents"
+									]
+								}
+							},
+							"status": "Too Many Requests",
+							"code": 429,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Retry-After",
+									"value": "-43040602",
+									"description": "Number in seconds to wait"
+								},
+								{
+									"key": "x-fapi-interaction-id",
+									"value": "non eiusmod culpa",
+									"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação.\nSe fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.\n"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://api.banco.com.br/open-banking/consents/v1"
+		}
+	]
+}

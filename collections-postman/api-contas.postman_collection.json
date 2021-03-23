@@ -1,0 +1,4251 @@
+{
+	"info": {
+		"_postman_id": "4e0b5f80-8516-4336-be69-25d3eb5aca29",
+		"name": "API - Contas",
+		"description": "API de contas de depósito à vista, contas de poupança e contas pré-pagas do Open Banking Brasil – Fase 2.\nAPI que retorna informações de contas de depósito à vista, contas de poupança e contas de pagamento pré-pagas mantidas nas instituições transmissoras por seus clientes,\nincluindo dados de identificação da conta, saldos, limites e transações.\\\nNão possui segregação entre pessoa natural e pessoa jurídica.\\\nRequer consentimento do cliente para todos os `endpoints`.\n\n# Permissions necessárias para a API Accounts\n\nPara cada um dos paths desta API, além dos escopos (`scopes`) indicados existem `permissions` que deverão ser observadas:\n\n### `/accounts`\n  - permissions:\n    - GET: **accounts.read**\n### `/accounts/{accountId}`\n  - permissions:\n    - GET: **accounts.read**\n### `/accounts/{accountId}/balances`\n  - permissions:\n    - GET: **accounts.balances.read**\n### `/accounts/{accountId}/transactions`\n  - permissions:\n    - GET: **accounts.transactions.read**\n### `/accounts/{accountId}/overdraft-limits`\n  - permissions:\n    - GET: **accounts.overdfraft.limits.read**\n\n\nContact Support:\n Name: Governança do Open Banking Brasil – Interfaces\n Email: gt-interfaces@openbankingbr.org",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "accounts",
+			"item": [
+				{
+					"name": "{account Id}",
+					"item": [
+						{
+							"name": "Obtém os dados de identificação da conta identificada por accountId.",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sun,",
+										"disabled": true
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "_CR8"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "3uo8"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "_CR8"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/accounts/:accountId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"accounts",
+										":accountId"
+									],
+									"variable": [
+										{
+											"key": "accountId",
+											"value": "Dlww",
+											"type": "string",
+											"description": "(Required) Identificador da conta de depósito à vista, de poupança ou de pagamento pré-paga."
+										}
+									]
+								},
+								"description": "Método para obter os dados de identificação da conta de depósito à vista, poupança ou pagamento pré-paga identificada por accountId mantida pelo cliente na instituição transmissora."
+							},
+							"response": [
+								{
+									"name": "Dados de identificação da conta identificada por accountId obtidos com sucesso.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+												"key": "Authorization",
+												"value": "_CR8"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+												"key": "x-fapi-auth-date",
+												"value": "Sun,"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+												"key": "x-fapi-customer-ip-address",
+												"value": "_CR8"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+												"key": "x-fapi-interaction-id",
+												"value": "3uo8"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "_CR8"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/accounts/:accountId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"accounts",
+												":accountId"
+											],
+											"variable": [
+												{
+													"key": "accountId"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "x-fapi-interaction-id",
+											"value": "3uo8",
+											"description": ""
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"data\": {\n  \"compeCode\": \"001\",\n  \"branchCode\": \"6272\",\n  \"number\": \"24550245\",\n  \"checkDigit\": \"4\",\n  \"brandName\": \"Organização A\",\n  \"companyCnpj\": \"21128159000166\",\n  \"requestDateTime\": \"2020-07-21T08:30:00Z\",\n  \"updateDateTime\": \"2020-07-21T08:30:00Z\",\n  \"type\": \"CONTA_DEPOSITO_A_VISTA\",\n  \"subtype\": \"INDIVIDUAL\",\n  \"currency\": \"BRL\"\n },\n \"links\": {\n  \"self\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\",\n  \"first\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\",\n  \"prev\": \"m\",\n  \"next\": \"qu\",\n  \"last\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\"\n },\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+								},
+								{
+									"name": "Cabeçalho de autenticação ausente/inválido ou token inválido",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+												"key": "Authorization",
+												"value": "_CR8"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+												"key": "x-fapi-auth-date",
+												"value": "Sun,"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+												"key": "x-fapi-customer-ip-address",
+												"value": "_CR8"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+												"key": "x-fapi-interaction-id",
+												"value": "3uo8"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "_CR8"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/accounts/:accountId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"accounts",
+												":accountId"
+											],
+											"variable": [
+												{
+													"key": "accountId"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"errors\": [\n  {\n   \"code\": \"sCYc\",\n   \"title\": \"xPQi\",\n   \"detail\": \"oL2X\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+								},
+								{
+									"name": "A operação foi recusada, pois muitas solicitações foram feitas dentro de um determinado período ou o limite global de requisições concorrentes foi atingido",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+												"key": "Authorization",
+												"value": "_CR8"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+												"key": "x-fapi-auth-date",
+												"value": "Sun,"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+												"key": "x-fapi-customer-ip-address",
+												"value": "_CR8"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+												"key": "x-fapi-interaction-id",
+												"value": "3uo8"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "_CR8"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/accounts/:accountId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"accounts",
+												":accountId"
+											],
+											"variable": [
+												{
+													"key": "accountId"
+												}
+											]
+										}
+									},
+									"status": "Too Many Requests",
+									"code": 429,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"errors\": [\n  {\n   \"code\": \"sCYc\",\n   \"title\": \"xPQi\",\n   \"detail\": \"oL2X\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+								},
+								{
+									"name": "A requisição foi malformada, omitindo atributos obrigatórios, seja no payload ou através de atributos na URL.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+												"key": "Authorization",
+												"value": "_CR8"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+												"key": "x-fapi-auth-date",
+												"value": "Sun,"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+												"key": "x-fapi-customer-ip-address",
+												"value": "_CR8"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+												"key": "x-fapi-interaction-id",
+												"value": "3uo8"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "_CR8"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/accounts/:accountId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"accounts",
+												":accountId"
+											],
+											"variable": [
+												{
+													"key": "accountId"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"errors\": [\n  {\n   \"code\": \"sCYc\",\n   \"title\": \"xPQi\",\n   \"detail\": \"oL2X\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+								},
+								{
+									"name": "O recurso solicitado não existe ou não foi implementado",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+												"key": "Authorization",
+												"value": "_CR8"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+												"key": "x-fapi-auth-date",
+												"value": "Sun,"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+												"key": "x-fapi-customer-ip-address",
+												"value": "_CR8"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+												"key": "x-fapi-interaction-id",
+												"value": "3uo8"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "_CR8"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/accounts/:accountId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"accounts",
+												":accountId"
+											],
+											"variable": [
+												{
+													"key": "accountId"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"errors\": [\n  {\n   \"code\": \"sCYc\",\n   \"title\": \"xPQi\",\n   \"detail\": \"oL2X\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+								},
+								{
+									"name": "O token tem escopo incorreto ou uma política de segurança foi violada",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+												"key": "Authorization",
+												"value": "_CR8"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+												"key": "x-fapi-auth-date",
+												"value": "Sun,"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+												"key": "x-fapi-customer-ip-address",
+												"value": "_CR8"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+												"key": "x-fapi-interaction-id",
+												"value": "3uo8"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "_CR8"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/accounts/:accountId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"accounts",
+												":accountId"
+											],
+											"variable": [
+												{
+													"key": "accountId"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"errors\": [\n  {\n   \"code\": \"sCYc\",\n   \"title\": \"xPQi\",\n   \"detail\": \"oL2X\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+								},
+								{
+									"name": "A solicitação continha um cabeçalho Accept diferente dos tipos de mídia permitidos ou um conjunto de caracteres diferente de UTF-8",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+												"key": "Authorization",
+												"value": "_CR8"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+												"key": "x-fapi-auth-date",
+												"value": "Sun,"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+												"key": "x-fapi-customer-ip-address",
+												"value": "_CR8"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+												"key": "x-fapi-interaction-id",
+												"value": "3uo8"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "_CR8"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/accounts/:accountId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"accounts",
+												":accountId"
+											],
+											"variable": [
+												{
+													"key": "accountId"
+												}
+											]
+										}
+									},
+									"status": "Not Acceptable",
+									"code": 406,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"errors\": [\n  {\n   \"code\": \"sCYc\",\n   \"title\": \"xPQi\",\n   \"detail\": \"oL2X\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+								},
+								{
+									"name": "Dados de identificação da conta identificada por accountId obtidos com sucesso.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+												"key": "Authorization",
+												"value": "_CR8"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+												"key": "x-fapi-auth-date",
+												"value": "Sun,"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+												"key": "x-fapi-customer-ip-address",
+												"value": "_CR8"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+												"key": "x-fapi-interaction-id",
+												"value": "3uo8"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "_CR8"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/accounts/:accountId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"accounts",
+												":accountId"
+											],
+											"variable": [
+												{
+													"key": "accountId"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "x-fapi-interaction-id",
+											"value": "3uo8",
+											"description": ""
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"data\": {\n  \"compeCode\": \"001\",\n  \"branchCode\": \"6272\",\n  \"number\": \"24550245\",\n  \"checkDigit\": \"4\",\n  \"brandName\": \"Organização A\",\n  \"companyCnpj\": \"21128159000166\",\n  \"requestDateTime\": \"2020-07-21T08:30:00Z\",\n  \"updateDateTime\": \"2020-07-21T08:30:00Z\",\n  \"type\": \"CONTA_DEPOSITO_A_VISTA\",\n  \"subtype\": \"INDIVIDUAL\",\n  \"currency\": \"BRL\"\n },\n \"links\": {\n  \"self\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\",\n  \"first\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\",\n  \"prev\": \"m\",\n  \"next\": \"qu\",\n  \"last\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\"\n },\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+								},
+								{
+									"name": "Ocorreu um erro no gateway da API ou no microsserviço",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+												"key": "Authorization",
+												"value": "_CR8"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+												"key": "x-fapi-auth-date",
+												"value": "Sun,"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+												"key": "x-fapi-customer-ip-address",
+												"value": "_CR8"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+												"key": "x-fapi-interaction-id",
+												"value": "3uo8"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "_CR8"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/accounts/:accountId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"accounts",
+												":accountId"
+											],
+											"variable": [
+												{
+													"key": "accountId"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"errors\": [\n  {\n   \"code\": \"sCYc\",\n   \"title\": \"xPQi\",\n   \"detail\": \"oL2X\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+								},
+								{
+									"name": "O consumidor tentou acessar o recurso com um método não suportado",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+												"key": "Authorization",
+												"value": "_CR8"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+												"key": "x-fapi-auth-date",
+												"value": "Sun,"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+												"key": "x-fapi-customer-ip-address",
+												"value": "_CR8"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+												"key": "x-fapi-interaction-id",
+												"value": "3uo8"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "_CR8"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/accounts/:accountId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"accounts",
+												":accountId"
+											],
+											"variable": [
+												{
+													"key": "accountId"
+												}
+											]
+										}
+									},
+									"status": "Method Not Allowed",
+									"code": 405,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"errors\": [\n  {\n   \"code\": \"sCYc\",\n   \"title\": \"xPQi\",\n   \"detail\": \"oL2X\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+								}
+							]
+						},
+						{
+							"name": "Obtém os saldos da conta identificada por accountId.",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sun,",
+										"disabled": true
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "_CR8"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "3uo8"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "_CR8"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/accounts/:accountId/balances?compeCode=889&branchCode=9935&number=NA&checkDigit=R",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"accounts",
+										":accountId",
+										"balances"
+									],
+									"query": [
+										{
+											"key": "compeCode",
+											"value": "889",
+											"description": "(Required) Código identificador atribuído pelo Banco Central do Brasil às instituições participantes do STR (Sistema de Transferência de reservas). O número-código substituiu o antigo código COMPE. Todos os participantes do STR, exceto as Infraestruturas do Mercado Financeiro (IMF) e a Secretaria do Tesouro Nacional, possuem um número-código independentemente de participarem da Centralizadora da Compensação de Cheques (Compe). O campo tem a anotação “n/a” (“não se aplica”) para os participantes do STR aos quais não é atribuído um número-código"
+										},
+										{
+											"key": "branchCode",
+											"value": "9935",
+											"description": "(Required) Código da Agência detentora da conta. (Agência é a dependência destinada ao atendimento aos clientes, ao público em geral e aos associados de cooperativas de crédito, no exercício de atividades da instituição, não podendo ser móvel ou transitória)"
+										},
+										{
+											"key": "number",
+											"value": "NA",
+											"description": "(Required) Número da conta"
+										},
+										{
+											"key": "checkDigit",
+											"value": "R",
+											"description": "(Required) Dígito da conta"
+										}
+									],
+									"variable": [
+										{
+											"key": "accountId",
+											"value": "Dlww",
+											"type": "string",
+											"description": "(Required) Identificador da conta de depósito à vista, de poupança ou de pagamento pré-paga."
+										}
+									]
+								},
+								"description": "Método para obter os saldos da conta de depósito à vista, poupança ou pagamento pré-paga identificada por accountId mantida pelo cliente na instituição transmissora."
+							},
+							"response": [
+								{
+									"name": "O recurso solicitado não existe ou não foi implementado",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+												"key": "Authorization",
+												"value": "_CR8"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+												"key": "x-fapi-auth-date",
+												"value": "Sun,"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+												"key": "x-fapi-customer-ip-address",
+												"value": "_CR8"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+												"key": "x-fapi-interaction-id",
+												"value": "3uo8"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "_CR8"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/accounts/:accountId/balances?compeCode=889&branchCode=9935&number=NA&checkDigit=R",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"accounts",
+												":accountId",
+												"balances"
+											],
+											"query": [
+												{
+													"key": "compeCode",
+													"value": "889"
+												},
+												{
+													"key": "branchCode",
+													"value": "9935"
+												},
+												{
+													"key": "number",
+													"value": "NA"
+												},
+												{
+													"key": "checkDigit",
+													"value": "R"
+												}
+											],
+											"variable": [
+												{
+													"key": "accountId"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"errors\": [\n  {\n   \"code\": \"sCYc\",\n   \"title\": \"xPQi\",\n   \"detail\": \"oL2X\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+								},
+								{
+									"name": "Dados relativos aos saldos da conta identificada por accountId obtidos com sucesso.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+												"key": "Authorization",
+												"value": "_CR8"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+												"key": "x-fapi-auth-date",
+												"value": "Sun,"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+												"key": "x-fapi-customer-ip-address",
+												"value": "_CR8"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+												"key": "x-fapi-interaction-id",
+												"value": "3uo8"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "_CR8"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/accounts/:accountId/balances?compeCode=889&branchCode=9935&number=NA&checkDigit=R",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"accounts",
+												":accountId",
+												"balances"
+											],
+											"query": [
+												{
+													"key": "compeCode",
+													"value": "889"
+												},
+												{
+													"key": "branchCode",
+													"value": "9935"
+												},
+												{
+													"key": "number",
+													"value": "NA"
+												},
+												{
+													"key": "checkDigit",
+													"value": "R"
+												}
+											],
+											"variable": [
+												{
+													"key": "accountId"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "x-fapi-interaction-id",
+											"value": "3uo8",
+											"description": ""
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"data\": {\n  \"avaiableAmount\": 100000,\n  \"blockedAmount\": 100000,\n  \"automaticallyInvestedAmount\": 100000\n },\n \"links\": {\n  \"self\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\",\n  \"first\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\",\n  \"prev\": \"in\",\n  \"next\": \"\",\n  \"last\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\"\n },\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+								},
+								{
+									"name": "A solicitação continha um cabeçalho Accept diferente dos tipos de mídia permitidos ou um conjunto de caracteres diferente de UTF-8",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+												"key": "Authorization",
+												"value": "_CR8"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+												"key": "x-fapi-auth-date",
+												"value": "Sun,"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+												"key": "x-fapi-customer-ip-address",
+												"value": "_CR8"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+												"key": "x-fapi-interaction-id",
+												"value": "3uo8"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "_CR8"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/accounts/:accountId/balances?compeCode=889&branchCode=9935&number=NA&checkDigit=R",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"accounts",
+												":accountId",
+												"balances"
+											],
+											"query": [
+												{
+													"key": "compeCode",
+													"value": "889"
+												},
+												{
+													"key": "branchCode",
+													"value": "9935"
+												},
+												{
+													"key": "number",
+													"value": "NA"
+												},
+												{
+													"key": "checkDigit",
+													"value": "R"
+												}
+											],
+											"variable": [
+												{
+													"key": "accountId"
+												}
+											]
+										}
+									},
+									"status": "Not Acceptable",
+									"code": 406,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"errors\": [\n  {\n   \"code\": \"sCYc\",\n   \"title\": \"xPQi\",\n   \"detail\": \"oL2X\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+								},
+								{
+									"name": "A requisição foi malformada, omitindo atributos obrigatórios, seja no payload ou através de atributos na URL.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+												"key": "Authorization",
+												"value": "_CR8"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+												"key": "x-fapi-auth-date",
+												"value": "Sun,"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+												"key": "x-fapi-customer-ip-address",
+												"value": "_CR8"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+												"key": "x-fapi-interaction-id",
+												"value": "3uo8"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "_CR8"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/accounts/:accountId/balances?compeCode=889&branchCode=9935&number=NA&checkDigit=R",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"accounts",
+												":accountId",
+												"balances"
+											],
+											"query": [
+												{
+													"key": "compeCode",
+													"value": "889"
+												},
+												{
+													"key": "branchCode",
+													"value": "9935"
+												},
+												{
+													"key": "number",
+													"value": "NA"
+												},
+												{
+													"key": "checkDigit",
+													"value": "R"
+												}
+											],
+											"variable": [
+												{
+													"key": "accountId"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"errors\": [\n  {\n   \"code\": \"sCYc\",\n   \"title\": \"xPQi\",\n   \"detail\": \"oL2X\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+								},
+								{
+									"name": "Ocorreu um erro no gateway da API ou no microsserviço",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+												"key": "Authorization",
+												"value": "_CR8"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+												"key": "x-fapi-auth-date",
+												"value": "Sun,"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+												"key": "x-fapi-customer-ip-address",
+												"value": "_CR8"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+												"key": "x-fapi-interaction-id",
+												"value": "3uo8"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "_CR8"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/accounts/:accountId/balances?compeCode=889&branchCode=9935&number=NA&checkDigit=R",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"accounts",
+												":accountId",
+												"balances"
+											],
+											"query": [
+												{
+													"key": "compeCode",
+													"value": "889"
+												},
+												{
+													"key": "branchCode",
+													"value": "9935"
+												},
+												{
+													"key": "number",
+													"value": "NA"
+												},
+												{
+													"key": "checkDigit",
+													"value": "R"
+												}
+											],
+											"variable": [
+												{
+													"key": "accountId"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"errors\": [\n  {\n   \"code\": \"sCYc\",\n   \"title\": \"xPQi\",\n   \"detail\": \"oL2X\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+								},
+								{
+									"name": "A operação foi recusada, pois muitas solicitações foram feitas dentro de um determinado período ou o limite global de requisições concorrentes foi atingido",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+												"key": "Authorization",
+												"value": "_CR8"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+												"key": "x-fapi-auth-date",
+												"value": "Sun,"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+												"key": "x-fapi-customer-ip-address",
+												"value": "_CR8"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+												"key": "x-fapi-interaction-id",
+												"value": "3uo8"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "_CR8"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/accounts/:accountId/balances?compeCode=889&branchCode=9935&number=NA&checkDigit=R",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"accounts",
+												":accountId",
+												"balances"
+											],
+											"query": [
+												{
+													"key": "compeCode",
+													"value": "889"
+												},
+												{
+													"key": "branchCode",
+													"value": "9935"
+												},
+												{
+													"key": "number",
+													"value": "NA"
+												},
+												{
+													"key": "checkDigit",
+													"value": "R"
+												}
+											],
+											"variable": [
+												{
+													"key": "accountId"
+												}
+											]
+										}
+									},
+									"status": "Too Many Requests",
+									"code": 429,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"errors\": [\n  {\n   \"code\": \"sCYc\",\n   \"title\": \"xPQi\",\n   \"detail\": \"oL2X\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+								},
+								{
+									"name": "Dados relativos aos saldos da conta identificada por accountId obtidos com sucesso.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+												"key": "Authorization",
+												"value": "_CR8"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+												"key": "x-fapi-auth-date",
+												"value": "Sun,"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+												"key": "x-fapi-customer-ip-address",
+												"value": "_CR8"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+												"key": "x-fapi-interaction-id",
+												"value": "3uo8"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "_CR8"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/accounts/:accountId/balances?compeCode=889&branchCode=9935&number=NA&checkDigit=R",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"accounts",
+												":accountId",
+												"balances"
+											],
+											"query": [
+												{
+													"key": "compeCode",
+													"value": "889"
+												},
+												{
+													"key": "branchCode",
+													"value": "9935"
+												},
+												{
+													"key": "number",
+													"value": "NA"
+												},
+												{
+													"key": "checkDigit",
+													"value": "R"
+												}
+											],
+											"variable": [
+												{
+													"key": "accountId"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "x-fapi-interaction-id",
+											"value": "3uo8",
+											"description": ""
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"data\": {\n  \"avaiableAmount\": 100000,\n  \"blockedAmount\": 100000,\n  \"automaticallyInvestedAmount\": 100000\n },\n \"links\": {\n  \"self\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\",\n  \"first\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\",\n  \"prev\": \"in\",\n  \"next\": \"\",\n  \"last\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\"\n },\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+								},
+								{
+									"name": "Cabeçalho de autenticação ausente/inválido ou token inválido",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+												"key": "Authorization",
+												"value": "_CR8"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+												"key": "x-fapi-auth-date",
+												"value": "Sun,"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+												"key": "x-fapi-customer-ip-address",
+												"value": "_CR8"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+												"key": "x-fapi-interaction-id",
+												"value": "3uo8"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "_CR8"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/accounts/:accountId/balances?compeCode=889&branchCode=9935&number=NA&checkDigit=R",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"accounts",
+												":accountId",
+												"balances"
+											],
+											"query": [
+												{
+													"key": "compeCode",
+													"value": "889"
+												},
+												{
+													"key": "branchCode",
+													"value": "9935"
+												},
+												{
+													"key": "number",
+													"value": "NA"
+												},
+												{
+													"key": "checkDigit",
+													"value": "R"
+												}
+											],
+											"variable": [
+												{
+													"key": "accountId"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"errors\": [\n  {\n   \"code\": \"sCYc\",\n   \"title\": \"xPQi\",\n   \"detail\": \"oL2X\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+								},
+								{
+									"name": "O consumidor tentou acessar o recurso com um método não suportado",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+												"key": "Authorization",
+												"value": "_CR8"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+												"key": "x-fapi-auth-date",
+												"value": "Sun,"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+												"key": "x-fapi-customer-ip-address",
+												"value": "_CR8"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+												"key": "x-fapi-interaction-id",
+												"value": "3uo8"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "_CR8"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/accounts/:accountId/balances?compeCode=889&branchCode=9935&number=NA&checkDigit=R",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"accounts",
+												":accountId",
+												"balances"
+											],
+											"query": [
+												{
+													"key": "compeCode",
+													"value": "889"
+												},
+												{
+													"key": "branchCode",
+													"value": "9935"
+												},
+												{
+													"key": "number",
+													"value": "NA"
+												},
+												{
+													"key": "checkDigit",
+													"value": "R"
+												}
+											],
+											"variable": [
+												{
+													"key": "accountId"
+												}
+											]
+										}
+									},
+									"status": "Method Not Allowed",
+									"code": 405,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"errors\": [\n  {\n   \"code\": \"sCYc\",\n   \"title\": \"xPQi\",\n   \"detail\": \"oL2X\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+								},
+								{
+									"name": "O token tem escopo incorreto ou uma política de segurança foi violada",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+												"key": "Authorization",
+												"value": "_CR8"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+												"key": "x-fapi-auth-date",
+												"value": "Sun,"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+												"key": "x-fapi-customer-ip-address",
+												"value": "_CR8"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+												"key": "x-fapi-interaction-id",
+												"value": "3uo8"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "_CR8"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/accounts/:accountId/balances?compeCode=889&branchCode=9935&number=NA&checkDigit=R",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"accounts",
+												":accountId",
+												"balances"
+											],
+											"query": [
+												{
+													"key": "compeCode",
+													"value": "889"
+												},
+												{
+													"key": "branchCode",
+													"value": "9935"
+												},
+												{
+													"key": "number",
+													"value": "NA"
+												},
+												{
+													"key": "checkDigit",
+													"value": "R"
+												}
+											],
+											"variable": [
+												{
+													"key": "accountId"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"errors\": [\n  {\n   \"code\": \"sCYc\",\n   \"title\": \"xPQi\",\n   \"detail\": \"oL2X\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+								}
+							]
+						},
+						{
+							"name": "Obtém a lista de transações da conta identificada por accountId.",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sun,",
+										"disabled": true
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "_CR8"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "3uo8"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "_CR8"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/accounts/:accountId/transactions?compeCode=889&branchCode=9935&number=NA&checkDigit=R&page=1&page-size=25&creditDebitIndicator=DEBITO",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"accounts",
+										":accountId",
+										"transactions"
+									],
+									"query": [
+										{
+											"key": "compeCode",
+											"value": "889",
+											"description": "(Required) Código identificador atribuído pelo Banco Central do Brasil às instituições participantes do STR (Sistema de Transferência de reservas). O número-código substituiu o antigo código COMPE. Todos os participantes do STR, exceto as Infraestruturas do Mercado Financeiro (IMF) e a Secretaria do Tesouro Nacional, possuem um número-código independentemente de participarem da Centralizadora da Compensação de Cheques (Compe). O campo tem a anotação “n/a” (“não se aplica”) para os participantes do STR aos quais não é atribuído um número-código"
+										},
+										{
+											"key": "branchCode",
+											"value": "9935",
+											"description": "(Required) Código da Agência detentora da conta. (Agência é a dependência destinada ao atendimento aos clientes, ao público em geral e aos associados de cooperativas de crédito, no exercício de atividades da instituição, não podendo ser móvel ou transitória)"
+										},
+										{
+											"key": "number",
+											"value": "NA",
+											"description": "(Required) Número da conta"
+										},
+										{
+											"key": "checkDigit",
+											"value": "R",
+											"description": "(Required) Dígito da conta"
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"description": "Número da página que está sendo requisitada (o valor da primeira página é 1)."
+										},
+										{
+											"key": "page-size",
+											"value": "25",
+											"description": "Quantidade total de registros por páginas."
+										},
+										{
+											"key": "creditDebitIndicator",
+											"value": "DEBITO",
+											"description": "Indicador do tipo de lançamento"
+										}
+									],
+									"variable": [
+										{
+											"key": "accountId",
+											"value": "Dlww",
+											"type": "string",
+											"description": "(Required) Identificador da conta de depósito à vista, de poupança ou de pagamento pré-paga."
+										}
+									]
+								},
+								"description": "Método para obter a lista de transações da conta de depósito à vista, poupança ou pagamento pré-paga identificada por accountId mantida pelo cliente na instituição transmissora."
+							},
+							"response": [
+								{
+									"name": "A solicitação continha um cabeçalho Accept diferente dos tipos de mídia permitidos ou um conjunto de caracteres diferente de UTF-8",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+												"key": "Authorization",
+												"value": "_CR8"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+												"key": "x-fapi-auth-date",
+												"value": "Sun,"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+												"key": "x-fapi-customer-ip-address",
+												"value": "_CR8"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+												"key": "x-fapi-interaction-id",
+												"value": "3uo8"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "_CR8"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/accounts/:accountId/transactions?compeCode=889&branchCode=9935&number=NA&checkDigit=R&page=1&page-size=25&fromBookingDate=2207&toBookingDate=2207&creditDebitIndicator=DEBITO",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"accounts",
+												":accountId",
+												"transactions"
+											],
+											"query": [
+												{
+													"key": "compeCode",
+													"value": "889"
+												},
+												{
+													"key": "branchCode",
+													"value": "9935"
+												},
+												{
+													"key": "number",
+													"value": "NA"
+												},
+												{
+													"key": "checkDigit",
+													"value": "R"
+												},
+												{
+													"key": "page",
+													"value": "1"
+												},
+												{
+													"key": "page-size",
+													"value": "25"
+												},
+												{
+													"key": "fromBookingDate",
+													"value": "2207"
+												},
+												{
+													"key": "toBookingDate",
+													"value": "2207"
+												},
+												{
+													"key": "creditDebitIndicator",
+													"value": "DEBITO"
+												}
+											],
+											"variable": [
+												{
+													"key": "accountId"
+												}
+											]
+										}
+									},
+									"status": "Not Acceptable",
+									"code": 406,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"errors\": [\n  {\n   \"code\": \"sCYc\",\n   \"title\": \"xPQi\",\n   \"detail\": \"oL2X\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+								},
+								{
+									"name": "A operação foi recusada, pois muitas solicitações foram feitas dentro de um determinado período ou o limite global de requisições concorrentes foi atingido",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+												"key": "Authorization",
+												"value": "_CR8"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+												"key": "x-fapi-auth-date",
+												"value": "Sun,"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+												"key": "x-fapi-customer-ip-address",
+												"value": "_CR8"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+												"key": "x-fapi-interaction-id",
+												"value": "3uo8"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "_CR8"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/accounts/:accountId/transactions?compeCode=889&branchCode=9935&number=NA&checkDigit=R&page=1&page-size=25&fromBookingDate=2207&toBookingDate=2207&creditDebitIndicator=DEBITO",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"accounts",
+												":accountId",
+												"transactions"
+											],
+											"query": [
+												{
+													"key": "compeCode",
+													"value": "889"
+												},
+												{
+													"key": "branchCode",
+													"value": "9935"
+												},
+												{
+													"key": "number",
+													"value": "NA"
+												},
+												{
+													"key": "checkDigit",
+													"value": "R"
+												},
+												{
+													"key": "page",
+													"value": "1"
+												},
+												{
+													"key": "page-size",
+													"value": "25"
+												},
+												{
+													"key": "fromBookingDate",
+													"value": "2207"
+												},
+												{
+													"key": "toBookingDate",
+													"value": "2207"
+												},
+												{
+													"key": "creditDebitIndicator",
+													"value": "DEBITO"
+												}
+											],
+											"variable": [
+												{
+													"key": "accountId"
+												}
+											]
+										}
+									},
+									"status": "Too Many Requests",
+									"code": 429,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"errors\": [\n  {\n   \"code\": \"sCYc\",\n   \"title\": \"xPQi\",\n   \"detail\": \"oL2X\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+								},
+								{
+									"name": "Dados da lista de transações da conta identificada por accountId obtidos com sucesso.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+												"key": "Authorization",
+												"value": "_CR8"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+												"key": "x-fapi-auth-date",
+												"value": "Sun,"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+												"key": "x-fapi-customer-ip-address",
+												"value": "_CR8"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+												"key": "x-fapi-interaction-id",
+												"value": "3uo8"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "_CR8"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/accounts/:accountId/transactions?compeCode=889&branchCode=9935&number=NA&checkDigit=R&page=1&page-size=25&fromBookingDate=2207&toBookingDate=2207&creditDebitIndicator=DEBITO",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"accounts",
+												":accountId",
+												"transactions"
+											],
+											"query": [
+												{
+													"key": "compeCode",
+													"value": "889"
+												},
+												{
+													"key": "branchCode",
+													"value": "9935"
+												},
+												{
+													"key": "number",
+													"value": "NA"
+												},
+												{
+													"key": "checkDigit",
+													"value": "R"
+												},
+												{
+													"key": "page",
+													"value": "1"
+												},
+												{
+													"key": "page-size",
+													"value": "25"
+												},
+												{
+													"key": "fromBookingDate",
+													"value": "2207"
+												},
+												{
+													"key": "toBookingDate",
+													"value": "2207"
+												},
+												{
+													"key": "creditDebitIndicator",
+													"value": "DEBITO"
+												}
+											],
+											"variable": [
+												{
+													"key": "accountId"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "x-fapi-interaction-id",
+											"value": "3uo8",
+											"description": ""
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"data\": [\n  {\n   \"completedAuthorisedPaymentType\": \"TRANSACAO_EFETIVADA\",\n   \"creditDebitType\": \"DEBITO\",\n   \"transactionIdentification\": \"TRANSFCWAR5TXHCX5I9IDBHML8082N8NEO30M6LNNG7ANAYIJYRM00ZBZPU8\",\n   \"type\": \"OUTRO\",\n   \"amount\": 500.54,\n   \"transactionDate\": \"2021-01-07\",\n   \"payerCnpjCpf\": \"43908445778\",\n   \"payerPersonType\": \"PESSOA_NATURAL\",\n   \"payerCompeCode\": \"001\",\n   \"payerBranchCode\": \"6272\",\n   \"payerNumber\": \"94088392\",\n   \"payerCheckDigit\": \"4\",\n   \"payeeCnpjCpf\": \"67890854360\",\n   \"payeePersonType\": \"PESSOA_NATURAL\",\n   \"payeeCompeCode\": \"001\",\n   \"payeeBranchCode\": \"6272\",\n   \"payeeNumber\": \"94088392\",\n   \"payeeCheckDigit\": \"4\",\n   \"additionalInfo\": \"Transferência\"\n  }\n ],\n \"links\": {\n  \"self\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\",\n  \"first\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\",\n  \"prev\": \"sit\",\n  \"next\": \"\",\n  \"last\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\"\n },\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+								},
+								{
+									"name": "Dados da lista de transações da conta identificada por accountId obtidos com sucesso.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+												"key": "Authorization",
+												"value": "_CR8"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+												"key": "x-fapi-auth-date",
+												"value": "Sun,"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+												"key": "x-fapi-customer-ip-address",
+												"value": "_CR8"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+												"key": "x-fapi-interaction-id",
+												"value": "3uo8"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "_CR8"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/accounts/:accountId/transactions?compeCode=889&branchCode=9935&number=NA&checkDigit=R&page=1&page-size=25&fromBookingDate=2207&toBookingDate=2207&creditDebitIndicator=DEBITO",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"accounts",
+												":accountId",
+												"transactions"
+											],
+											"query": [
+												{
+													"key": "compeCode",
+													"value": "889"
+												},
+												{
+													"key": "branchCode",
+													"value": "9935"
+												},
+												{
+													"key": "number",
+													"value": "NA"
+												},
+												{
+													"key": "checkDigit",
+													"value": "R"
+												},
+												{
+													"key": "page",
+													"value": "1"
+												},
+												{
+													"key": "page-size",
+													"value": "25"
+												},
+												{
+													"key": "fromBookingDate",
+													"value": "2207"
+												},
+												{
+													"key": "toBookingDate",
+													"value": "2207"
+												},
+												{
+													"key": "creditDebitIndicator",
+													"value": "DEBITO"
+												}
+											],
+											"variable": [
+												{
+													"key": "accountId"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "x-fapi-interaction-id",
+											"value": "3uo8",
+											"description": ""
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"data\": [\n  {\n   \"completedAuthorisedPaymentType\": \"TRANSACAO_EFETIVADA\",\n   \"creditDebitType\": \"DEBITO\",\n   \"transactionIdentification\": \"TRANSFCWAR5TXHCX5I9IDBHML8082N8NEO30M6LNNG7ANAYIJYRM00ZBZPU8\",\n   \"type\": \"OUTRO\",\n   \"amount\": 500.54,\n   \"transactionDate\": \"2021-01-07\",\n   \"payerCnpjCpf\": \"43908445778\",\n   \"payerPersonType\": \"PESSOA_NATURAL\",\n   \"payerCompeCode\": \"001\",\n   \"payerBranchCode\": \"6272\",\n   \"payerNumber\": \"94088392\",\n   \"payerCheckDigit\": \"4\",\n   \"payeeCnpjCpf\": \"67890854360\",\n   \"payeePersonType\": \"PESSOA_NATURAL\",\n   \"payeeCompeCode\": \"001\",\n   \"payeeBranchCode\": \"6272\",\n   \"payeeNumber\": \"94088392\",\n   \"payeeCheckDigit\": \"4\",\n   \"additionalInfo\": \"Transferência\"\n  }\n ],\n \"links\": {\n  \"self\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\",\n  \"first\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\",\n  \"prev\": \"sit\",\n  \"next\": \"\",\n  \"last\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\"\n },\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+								},
+								{
+									"name": "A requisição foi malformada, omitindo atributos obrigatórios, seja no payload ou através de atributos na URL.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+												"key": "Authorization",
+												"value": "_CR8"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+												"key": "x-fapi-auth-date",
+												"value": "Sun,"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+												"key": "x-fapi-customer-ip-address",
+												"value": "_CR8"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+												"key": "x-fapi-interaction-id",
+												"value": "3uo8"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "_CR8"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/accounts/:accountId/transactions?compeCode=889&branchCode=9935&number=NA&checkDigit=R&page=1&page-size=25&fromBookingDate=2207&toBookingDate=2207&creditDebitIndicator=DEBITO",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"accounts",
+												":accountId",
+												"transactions"
+											],
+											"query": [
+												{
+													"key": "compeCode",
+													"value": "889"
+												},
+												{
+													"key": "branchCode",
+													"value": "9935"
+												},
+												{
+													"key": "number",
+													"value": "NA"
+												},
+												{
+													"key": "checkDigit",
+													"value": "R"
+												},
+												{
+													"key": "page",
+													"value": "1"
+												},
+												{
+													"key": "page-size",
+													"value": "25"
+												},
+												{
+													"key": "fromBookingDate",
+													"value": "2207"
+												},
+												{
+													"key": "toBookingDate",
+													"value": "2207"
+												},
+												{
+													"key": "creditDebitIndicator",
+													"value": "DEBITO"
+												}
+											],
+											"variable": [
+												{
+													"key": "accountId"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"errors\": [\n  {\n   \"code\": \"sCYc\",\n   \"title\": \"xPQi\",\n   \"detail\": \"oL2X\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+								},
+								{
+									"name": "O recurso solicitado não existe ou não foi implementado",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+												"key": "Authorization",
+												"value": "_CR8"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+												"key": "x-fapi-auth-date",
+												"value": "Sun,"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+												"key": "x-fapi-customer-ip-address",
+												"value": "_CR8"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+												"key": "x-fapi-interaction-id",
+												"value": "3uo8"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "_CR8"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/accounts/:accountId/transactions?compeCode=889&branchCode=9935&number=NA&checkDigit=R&page=1&page-size=25&fromBookingDate=2207&toBookingDate=2207&creditDebitIndicator=DEBITO",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"accounts",
+												":accountId",
+												"transactions"
+											],
+											"query": [
+												{
+													"key": "compeCode",
+													"value": "889"
+												},
+												{
+													"key": "branchCode",
+													"value": "9935"
+												},
+												{
+													"key": "number",
+													"value": "NA"
+												},
+												{
+													"key": "checkDigit",
+													"value": "R"
+												},
+												{
+													"key": "page",
+													"value": "1"
+												},
+												{
+													"key": "page-size",
+													"value": "25"
+												},
+												{
+													"key": "fromBookingDate",
+													"value": "2207"
+												},
+												{
+													"key": "toBookingDate",
+													"value": "2207"
+												},
+												{
+													"key": "creditDebitIndicator",
+													"value": "DEBITO"
+												}
+											],
+											"variable": [
+												{
+													"key": "accountId"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"errors\": [\n  {\n   \"code\": \"sCYc\",\n   \"title\": \"xPQi\",\n   \"detail\": \"oL2X\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+								},
+								{
+									"name": "Ocorreu um erro no gateway da API ou no microsserviço",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+												"key": "Authorization",
+												"value": "_CR8"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+												"key": "x-fapi-auth-date",
+												"value": "Sun,"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+												"key": "x-fapi-customer-ip-address",
+												"value": "_CR8"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+												"key": "x-fapi-interaction-id",
+												"value": "3uo8"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "_CR8"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/accounts/:accountId/transactions?compeCode=889&branchCode=9935&number=NA&checkDigit=R&page=1&page-size=25&fromBookingDate=2207&toBookingDate=2207&creditDebitIndicator=DEBITO",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"accounts",
+												":accountId",
+												"transactions"
+											],
+											"query": [
+												{
+													"key": "compeCode",
+													"value": "889"
+												},
+												{
+													"key": "branchCode",
+													"value": "9935"
+												},
+												{
+													"key": "number",
+													"value": "NA"
+												},
+												{
+													"key": "checkDigit",
+													"value": "R"
+												},
+												{
+													"key": "page",
+													"value": "1"
+												},
+												{
+													"key": "page-size",
+													"value": "25"
+												},
+												{
+													"key": "fromBookingDate",
+													"value": "2207"
+												},
+												{
+													"key": "toBookingDate",
+													"value": "2207"
+												},
+												{
+													"key": "creditDebitIndicator",
+													"value": "DEBITO"
+												}
+											],
+											"variable": [
+												{
+													"key": "accountId"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"errors\": [\n  {\n   \"code\": \"sCYc\",\n   \"title\": \"xPQi\",\n   \"detail\": \"oL2X\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+								},
+								{
+									"name": "O token tem escopo incorreto ou uma política de segurança foi violada",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+												"key": "Authorization",
+												"value": "_CR8"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+												"key": "x-fapi-auth-date",
+												"value": "Sun,"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+												"key": "x-fapi-customer-ip-address",
+												"value": "_CR8"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+												"key": "x-fapi-interaction-id",
+												"value": "3uo8"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "_CR8"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/accounts/:accountId/transactions?compeCode=889&branchCode=9935&number=NA&checkDigit=R&page=1&page-size=25&fromBookingDate=2207&toBookingDate=2207&creditDebitIndicator=DEBITO",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"accounts",
+												":accountId",
+												"transactions"
+											],
+											"query": [
+												{
+													"key": "compeCode",
+													"value": "889"
+												},
+												{
+													"key": "branchCode",
+													"value": "9935"
+												},
+												{
+													"key": "number",
+													"value": "NA"
+												},
+												{
+													"key": "checkDigit",
+													"value": "R"
+												},
+												{
+													"key": "page",
+													"value": "1"
+												},
+												{
+													"key": "page-size",
+													"value": "25"
+												},
+												{
+													"key": "fromBookingDate",
+													"value": "2207"
+												},
+												{
+													"key": "toBookingDate",
+													"value": "2207"
+												},
+												{
+													"key": "creditDebitIndicator",
+													"value": "DEBITO"
+												}
+											],
+											"variable": [
+												{
+													"key": "accountId"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"errors\": [\n  {\n   \"code\": \"sCYc\",\n   \"title\": \"xPQi\",\n   \"detail\": \"oL2X\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+								},
+								{
+									"name": "O consumidor tentou acessar o recurso com um método não suportado",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+												"key": "Authorization",
+												"value": "_CR8"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+												"key": "x-fapi-auth-date",
+												"value": "Sun,"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+												"key": "x-fapi-customer-ip-address",
+												"value": "_CR8"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+												"key": "x-fapi-interaction-id",
+												"value": "3uo8"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "_CR8"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/accounts/:accountId/transactions?compeCode=889&branchCode=9935&number=NA&checkDigit=R&page=1&page-size=25&fromBookingDate=2207&toBookingDate=2207&creditDebitIndicator=DEBITO",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"accounts",
+												":accountId",
+												"transactions"
+											],
+											"query": [
+												{
+													"key": "compeCode",
+													"value": "889"
+												},
+												{
+													"key": "branchCode",
+													"value": "9935"
+												},
+												{
+													"key": "number",
+													"value": "NA"
+												},
+												{
+													"key": "checkDigit",
+													"value": "R"
+												},
+												{
+													"key": "page",
+													"value": "1"
+												},
+												{
+													"key": "page-size",
+													"value": "25"
+												},
+												{
+													"key": "fromBookingDate",
+													"value": "2207"
+												},
+												{
+													"key": "toBookingDate",
+													"value": "2207"
+												},
+												{
+													"key": "creditDebitIndicator",
+													"value": "DEBITO"
+												}
+											],
+											"variable": [
+												{
+													"key": "accountId"
+												}
+											]
+										}
+									},
+									"status": "Method Not Allowed",
+									"code": 405,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"errors\": [\n  {\n   \"code\": \"sCYc\",\n   \"title\": \"xPQi\",\n   \"detail\": \"oL2X\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+								},
+								{
+									"name": "Cabeçalho de autenticação ausente/inválido ou token inválido",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+												"key": "Authorization",
+												"value": "_CR8"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+												"key": "x-fapi-auth-date",
+												"value": "Sun,"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+												"key": "x-fapi-customer-ip-address",
+												"value": "_CR8"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+												"key": "x-fapi-interaction-id",
+												"value": "3uo8"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "_CR8"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/accounts/:accountId/transactions?compeCode=889&branchCode=9935&number=NA&checkDigit=R&page=1&page-size=25&fromBookingDate=2207&toBookingDate=2207&creditDebitIndicator=DEBITO",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"accounts",
+												":accountId",
+												"transactions"
+											],
+											"query": [
+												{
+													"key": "compeCode",
+													"value": "889"
+												},
+												{
+													"key": "branchCode",
+													"value": "9935"
+												},
+												{
+													"key": "number",
+													"value": "NA"
+												},
+												{
+													"key": "checkDigit",
+													"value": "R"
+												},
+												{
+													"key": "page",
+													"value": "1"
+												},
+												{
+													"key": "page-size",
+													"value": "25"
+												},
+												{
+													"key": "fromBookingDate",
+													"value": "2207"
+												},
+												{
+													"key": "toBookingDate",
+													"value": "2207"
+												},
+												{
+													"key": "creditDebitIndicator",
+													"value": "DEBITO"
+												}
+											],
+											"variable": [
+												{
+													"key": "accountId"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"errors\": [\n  {\n   \"code\": \"sCYc\",\n   \"title\": \"xPQi\",\n   \"detail\": \"oL2X\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+								}
+							]
+						},
+						{
+							"name": "Obtém os limites da conta identificada por accountId.",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sun,",
+										"disabled": true
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "_CR8"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "3uo8"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "_CR8"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/accounts/:accountId/overdraft-limits?compeCode=889&branchCode=9935&number=NA&checkDigit=R",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"accounts",
+										":accountId",
+										"overdraft-limits"
+									],
+									"query": [
+										{
+											"key": "compeCode",
+											"value": "889",
+											"description": "(Required) Código identificador atribuído pelo Banco Central do Brasil às instituições participantes do STR (Sistema de Transferência de reservas). O número-código substituiu o antigo código COMPE. Todos os participantes do STR, exceto as Infraestruturas do Mercado Financeiro (IMF) e a Secretaria do Tesouro Nacional, possuem um número-código independentemente de participarem da Centralizadora da Compensação de Cheques (Compe). O campo tem a anotação “n/a” (“não se aplica”) para os participantes do STR aos quais não é atribuído um número-código"
+										},
+										{
+											"key": "branchCode",
+											"value": "9935",
+											"description": "(Required) Código da Agência detentora da conta. (Agência é a dependência destinada ao atendimento aos clientes, ao público em geral e aos associados de cooperativas de crédito, no exercício de atividades da instituição, não podendo ser móvel ou transitória)"
+										},
+										{
+											"key": "number",
+											"value": "NA",
+											"description": "(Required) Número da conta"
+										},
+										{
+											"key": "checkDigit",
+											"value": "R",
+											"description": "(Required) Dígito da conta"
+										}
+									],
+									"variable": [
+										{
+											"key": "accountId",
+											"value": "Dlww",
+											"type": "string",
+											"description": "(Required) Identificador da conta de depósito à vista, de poupança ou de pagamento pré-paga."
+										}
+									]
+								},
+								"description": "Método para obter os limites da conta de depósito à vista, poupança ou pagamento pré-paga identificada por accountId mantida pelo cliente na instituição transmissora."
+							},
+							"response": [
+								{
+									"name": "O token tem escopo incorreto ou uma política de segurança foi violada",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+												"key": "Authorization",
+												"value": "_CR8"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+												"key": "x-fapi-auth-date",
+												"value": "Sun,"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+												"key": "x-fapi-customer-ip-address",
+												"value": "_CR8"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+												"key": "x-fapi-interaction-id",
+												"value": "3uo8"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "_CR8"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/accounts/:accountId/overdraft-limits?compeCode=889&branchCode=9935&number=NA&checkDigit=R",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"accounts",
+												":accountId",
+												"overdraft-limits"
+											],
+											"query": [
+												{
+													"key": "compeCode",
+													"value": "889"
+												},
+												{
+													"key": "branchCode",
+													"value": "9935"
+												},
+												{
+													"key": "number",
+													"value": "NA"
+												},
+												{
+													"key": "checkDigit",
+													"value": "R"
+												}
+											],
+											"variable": [
+												{
+													"key": "accountId"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"errors\": [\n  {\n   \"code\": \"sCYc\",\n   \"title\": \"xPQi\",\n   \"detail\": \"oL2X\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+								},
+								{
+									"name": "A requisição foi malformada, omitindo atributos obrigatórios, seja no payload ou através de atributos na URL.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+												"key": "Authorization",
+												"value": "_CR8"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+												"key": "x-fapi-auth-date",
+												"value": "Sun,"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+												"key": "x-fapi-customer-ip-address",
+												"value": "_CR8"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+												"key": "x-fapi-interaction-id",
+												"value": "3uo8"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "_CR8"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/accounts/:accountId/overdraft-limits?compeCode=889&branchCode=9935&number=NA&checkDigit=R",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"accounts",
+												":accountId",
+												"overdraft-limits"
+											],
+											"query": [
+												{
+													"key": "compeCode",
+													"value": "889"
+												},
+												{
+													"key": "branchCode",
+													"value": "9935"
+												},
+												{
+													"key": "number",
+													"value": "NA"
+												},
+												{
+													"key": "checkDigit",
+													"value": "R"
+												}
+											],
+											"variable": [
+												{
+													"key": "accountId"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"errors\": [\n  {\n   \"code\": \"sCYc\",\n   \"title\": \"xPQi\",\n   \"detail\": \"oL2X\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+								},
+								{
+									"name": "A operação foi recusada, pois muitas solicitações foram feitas dentro de um determinado período ou o limite global de requisições concorrentes foi atingido",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+												"key": "Authorization",
+												"value": "_CR8"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+												"key": "x-fapi-auth-date",
+												"value": "Sun,"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+												"key": "x-fapi-customer-ip-address",
+												"value": "_CR8"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+												"key": "x-fapi-interaction-id",
+												"value": "3uo8"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "_CR8"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/accounts/:accountId/overdraft-limits?compeCode=889&branchCode=9935&number=NA&checkDigit=R",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"accounts",
+												":accountId",
+												"overdraft-limits"
+											],
+											"query": [
+												{
+													"key": "compeCode",
+													"value": "889"
+												},
+												{
+													"key": "branchCode",
+													"value": "9935"
+												},
+												{
+													"key": "number",
+													"value": "NA"
+												},
+												{
+													"key": "checkDigit",
+													"value": "R"
+												}
+											],
+											"variable": [
+												{
+													"key": "accountId"
+												}
+											]
+										}
+									},
+									"status": "Too Many Requests",
+									"code": 429,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"errors\": [\n  {\n   \"code\": \"sCYc\",\n   \"title\": \"xPQi\",\n   \"detail\": \"oL2X\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+								},
+								{
+									"name": "Cabeçalho de autenticação ausente/inválido ou token inválido",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+												"key": "Authorization",
+												"value": "_CR8"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+												"key": "x-fapi-auth-date",
+												"value": "Sun,"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+												"key": "x-fapi-customer-ip-address",
+												"value": "_CR8"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+												"key": "x-fapi-interaction-id",
+												"value": "3uo8"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "_CR8"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/accounts/:accountId/overdraft-limits?compeCode=889&branchCode=9935&number=NA&checkDigit=R",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"accounts",
+												":accountId",
+												"overdraft-limits"
+											],
+											"query": [
+												{
+													"key": "compeCode",
+													"value": "889"
+												},
+												{
+													"key": "branchCode",
+													"value": "9935"
+												},
+												{
+													"key": "number",
+													"value": "NA"
+												},
+												{
+													"key": "checkDigit",
+													"value": "R"
+												}
+											],
+											"variable": [
+												{
+													"key": "accountId"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"errors\": [\n  {\n   \"code\": \"sCYc\",\n   \"title\": \"xPQi\",\n   \"detail\": \"oL2X\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+								},
+								{
+									"name": "O consumidor tentou acessar o recurso com um método não suportado",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+												"key": "Authorization",
+												"value": "_CR8"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+												"key": "x-fapi-auth-date",
+												"value": "Sun,"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+												"key": "x-fapi-customer-ip-address",
+												"value": "_CR8"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+												"key": "x-fapi-interaction-id",
+												"value": "3uo8"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "_CR8"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/accounts/:accountId/overdraft-limits?compeCode=889&branchCode=9935&number=NA&checkDigit=R",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"accounts",
+												":accountId",
+												"overdraft-limits"
+											],
+											"query": [
+												{
+													"key": "compeCode",
+													"value": "889"
+												},
+												{
+													"key": "branchCode",
+													"value": "9935"
+												},
+												{
+													"key": "number",
+													"value": "NA"
+												},
+												{
+													"key": "checkDigit",
+													"value": "R"
+												}
+											],
+											"variable": [
+												{
+													"key": "accountId"
+												}
+											]
+										}
+									},
+									"status": "Method Not Allowed",
+									"code": 405,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"errors\": [\n  {\n   \"code\": \"sCYc\",\n   \"title\": \"xPQi\",\n   \"detail\": \"oL2X\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+								},
+								{
+									"name": "A solicitação continha um cabeçalho Accept diferente dos tipos de mídia permitidos ou um conjunto de caracteres diferente de UTF-8",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+												"key": "Authorization",
+												"value": "_CR8"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+												"key": "x-fapi-auth-date",
+												"value": "Sun,"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+												"key": "x-fapi-customer-ip-address",
+												"value": "_CR8"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+												"key": "x-fapi-interaction-id",
+												"value": "3uo8"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "_CR8"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/accounts/:accountId/overdraft-limits?compeCode=889&branchCode=9935&number=NA&checkDigit=R",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"accounts",
+												":accountId",
+												"overdraft-limits"
+											],
+											"query": [
+												{
+													"key": "compeCode",
+													"value": "889"
+												},
+												{
+													"key": "branchCode",
+													"value": "9935"
+												},
+												{
+													"key": "number",
+													"value": "NA"
+												},
+												{
+													"key": "checkDigit",
+													"value": "R"
+												}
+											],
+											"variable": [
+												{
+													"key": "accountId"
+												}
+											]
+										}
+									},
+									"status": "Not Acceptable",
+									"code": 406,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"errors\": [\n  {\n   \"code\": \"sCYc\",\n   \"title\": \"xPQi\",\n   \"detail\": \"oL2X\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+								},
+								{
+									"name": "Dados de limites da conta identificada por accountId obtidos com sucesso.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+												"key": "Authorization",
+												"value": "_CR8"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+												"key": "x-fapi-auth-date",
+												"value": "Sun,"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+												"key": "x-fapi-customer-ip-address",
+												"value": "_CR8"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+												"key": "x-fapi-interaction-id",
+												"value": "3uo8"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "_CR8"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/accounts/:accountId/overdraft-limits?compeCode=889&branchCode=9935&number=NA&checkDigit=R",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"accounts",
+												":accountId",
+												"overdraft-limits"
+											],
+											"query": [
+												{
+													"key": "compeCode",
+													"value": "889"
+												},
+												{
+													"key": "branchCode",
+													"value": "9935"
+												},
+												{
+													"key": "number",
+													"value": "NA"
+												},
+												{
+													"key": "checkDigit",
+													"value": "R"
+												}
+											],
+											"variable": [
+												{
+													"key": "accountId"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "x-fapi-interaction-id",
+											"value": "3uo8",
+											"description": ""
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"data\": {\n  \"overdraftLimit\": \"FAIXA_1\",\n  \"balances\": [\n   {\n    \"type\": \"VALOR_UTILIZADO_LIMITE\",\n    \"amount\": 500\n   }\n  ]\n },\n \"links\": {\n  \"self\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\",\n  \"first\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\",\n  \"prev\": \"do\",\n  \"next\": \"el\",\n  \"last\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\"\n },\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+								},
+								{
+									"name": "Dados de limites da conta identificada por accountId obtidos com sucesso.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+												"key": "Authorization",
+												"value": "_CR8"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+												"key": "x-fapi-auth-date",
+												"value": "Sun,"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+												"key": "x-fapi-customer-ip-address",
+												"value": "_CR8"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+												"key": "x-fapi-interaction-id",
+												"value": "3uo8"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "_CR8"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/accounts/:accountId/overdraft-limits?compeCode=889&branchCode=9935&number=NA&checkDigit=R",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"accounts",
+												":accountId",
+												"overdraft-limits"
+											],
+											"query": [
+												{
+													"key": "compeCode",
+													"value": "889"
+												},
+												{
+													"key": "branchCode",
+													"value": "9935"
+												},
+												{
+													"key": "number",
+													"value": "NA"
+												},
+												{
+													"key": "checkDigit",
+													"value": "R"
+												}
+											],
+											"variable": [
+												{
+													"key": "accountId"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "x-fapi-interaction-id",
+											"value": "3uo8",
+											"description": ""
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"data\": {\n  \"overdraftLimit\": \"FAIXA_1\",\n  \"balances\": [\n   {\n    \"type\": \"VALOR_UTILIZADO_LIMITE\",\n    \"amount\": 500\n   }\n  ]\n },\n \"links\": {\n  \"self\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\",\n  \"first\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\",\n  \"prev\": \"do\",\n  \"next\": \"el\",\n  \"last\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\"\n },\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+								},
+								{
+									"name": "O recurso solicitado não existe ou não foi implementado",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+												"key": "Authorization",
+												"value": "_CR8"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+												"key": "x-fapi-auth-date",
+												"value": "Sun,"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+												"key": "x-fapi-customer-ip-address",
+												"value": "_CR8"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+												"key": "x-fapi-interaction-id",
+												"value": "3uo8"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "_CR8"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/accounts/:accountId/overdraft-limits?compeCode=889&branchCode=9935&number=NA&checkDigit=R",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"accounts",
+												":accountId",
+												"overdraft-limits"
+											],
+											"query": [
+												{
+													"key": "compeCode",
+													"value": "889"
+												},
+												{
+													"key": "branchCode",
+													"value": "9935"
+												},
+												{
+													"key": "number",
+													"value": "NA"
+												},
+												{
+													"key": "checkDigit",
+													"value": "R"
+												}
+											],
+											"variable": [
+												{
+													"key": "accountId"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"errors\": [\n  {\n   \"code\": \"sCYc\",\n   \"title\": \"xPQi\",\n   \"detail\": \"oL2X\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+								},
+								{
+									"name": "Ocorreu um erro no gateway da API ou no microsserviço",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+												"key": "Authorization",
+												"value": "_CR8"
+											},
+											{
+												"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+												"key": "x-fapi-auth-date",
+												"value": "Sun,"
+											},
+											{
+												"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+												"key": "x-fapi-customer-ip-address",
+												"value": "_CR8"
+											},
+											{
+												"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+												"key": "x-fapi-interaction-id",
+												"value": "3uo8"
+											},
+											{
+												"description": "Indica o user-agent que o usuário utiliza.",
+												"key": "x-customer-user-agent",
+												"value": "_CR8"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/accounts/:accountId/overdraft-limits?compeCode=889&branchCode=9935&number=NA&checkDigit=R",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"accounts",
+												":accountId",
+												"overdraft-limits"
+											],
+											"query": [
+												{
+													"key": "compeCode",
+													"value": "889"
+												},
+												{
+													"key": "branchCode",
+													"value": "9935"
+												},
+												{
+													"key": "number",
+													"value": "NA"
+												},
+												{
+													"key": "checkDigit",
+													"value": "R"
+												}
+											],
+											"variable": [
+												{
+													"key": "accountId"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"errors\": [\n  {\n   \"code\": \"sCYc\",\n   \"title\": \"xPQi\",\n   \"detail\": \"oL2X\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Obtém a lista de contas consentidas pelo cliente.",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+								"key": "x-fapi-auth-date",
+								"value": "Sun,",
+								"disabled": true
+							},
+							{
+								"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+								"key": "x-fapi-customer-ip-address",
+								"value": "_CR8",
+								"disabled": true
+							},
+							{
+								"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+								"key": "x-fapi-interaction-id",
+								"value": "3uo8",
+								"disabled": true
+							},
+							{
+								"description": "Indica o user-agent que o usuário utiliza.",
+								"key": "x-customer-user-agent",
+								"value": "_CR8",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/accounts?page=1&page-size=25&accountType=CONTA_DEPOSITO_A_VISTA",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"accounts"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Número da página que está sendo requisitada (o valor da primeira página é 1)."
+								},
+								{
+									"key": "page-size",
+									"value": "25",
+									"description": "Quantidade total de registros por páginas."
+								},
+								{
+									"key": "accountType",
+									"value": "CONTA_DEPOSITO_A_VISTA",
+									"description": "Tipos de contas. Modalidades tradicionais previstas pela Resolução 4.753, não contemplando contas vinculadas, conta de domiciliados no exterior, contas em moedas estrangeiras e conta correspondente moeda eletrônica. Vide Enum."
+								}
+							]
+						},
+						"description": "Método para obter a lista de contas depósito à vista, poupança e pagamento pré-pagas mantidas pelo cliente na instituição transmissora e para as quais ele tenha fornecido consentimento."
+					},
+					"response": [
+						{
+							"name": "O recurso solicitado não existe ou não foi implementado",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "_CR8"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sun,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "_CR8"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "3uo8"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "_CR8"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/accounts?page=1&page-size=25&accountType=CONTA_DEPOSITO_A_VISTA",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"accounts"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										},
+										{
+											"key": "accountType",
+											"value": "CONTA_DEPOSITO_A_VISTA"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"sCYc\",\n   \"title\": \"xPQi\",\n   \"detail\": \"oL2X\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "A solicitação continha um cabeçalho Accept diferente dos tipos de mídia permitidos ou um conjunto de caracteres diferente de UTF-8",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "_CR8"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sun,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "_CR8"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "3uo8"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "_CR8"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/accounts?page=1&page-size=25&accountType=CONTA_DEPOSITO_A_VISTA",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"accounts"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										},
+										{
+											"key": "accountType",
+											"value": "CONTA_DEPOSITO_A_VISTA"
+										}
+									]
+								}
+							},
+							"status": "Not Acceptable",
+							"code": 406,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"sCYc\",\n   \"title\": \"xPQi\",\n   \"detail\": \"oL2X\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "O token tem escopo incorreto ou uma política de segurança foi violada",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "_CR8"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sun,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "_CR8"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "3uo8"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "_CR8"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/accounts?page=1&page-size=25&accountType=CONTA_DEPOSITO_A_VISTA",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"accounts"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										},
+										{
+											"key": "accountType",
+											"value": "CONTA_DEPOSITO_A_VISTA"
+										}
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"sCYc\",\n   \"title\": \"xPQi\",\n   \"detail\": \"oL2X\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "Dados de identificação das contas obtidos com sucesso.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "_CR8"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sun,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "_CR8"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "3uo8"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "_CR8"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/accounts?page=1&page-size=25&accountType=CONTA_DEPOSITO_A_VISTA",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"accounts"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										},
+										{
+											"key": "accountType",
+											"value": "CONTA_DEPOSITO_A_VISTA"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-fapi-interaction-id",
+									"value": "3uo8",
+									"description": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"data\": [\n  {\n   \"brandName\": \"Organização A\",\n   \"companyCnpj\": \"21128159000166\",\n   \"type\": \"CONTA_DEPOSITO_A_VISTA\",\n   \"compeCode\": \"001\",\n   \"branchCode\": \"6272\",\n   \"number\": \"94088392\",\n   \"checkDigit\": \"4\",\n   \"accountID\": \"92792126019929279212650822221989319252576\"\n  }\n ],\n \"links\": {\n  \"self\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\",\n  \"first\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\",\n  \"prev\": \"\",\n  \"next\": \"ali\",\n  \"last\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\"\n },\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "Dados de identificação das contas obtidos com sucesso.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "_CR8"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sun,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "_CR8"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "3uo8"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "_CR8"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/accounts?page=1&page-size=25&accountType=CONTA_DEPOSITO_A_VISTA",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"accounts"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										},
+										{
+											"key": "accountType",
+											"value": "CONTA_DEPOSITO_A_VISTA"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-fapi-interaction-id",
+									"value": "3uo8",
+									"description": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"data\": [\n  {\n   \"brandName\": \"Organização A\",\n   \"companyCnpj\": \"21128159000166\",\n   \"type\": \"CONTA_DEPOSITO_A_VISTA\",\n   \"compeCode\": \"001\",\n   \"branchCode\": \"6272\",\n   \"number\": \"94088392\",\n   \"checkDigit\": \"4\",\n   \"accountID\": \"92792126019929279212650822221989319252576\"\n  }\n ],\n \"links\": {\n  \"self\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\",\n  \"first\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\",\n  \"prev\": \"\",\n  \"next\": \"ali\",\n  \"last\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\"\n },\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "A requisição foi malformada, omitindo atributos obrigatórios, seja no payload ou através de atributos na URL.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "_CR8"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sun,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "_CR8"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "3uo8"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "_CR8"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/accounts?page=1&page-size=25&accountType=CONTA_DEPOSITO_A_VISTA",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"accounts"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										},
+										{
+											"key": "accountType",
+											"value": "CONTA_DEPOSITO_A_VISTA"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"sCYc\",\n   \"title\": \"xPQi\",\n   \"detail\": \"oL2X\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "Cabeçalho de autenticação ausente/inválido ou token inválido",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "_CR8"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sun,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "_CR8"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "3uo8"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "_CR8"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/accounts?page=1&page-size=25&accountType=CONTA_DEPOSITO_A_VISTA",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"accounts"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										},
+										{
+											"key": "accountType",
+											"value": "CONTA_DEPOSITO_A_VISTA"
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"sCYc\",\n   \"title\": \"xPQi\",\n   \"detail\": \"oL2X\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "Ocorreu um erro no gateway da API ou no microsserviço",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "_CR8"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sun,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "_CR8"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "3uo8"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "_CR8"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/accounts?page=1&page-size=25&accountType=CONTA_DEPOSITO_A_VISTA",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"accounts"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										},
+										{
+											"key": "accountType",
+											"value": "CONTA_DEPOSITO_A_VISTA"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"sCYc\",\n   \"title\": \"xPQi\",\n   \"detail\": \"oL2X\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "A operação foi recusada, pois muitas solicitações foram feitas dentro de um determinado período ou o limite global de requisições concorrentes foi atingido",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "_CR8"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sun,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "_CR8"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "3uo8"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "_CR8"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/accounts?page=1&page-size=25&accountType=CONTA_DEPOSITO_A_VISTA",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"accounts"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										},
+										{
+											"key": "accountType",
+											"value": "CONTA_DEPOSITO_A_VISTA"
+										}
+									]
+								}
+							},
+							"status": "Too Many Requests",
+							"code": 429,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"sCYc\",\n   \"title\": \"xPQi\",\n   \"detail\": \"oL2X\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "O consumidor tentou acessar o recurso com um método não suportado",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "_CR8"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sun,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "_CR8"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "3uo8"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "_CR8"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/accounts?page=1&page-size=25&accountType=CONTA_DEPOSITO_A_VISTA",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"accounts"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										},
+										{
+											"key": "accountType",
+											"value": "CONTA_DEPOSITO_A_VISTA"
+										}
+									]
+								}
+							},
+							"status": "Method Not Allowed",
+							"code": 405,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"sCYc\",\n   \"title\": \"xPQi\",\n   \"detail\": \"oL2X\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://api.banco.com.br/open-banking/accounts/v1"
+		}
+	]
+}

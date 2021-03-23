@@ -1,0 +1,4280 @@
+{
+	"info": {
+		"_postman_id": "dd924063-bffe-4e3c-ba54-9edf31fabf45",
+		"name": "API - Dados Cadastrais",
+		"description": "API de dados cadastrais de clientes do Open Banking Brasil – Fase 2.\nAPI que retorna os dados cadastrais de clientes e de seus representantes, incluindo dados de identificação, de qualificação financeira, informações sobre representantes cadastrados e sobre o relacionamento financeiro do cliente com a instituição transmissora dos dados.\\\nPossui segregação entre pessoa natural e pessoa jurídica.\nRequer consentimento do cliente para todos os `endpoints`.\n\n# Permissions necessárias para a API Customers\n\nPara cada um dos paths desta API, além dos escopos (`scopes`) indicados existem `permissions` que deverão ser observadas:\n\n### `/personal/identifications`\n  - permissions:\n    - GET: **customers.personal.identifications.read**\n### `/personal/qualifications`\n  - permissions: **customers.personal.adittionalinfo.read**\n### `/personal/financial-relations`\n  - permissions:\n    - GET: **customers.personal.adittionalinfo.read**\n### `/business/identifications`\n  - permissions:\n    - GET: **customers.business.identifications.read**\n### `/business/qualifications`\n  - permissions:\n    - GET: **customers.business.adittionalinfo.read**\n### `/business/financial-relations`\n  - permissions:\n    - GET: **customers.business.adittionalinfo.read**\n\n\nContact Support:\n Name: Governança do Open Banking Brasil – Interfaces\n Email: gt-interfaces@openbankingbr.org",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "personal",
+			"item": [
+				{
+					"name": "Obtém os registros de identificação da pessoa natural.",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+								"key": "x-fapi-auth-date",
+								"value": "Sat,",
+								"disabled": true
+							},
+							{
+								"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+								"key": "x-fapi-customer-ip-address",
+								"value": "ITfQ"
+							},
+							{
+								"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+								"key": "x-fapi-interaction-id",
+								"value": "d0eG"
+							},
+							{
+								"description": "Indica o user-agent que o usuário utiliza.",
+								"key": "x-customer-user-agent",
+								"value": "ITfQ"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/personal/identifications?page=1&page-size=25",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"personal",
+								"identifications"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Número da página que está sendo requisitada (o valor da primeira página é 1)."
+								},
+								{
+									"key": "page-size",
+									"value": "25",
+									"description": "Quantidade total de registros por páginas."
+								}
+							]
+						},
+						"description": "Método para obter os registros de identificação da pessoa natural mantidos na instituição transmissora."
+					},
+					"response": [
+						{
+							"name": "O consumidor tentou acessar o recurso com um método não suportado",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/personal/identifications?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"personal",
+										"identifications"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Method Not Allowed",
+							"code": 405,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"vbW4\",\n   \"title\": \"MKZx\",\n   \"detail\": \"ONj3\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "Ocorreu um erro no gateway da API ou no microsserviço",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/personal/identifications?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"personal",
+										"identifications"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"vbW4\",\n   \"title\": \"MKZx\",\n   \"detail\": \"ONj3\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "A operação foi recusada, pois muitas solicitações foram feitas dentro de um determinado período ou o limite global de requisições concorrentes foi atingido",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/personal/identifications?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"personal",
+										"identifications"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Too Many Requests",
+							"code": 429,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"vbW4\",\n   \"title\": \"MKZx\",\n   \"detail\": \"ONj3\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "Cabeçalho de autenticação ausente/inválido ou token inválido",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/personal/identifications?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"personal",
+										"identifications"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"vbW4\",\n   \"title\": \"MKZx\",\n   \"detail\": \"ONj3\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "Dados sobre identificação pessoa física.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/personal/identifications?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"personal",
+										"identifications"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-fapi-interaction-id",
+									"value": "d0eG",
+									"description": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"data\": {\n  \"requestDateTime\": \"2021-01-28T08:30:00Z\",\n  \"updateDateTime\": \"2021-01-28T08:30:00Z\",\n  \"personalId\": \"578-psd-71md6971kjh-2d414\",\n  \"brandName\": \"Organização A\",\n  \"companyCnpj\": \"50685362000135\",\n  \"documents\": {\n   \"cpfNumber\": \"NA\",\n   \"passportNumber\": \"79416097\",\n   \"passportCountry\": \"CAN\",\n   \"passportExpirationDate\": \"2024-04-31\"\n  },\n  \"otherDocuments\": [\n   {\n    \"type\": \"RNE\",\n    \"typeAdditionalInfo\": \"NA\",\n    \"number\": \"15291908\",\n    \"checkDigit\": \"P\",\n    \"additionalInfo\": \"SSP-SP\",\n    \"expirationDate\": \"2025-03-19\"\n   }\n  ],\n  \"nationality\": {\n   \"hasBrazilianNationality\": false,\n   \"otherNationality\": {\n    \"otherNationalitiesInfo\": \"CAN\",\n    \"documents\": [\n     {\n      \"type\": \"SOCIAL SEC\",\n      \"number\": \"423929299\",\n      \"expirationDate\": \"2030-03-19\"\n     }\n    ]\n   }\n  },\n  \"civilName\": \"Juan Kaique Cláudio Fernandes\",\n  \"socialName\": \"Karina\",\n  \"filiationType\": \"1_FILIACAO\",\n  \"filiationCivilName\": \"Luís Fernando Caio Fernandes\",\n  \"filiationSocialName\": \"NA\",\n  \"birthDate\": \"1958-05-02\",\n  \"maritalStatusCode\": \"OUTROS\",\n  \"maritalStatusAdditionalInfo\": \"SEPARADO_EXTRAJUDICIALMENTE\",\n  \"sex\": \"MASCULINO\",\n  \"contacts\": {\n   \"postalAddresses\": [\n    {\n     \"isMain\": true,\n     \"address\": \"Rua Ormando Chisto, 395\",\n     \"additionalInfo\": \"Fundos\",\n     \"districtName\": \"São Judas Tadeu\",\n     \"townName\": \"Vitória\",\n     \"ibgeTownCode\": \"3201506\",\n     \"countrySubDivision\": \"ES\",\n     \"postCode\": \"29700650\",\n     \"country\": \"Brasil\",\n     \"countryCode\": \"BRA\",\n     \"geographicCoordinates\": {\n      \"latitude\": \"-19.5498025\",\n      \"longitude\": \"-40.6272813\"\n     }\n    }\n   ],\n   \"phones\": [\n    {\n     \"isMain\": true,\n     \"type\": \"FIXO\",\n     \"countryCallingCode\": \"55\",\n     \"areaCode\": \"27\",\n     \"number\": \"29875132\",\n     \"phoneExtension\": \"NA\"\n    }\n   ],\n   \"emails\": [\n    {\n     \"isMain\": true,\n     \"email\": \"karinafernandes-81@br.inter.net\"\n    }\n   ]\n  }\n },\n \"links\": {\n  \"self\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\",\n  \"first\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\",\n  \"prev\": \"string\",\n  \"next\": \"string\",\n  \"last\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\"\n },\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "A solicitação continha um cabeçalho Accept diferente dos tipos de mídia permitidos ou um conjunto de caracteres diferente de UTF-8",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/personal/identifications?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"personal",
+										"identifications"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Not Acceptable",
+							"code": 406,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"vbW4\",\n   \"title\": \"MKZx\",\n   \"detail\": \"ONj3\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "Dados sobre identificação pessoa física.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/personal/identifications?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"personal",
+										"identifications"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-fapi-interaction-id",
+									"value": "d0eG",
+									"description": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"data\": {\n  \"requestDateTime\": \"2021-01-28T08:30:00Z\",\n  \"updateDateTime\": \"2021-01-28T08:30:00Z\",\n  \"personalId\": \"578-psd-71md6971kjh-2d414\",\n  \"brandName\": \"Organização A\",\n  \"companyCnpj\": \"50685362000135\",\n  \"documents\": {\n   \"cpfNumber\": \"NA\",\n   \"passportNumber\": \"79416097\",\n   \"passportCountry\": \"CAN\",\n   \"passportExpirationDate\": \"2024-04-31\"\n  },\n  \"otherDocuments\": [\n   {\n    \"type\": \"RNE\",\n    \"typeAdditionalInfo\": \"NA\",\n    \"number\": \"15291908\",\n    \"checkDigit\": \"P\",\n    \"additionalInfo\": \"SSP-SP\",\n    \"expirationDate\": \"2025-03-19\"\n   }\n  ],\n  \"nationality\": {\n   \"hasBrazilianNationality\": false,\n   \"otherNationality\": {\n    \"otherNationalitiesInfo\": \"CAN\",\n    \"documents\": [\n     {\n      \"type\": \"SOCIAL SEC\",\n      \"number\": \"423929299\",\n      \"expirationDate\": \"2030-03-19\"\n     }\n    ]\n   }\n  },\n  \"civilName\": \"Juan Kaique Cláudio Fernandes\",\n  \"socialName\": \"Karina\",\n  \"filiationType\": \"1_FILIACAO\",\n  \"filiationCivilName\": \"Luís Fernando Caio Fernandes\",\n  \"filiationSocialName\": \"NA\",\n  \"birthDate\": \"1958-05-02\",\n  \"maritalStatusCode\": \"OUTROS\",\n  \"maritalStatusAdditionalInfo\": \"SEPARADO_EXTRAJUDICIALMENTE\",\n  \"sex\": \"MASCULINO\",\n  \"contacts\": {\n   \"postalAddresses\": [\n    {\n     \"isMain\": true,\n     \"address\": \"Rua Ormando Chisto, 395\",\n     \"additionalInfo\": \"Fundos\",\n     \"districtName\": \"São Judas Tadeu\",\n     \"townName\": \"Vitória\",\n     \"ibgeTownCode\": \"3201506\",\n     \"countrySubDivision\": \"ES\",\n     \"postCode\": \"29700650\",\n     \"country\": \"Brasil\",\n     \"countryCode\": \"BRA\",\n     \"geographicCoordinates\": {\n      \"latitude\": \"-19.5498025\",\n      \"longitude\": \"-40.6272813\"\n     }\n    }\n   ],\n   \"phones\": [\n    {\n     \"isMain\": true,\n     \"type\": \"FIXO\",\n     \"countryCallingCode\": \"55\",\n     \"areaCode\": \"27\",\n     \"number\": \"29875132\",\n     \"phoneExtension\": \"NA\"\n    }\n   ],\n   \"emails\": [\n    {\n     \"isMain\": true,\n     \"email\": \"karinafernandes-81@br.inter.net\"\n    }\n   ]\n  }\n },\n \"links\": {\n  \"self\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\",\n  \"first\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\",\n  \"prev\": \"string\",\n  \"next\": \"string\",\n  \"last\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\"\n },\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "A requisição foi malformada, omitindo atributos obrigatórios, seja no payload ou através de atributos na URL.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/personal/identifications?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"personal",
+										"identifications"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"vbW4\",\n   \"title\": \"MKZx\",\n   \"detail\": \"ONj3\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "O token tem escopo incorreto ou uma política de segurança foi violada",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/personal/identifications?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"personal",
+										"identifications"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"vbW4\",\n   \"title\": \"MKZx\",\n   \"detail\": \"ONj3\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "O recurso solicitado não existe ou não foi implementado",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/personal/identifications?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"personal",
+										"identifications"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"vbW4\",\n   \"title\": \"MKZx\",\n   \"detail\": \"ONj3\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						}
+					]
+				},
+				{
+					"name": "Obtém os registros de qualificação da pessoa natural.",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+								"key": "x-fapi-auth-date",
+								"value": "Sat,",
+								"disabled": true
+							},
+							{
+								"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+								"key": "x-fapi-customer-ip-address",
+								"value": "ITfQ"
+							},
+							{
+								"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+								"key": "x-fapi-interaction-id",
+								"value": "d0eG"
+							},
+							{
+								"description": "Indica o user-agent que o usuário utiliza.",
+								"key": "x-customer-user-agent",
+								"value": "ITfQ"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/personal/qualifications?page=1&page-size=25",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"personal",
+								"qualifications"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Número da página que está sendo requisitada (o valor da primeira página é 1)."
+								},
+								{
+									"key": "page-size",
+									"value": "25",
+									"description": "Quantidade total de registros por páginas."
+								}
+							]
+						},
+						"description": "Método para obter os registros de qualificação da pessoa natural mantidos na instituição transmissora."
+					},
+					"response": [
+						{
+							"name": "O consumidor tentou acessar o recurso com um método não suportado",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/personal/qualifications?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"personal",
+										"qualifications"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Method Not Allowed",
+							"code": 405,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"vbW4\",\n   \"title\": \"MKZx\",\n   \"detail\": \"ONj3\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "A solicitação continha um cabeçalho Accept diferente dos tipos de mídia permitidos ou um conjunto de caracteres diferente de UTF-8",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/personal/qualifications?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"personal",
+										"qualifications"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Not Acceptable",
+							"code": 406,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"vbW4\",\n   \"title\": \"MKZx\",\n   \"detail\": \"ONj3\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "O token tem escopo incorreto ou uma política de segurança foi violada",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/personal/qualifications?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"personal",
+										"qualifications"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"vbW4\",\n   \"title\": \"MKZx\",\n   \"detail\": \"ONj3\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "O recurso solicitado não existe ou não foi implementado",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/personal/qualifications?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"personal",
+										"qualifications"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"vbW4\",\n   \"title\": \"MKZx\",\n   \"detail\": \"ONj3\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "Dados sobre qualificação da pessoa física",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/personal/qualifications?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"personal",
+										"qualifications"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-fapi-interaction-id",
+									"value": "d0eG",
+									"description": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"data\": {\n  \"requestDateTime\": \"2021-01-28T08:30:00Z\",\n  \"updateDateTime\": \"2021-01-28T08:30:00Z\",\n  \"personalId\": \"578-psd-71md6971kjh-2d414\",\n  \"informedIncomeFrequency\": \"DIARIA\",\n  \"informedIncomeAmount\": 3500,\n  \"informedIncomeCurrency\": \"BRL\",\n  \"informedIncomeDate\": \"2020-12-01\",\n  \"informedPatrimonyAmount\": 50000,\n  \"informedPatrimonyCurrency\": \"BRL\",\n  \"informedPatrimonyYear\": 2010,\n  \"occupationCode\": \"CBO\",\n  \"occupationDescription\": \"01\"\n },\n \"links\": {\n  \"self\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\",\n  \"first\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\",\n  \"prev\": \"ad\",\n  \"next\": \"a\",\n  \"last\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\"\n },\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "A operação foi recusada, pois muitas solicitações foram feitas dentro de um determinado período ou o limite global de requisições concorrentes foi atingido",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/personal/qualifications?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"personal",
+										"qualifications"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Too Many Requests",
+							"code": 429,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"vbW4\",\n   \"title\": \"MKZx\",\n   \"detail\": \"ONj3\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "Ocorreu um erro no gateway da API ou no microsserviço",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/personal/qualifications?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"personal",
+										"qualifications"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"vbW4\",\n   \"title\": \"MKZx\",\n   \"detail\": \"ONj3\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "Dados sobre qualificação da pessoa física",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/personal/qualifications?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"personal",
+										"qualifications"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-fapi-interaction-id",
+									"value": "d0eG",
+									"description": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"data\": {\n  \"requestDateTime\": \"2021-01-28T08:30:00Z\",\n  \"updateDateTime\": \"2021-01-28T08:30:00Z\",\n  \"personalId\": \"578-psd-71md6971kjh-2d414\",\n  \"informedIncomeFrequency\": \"DIARIA\",\n  \"informedIncomeAmount\": 3500,\n  \"informedIncomeCurrency\": \"BRL\",\n  \"informedIncomeDate\": \"2020-12-01\",\n  \"informedPatrimonyAmount\": 50000,\n  \"informedPatrimonyCurrency\": \"BRL\",\n  \"informedPatrimonyYear\": 2010,\n  \"occupationCode\": \"CBO\",\n  \"occupationDescription\": \"01\"\n },\n \"links\": {\n  \"self\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\",\n  \"first\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\",\n  \"prev\": \"ad\",\n  \"next\": \"a\",\n  \"last\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\"\n },\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "Cabeçalho de autenticação ausente/inválido ou token inválido",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/personal/qualifications?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"personal",
+										"qualifications"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"vbW4\",\n   \"title\": \"MKZx\",\n   \"detail\": \"ONj3\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "A requisição foi malformada, omitindo atributos obrigatórios, seja no payload ou através de atributos na URL.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/personal/qualifications?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"personal",
+										"qualifications"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"vbW4\",\n   \"title\": \"MKZx\",\n   \"detail\": \"ONj3\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						}
+					]
+				},
+				{
+					"name": "Obtém os registros de relacionamentos com a instituição financeira e de representantes da pessoa natural.",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+								"key": "x-fapi-auth-date",
+								"value": "Sat,",
+								"disabled": true
+							},
+							{
+								"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+								"key": "x-fapi-customer-ip-address",
+								"value": "ITfQ"
+							},
+							{
+								"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+								"key": "x-fapi-interaction-id",
+								"value": "d0eG"
+							},
+							{
+								"description": "Indica o user-agent que o usuário utiliza.",
+								"key": "x-customer-user-agent",
+								"value": "ITfQ"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/personal/finantial-relations?page=1&page-size=25",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"personal",
+								"finantial-relations"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Número da página que está sendo requisitada (o valor da primeira página é 1)."
+								},
+								{
+									"key": "page-size",
+									"value": "25",
+									"description": "Quantidade total de registros por páginas."
+								}
+							]
+						},
+						"description": "Método para obter registros de relacionamentos com a instituição financeira e de representantes da pessoa natural mantidos na instituição transmissora."
+					},
+					"response": [
+						{
+							"name": "O token tem escopo incorreto ou uma política de segurança foi violada",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/personal/finantial-relations?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"personal",
+										"finantial-relations"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"vbW4\",\n   \"title\": \"MKZx\",\n   \"detail\": \"ONj3\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "Cabeçalho de autenticação ausente/inválido ou token inválido",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/personal/finantial-relations?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"personal",
+										"finantial-relations"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"vbW4\",\n   \"title\": \"MKZx\",\n   \"detail\": \"ONj3\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "Ocorreu um erro no gateway da API ou no microsserviço",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/personal/finantial-relations?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"personal",
+										"finantial-relations"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"vbW4\",\n   \"title\": \"MKZx\",\n   \"detail\": \"ONj3\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "A solicitação continha um cabeçalho Accept diferente dos tipos de mídia permitidos ou um conjunto de caracteres diferente de UTF-8",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/personal/finantial-relations?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"personal",
+										"finantial-relations"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Not Acceptable",
+							"code": 406,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"vbW4\",\n   \"title\": \"MKZx\",\n   \"detail\": \"ONj3\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "A requisição foi malformada, omitindo atributos obrigatórios, seja no payload ou através de atributos na URL.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/personal/finantial-relations?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"personal",
+										"finantial-relations"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"vbW4\",\n   \"title\": \"MKZx\",\n   \"detail\": \"ONj3\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "O recurso solicitado não existe ou não foi implementado",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/personal/finantial-relations?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"personal",
+										"finantial-relations"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"vbW4\",\n   \"title\": \"MKZx\",\n   \"detail\": \"ONj3\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "Dados sobre relacionamento da pessoa física",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/personal/finantial-relations?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"personal",
+										"finantial-relations"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-fapi-interaction-id",
+									"value": "d0eG",
+									"description": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"data\": {\n  \"requestDateTime\": \"2020-07-21T08:30:00Z\",\n  \"updateDateTime\": \"2020-07-21T08:58:00Z\",\n  \"personalId\": \"578-psd-71md6971kjh-2d414\",\n  \"startDate\": \"1985-05-01\",\n  \"productsServicesType\": \"SEGURO\",\n  \"procurators\": [\n   {\n    \"type\": \"PROCURADOR\",\n    \"cpfNumber\": \"73677831148\",\n    \"civilName\": \"Elza Milena Stefany Teixeira\",\n    \"socialName\": \"NA\"\n   }\n  ]\n },\n \"links\": {\n  \"self\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\",\n  \"first\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\",\n  \"prev\": \"dolo\",\n  \"next\": \"est \",\n  \"last\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\"\n },\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "A operação foi recusada, pois muitas solicitações foram feitas dentro de um determinado período ou o limite global de requisições concorrentes foi atingido",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/personal/finantial-relations?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"personal",
+										"finantial-relations"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Too Many Requests",
+							"code": 429,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"vbW4\",\n   \"title\": \"MKZx\",\n   \"detail\": \"ONj3\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "Dados sobre relacionamento da pessoa física",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/personal/finantial-relations?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"personal",
+										"finantial-relations"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-fapi-interaction-id",
+									"value": "d0eG",
+									"description": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"data\": {\n  \"requestDateTime\": \"2020-07-21T08:30:00Z\",\n  \"updateDateTime\": \"2020-07-21T08:58:00Z\",\n  \"personalId\": \"578-psd-71md6971kjh-2d414\",\n  \"startDate\": \"1985-05-01\",\n  \"productsServicesType\": \"SEGURO\",\n  \"procurators\": [\n   {\n    \"type\": \"PROCURADOR\",\n    \"cpfNumber\": \"73677831148\",\n    \"civilName\": \"Elza Milena Stefany Teixeira\",\n    \"socialName\": \"NA\"\n   }\n  ]\n },\n \"links\": {\n  \"self\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\",\n  \"first\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\",\n  \"prev\": \"dolo\",\n  \"next\": \"est \",\n  \"last\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\"\n },\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "O consumidor tentou acessar o recurso com um método não suportado",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/personal/finantial-relations?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"personal",
+										"finantial-relations"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Method Not Allowed",
+							"code": 405,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"vbW4\",\n   \"title\": \"MKZx\",\n   \"detail\": \"ONj3\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "business",
+			"item": [
+				{
+					"name": "Obtém os registros de identificação da pessoa jurídica.",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+								"key": "x-fapi-auth-date",
+								"value": "Sat,",
+								"disabled": true
+							},
+							{
+								"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+								"key": "x-fapi-customer-ip-address",
+								"value": "ITfQ"
+							},
+							{
+								"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+								"key": "x-fapi-interaction-id",
+								"value": "d0eG"
+							},
+							{
+								"description": "Indica o user-agent que o usuário utiliza.",
+								"key": "x-customer-user-agent",
+								"value": "ITfQ"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/business/identifications?page=1&page-size=25",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"business",
+								"identifications"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Número da página que está sendo requisitada (o valor da primeira página é 1)."
+								},
+								{
+									"key": "page-size",
+									"value": "25",
+									"description": "Quantidade total de registros por páginas."
+								}
+							]
+						},
+						"description": "Método para obter os registros de identificação da pessoa jurídica mantidos na instituição transmissora"
+					},
+					"response": [
+						{
+							"name": "Ocorreu um erro no gateway da API ou no microsserviço",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/business/identifications?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"business",
+										"identifications"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"vbW4\",\n   \"title\": \"MKZx\",\n   \"detail\": \"ONj3\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "Cabeçalho de autenticação ausente/inválido ou token inválido",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/business/identifications?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"business",
+										"identifications"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"vbW4\",\n   \"title\": \"MKZx\",\n   \"detail\": \"ONj3\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "A solicitação continha um cabeçalho Accept diferente dos tipos de mídia permitidos ou um conjunto de caracteres diferente de UTF-8",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/business/identifications?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"business",
+										"identifications"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Not Acceptable",
+							"code": 406,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"vbW4\",\n   \"title\": \"MKZx\",\n   \"detail\": \"ONj3\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "Dados sobre identificação pessoa jurídica",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/business/identifications?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"business",
+										"identifications"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-fapi-interaction-id",
+									"value": "d0eG",
+									"description": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"data\": {\n  \"requestDateTime\": \"2021-01-28T08:30:00Z\",\n  \"updateDateTime\": \"2021-01-28T08:30:00Z\",\n  \"businessId\": \"139-psd-71md6971kjh-2d414\",\n  \"brandName\": \"Organização B\",\n  \"companyCnpjNumber\": \"95744537000172\",\n  \"cnpjNumber\": \"26273173000177\",\n  \"companyName\": \"Severino e Pedro Henrique Eletrônica Ltda\",\n  \"tradeName\": \"Mundo da Eletronica\",\n  \"incorporationDate\": \"2016-09-09\",\n  \"parties\": [\n   {\n    \"type\": \"SOCIO\",\n    \"civilName\": \"Vicente Caleb Manuel Pereira\",\n    \"socialName\": \"NA\",\n    \"startDate\": \"2016-09-09\",\n    \"shareholding\": \"1.00\",\n    \"documentType\": \"OUTRO_DOCUMENTO_VIAGEM\",\n    \"documentNumber\": \"99724680957\",\n    \"documentAdditionalInfo\": \"CNH\",\n    \"documentCountry\": \"BRA\",\n    \"documentExpirationDate\": \"2024-04-31\"\n   }\n  ],\n  \"contacts\": {\n   \"postalAddresses\": [\n    {\n     \"isMain\": true,\n     \"address\": \"Rua Doutor Octávio Monteiro Becker, 936\",\n     \"additionalInfo\": \"NA\",\n     \"districtName\": \"Jardim Terras do Sul\",\n     \"townName\": \"São José dos Campos\",\n     \"ibgeTownCode\": \"3549904\",\n     \"countrySubDivision\": \"SP\",\n     \"postCode\": \"12236066\",\n     \"country\": \"Brasil\",\n     \"countryCode\": \"BRA\"\n    }\n   ],\n   \"phones\": [\n    {\n     \"isMain\": true,\n     \"type\": \"FIXO\",\n     \"countryCallingCode\": \"55\",\n     \"areaCode\": \"12\",\n     \"number\": \"39510399\",\n     \"phoneExtension\": \"NA\"\n    }\n   ],\n   \"emails\": [\n    {\n     \"isMain\": true,\n     \"email\": \"vicentecalebmanuelpereira__vicentecalebmanuelpereira@sunrise.com.br\"\n    }\n   ]\n  }\n },\n \"links\": {\n  \"self\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\",\n  \"first\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\",\n  \"prev\": \"string\",\n  \"next\": \"string\",\n  \"last\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\"\n },\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "O token tem escopo incorreto ou uma política de segurança foi violada",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/business/identifications?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"business",
+										"identifications"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"vbW4\",\n   \"title\": \"MKZx\",\n   \"detail\": \"ONj3\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "A requisição foi malformada, omitindo atributos obrigatórios, seja no payload ou através de atributos na URL.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/business/identifications?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"business",
+										"identifications"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"vbW4\",\n   \"title\": \"MKZx\",\n   \"detail\": \"ONj3\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "Dados sobre identificação pessoa jurídica",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/business/identifications?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"business",
+										"identifications"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-fapi-interaction-id",
+									"value": "d0eG",
+									"description": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"data\": {\n  \"requestDateTime\": \"2021-01-28T08:30:00Z\",\n  \"updateDateTime\": \"2021-01-28T08:30:00Z\",\n  \"businessId\": \"139-psd-71md6971kjh-2d414\",\n  \"brandName\": \"Organização B\",\n  \"companyCnpjNumber\": \"95744537000172\",\n  \"cnpjNumber\": \"26273173000177\",\n  \"companyName\": \"Severino e Pedro Henrique Eletrônica Ltda\",\n  \"tradeName\": \"Mundo da Eletronica\",\n  \"incorporationDate\": \"2016-09-09\",\n  \"parties\": [\n   {\n    \"type\": \"SOCIO\",\n    \"civilName\": \"Vicente Caleb Manuel Pereira\",\n    \"socialName\": \"NA\",\n    \"startDate\": \"2016-09-09\",\n    \"shareholding\": \"1.00\",\n    \"documentType\": \"OUTRO_DOCUMENTO_VIAGEM\",\n    \"documentNumber\": \"99724680957\",\n    \"documentAdditionalInfo\": \"CNH\",\n    \"documentCountry\": \"BRA\",\n    \"documentExpirationDate\": \"2024-04-31\"\n   }\n  ],\n  \"contacts\": {\n   \"postalAddresses\": [\n    {\n     \"isMain\": true,\n     \"address\": \"Rua Doutor Octávio Monteiro Becker, 936\",\n     \"additionalInfo\": \"NA\",\n     \"districtName\": \"Jardim Terras do Sul\",\n     \"townName\": \"São José dos Campos\",\n     \"ibgeTownCode\": \"3549904\",\n     \"countrySubDivision\": \"SP\",\n     \"postCode\": \"12236066\",\n     \"country\": \"Brasil\",\n     \"countryCode\": \"BRA\"\n    }\n   ],\n   \"phones\": [\n    {\n     \"isMain\": true,\n     \"type\": \"FIXO\",\n     \"countryCallingCode\": \"55\",\n     \"areaCode\": \"12\",\n     \"number\": \"39510399\",\n     \"phoneExtension\": \"NA\"\n    }\n   ],\n   \"emails\": [\n    {\n     \"isMain\": true,\n     \"email\": \"vicentecalebmanuelpereira__vicentecalebmanuelpereira@sunrise.com.br\"\n    }\n   ]\n  }\n },\n \"links\": {\n  \"self\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\",\n  \"first\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\",\n  \"prev\": \"string\",\n  \"next\": \"string\",\n  \"last\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\"\n },\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "O consumidor tentou acessar o recurso com um método não suportado",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/business/identifications?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"business",
+										"identifications"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Method Not Allowed",
+							"code": 405,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"vbW4\",\n   \"title\": \"MKZx\",\n   \"detail\": \"ONj3\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "O recurso solicitado não existe ou não foi implementado",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/business/identifications?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"business",
+										"identifications"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"vbW4\",\n   \"title\": \"MKZx\",\n   \"detail\": \"ONj3\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "A operação foi recusada, pois muitas solicitações foram feitas dentro de um determinado período ou o limite global de requisições concorrentes foi atingido",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/business/identifications?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"business",
+										"identifications"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Too Many Requests",
+							"code": 429,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"vbW4\",\n   \"title\": \"MKZx\",\n   \"detail\": \"ONj3\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						}
+					]
+				},
+				{
+					"name": "Obtém os registros de qualificação da pessoa jurídica.",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+								"key": "x-fapi-auth-date",
+								"value": "Sat,",
+								"disabled": true
+							},
+							{
+								"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+								"key": "x-fapi-customer-ip-address",
+								"value": "ITfQ"
+							},
+							{
+								"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+								"key": "x-fapi-interaction-id",
+								"value": "d0eG"
+							},
+							{
+								"description": "Indica o user-agent que o usuário utiliza.",
+								"key": "x-customer-user-agent",
+								"value": "ITfQ"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/business/qualifications?page=1&page-size=25",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"business",
+								"qualifications"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Número da página que está sendo requisitada (o valor da primeira página é 1)."
+								},
+								{
+									"key": "page-size",
+									"value": "25",
+									"description": "Quantidade total de registros por páginas."
+								}
+							]
+						},
+						"description": "Método para obter os registros de qualificação da pessoa jurídica mantidos na instituição transmissora."
+					},
+					"response": [
+						{
+							"name": "O consumidor tentou acessar o recurso com um método não suportado",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/business/qualifications?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"business",
+										"qualifications"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Method Not Allowed",
+							"code": 405,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"vbW4\",\n   \"title\": \"MKZx\",\n   \"detail\": \"ONj3\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "Cabeçalho de autenticação ausente/inválido ou token inválido",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/business/qualifications?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"business",
+										"qualifications"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"vbW4\",\n   \"title\": \"MKZx\",\n   \"detail\": \"ONj3\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "A operação foi recusada, pois muitas solicitações foram feitas dentro de um determinado período ou o limite global de requisições concorrentes foi atingido",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/business/qualifications?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"business",
+										"qualifications"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Too Many Requests",
+							"code": 429,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"vbW4\",\n   \"title\": \"MKZx\",\n   \"detail\": \"ONj3\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "Ocorreu um erro no gateway da API ou no microsserviço",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/business/qualifications?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"business",
+										"qualifications"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"vbW4\",\n   \"title\": \"MKZx\",\n   \"detail\": \"ONj3\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "O recurso solicitado não existe ou não foi implementado",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/business/qualifications?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"business",
+										"qualifications"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"vbW4\",\n   \"title\": \"MKZx\",\n   \"detail\": \"ONj3\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "A requisição foi malformada, omitindo atributos obrigatórios, seja no payload ou através de atributos na URL.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/business/qualifications?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"business",
+										"qualifications"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"vbW4\",\n   \"title\": \"MKZx\",\n   \"detail\": \"ONj3\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "A solicitação continha um cabeçalho Accept diferente dos tipos de mídia permitidos ou um conjunto de caracteres diferente de UTF-8",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/business/qualifications?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"business",
+										"qualifications"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Not Acceptable",
+							"code": 406,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"vbW4\",\n   \"title\": \"MKZx\",\n   \"detail\": \"ONj3\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "Dados sobre qualificação pessoa jurídica",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/business/qualifications?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"business",
+										"qualifications"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-fapi-interaction-id",
+									"value": "d0eG",
+									"description": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"data\": {\n  \"requestDateTime\": \"2020-07-21T08:30:00Z\",\n  \"updateDateTime\": \"2020-07-21T08:58:00Z\",\n  \"businessId\": \"578-psd-71md6971kjh-2d414\",\n  \"economicActivities\": [\n   {\n    \"code\": 8599604,\n    \"isMain\": true\n   }\n  ],\n  \"informedRevenueFrequency\": \"DIARIA\",\n  \"informedRevenueAmount\": 500,\n  \"informedRevenueCurrency\": \"BRL\",\n  \"informedRevenueYear\": 2020,\n  \"informedPatrimonyAmount\": 200000,\n  \"informedPatrimonyCurrency\": \"BRL\",\n  \"informedPatrimoneYear\": 2020\n },\n \"links\": {\n  \"self\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\",\n  \"first\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\",\n  \"prev\": \"\",\n  \"next\": \"in e\",\n  \"last\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\"\n },\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "Dados sobre qualificação pessoa jurídica",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/business/qualifications?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"business",
+										"qualifications"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-fapi-interaction-id",
+									"value": "d0eG",
+									"description": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"data\": {\n  \"requestDateTime\": \"2020-07-21T08:30:00Z\",\n  \"updateDateTime\": \"2020-07-21T08:58:00Z\",\n  \"businessId\": \"578-psd-71md6971kjh-2d414\",\n  \"economicActivities\": [\n   {\n    \"code\": 8599604,\n    \"isMain\": true\n   }\n  ],\n  \"informedRevenueFrequency\": \"DIARIA\",\n  \"informedRevenueAmount\": 500,\n  \"informedRevenueCurrency\": \"BRL\",\n  \"informedRevenueYear\": 2020,\n  \"informedPatrimonyAmount\": 200000,\n  \"informedPatrimonyCurrency\": \"BRL\",\n  \"informedPatrimoneYear\": 2020\n },\n \"links\": {\n  \"self\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\",\n  \"first\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\",\n  \"prev\": \"\",\n  \"next\": \"in e\",\n  \"last\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\"\n },\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "O token tem escopo incorreto ou uma política de segurança foi violada",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/business/qualifications?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"business",
+										"qualifications"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"vbW4\",\n   \"title\": \"MKZx\",\n   \"detail\": \"ONj3\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						}
+					]
+				},
+				{
+					"name": "Obtém os registros de relacionamentos com a instituição financeira e de representantes da pessoa jurídica.",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+								"key": "x-fapi-auth-date",
+								"value": "Sat,",
+								"disabled": true
+							},
+							{
+								"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+								"key": "x-fapi-customer-ip-address",
+								"value": "ITfQ"
+							},
+							{
+								"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+								"key": "x-fapi-interaction-id",
+								"value": "d0eG"
+							},
+							{
+								"description": "Indica o user-agent que o usuário utiliza.",
+								"key": "x-customer-user-agent",
+								"value": "ITfQ"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/business/finantial-relations?page=1&page-size=25",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"business",
+								"finantial-relations"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Número da página que está sendo requisitada (o valor da primeira página é 1)."
+								},
+								{
+									"key": "page-size",
+									"value": "25",
+									"description": "Quantidade total de registros por páginas."
+								}
+							]
+						},
+						"description": "Método para obter registros de relacionamentos com a instituição financeira e de representantes da pessoa jurídica mantidos na instituição transmissora."
+					},
+					"response": [
+						{
+							"name": "O token tem escopo incorreto ou uma política de segurança foi violada",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/business/finantial-relations?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"business",
+										"finantial-relations"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"vbW4\",\n   \"title\": \"MKZx\",\n   \"detail\": \"ONj3\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "O recurso solicitado não existe ou não foi implementado",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/business/finantial-relations?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"business",
+										"finantial-relations"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"vbW4\",\n   \"title\": \"MKZx\",\n   \"detail\": \"ONj3\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "A requisição foi malformada, omitindo atributos obrigatórios, seja no payload ou através de atributos na URL.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/business/finantial-relations?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"business",
+										"finantial-relations"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"vbW4\",\n   \"title\": \"MKZx\",\n   \"detail\": \"ONj3\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "O consumidor tentou acessar o recurso com um método não suportado",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/business/finantial-relations?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"business",
+										"finantial-relations"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Method Not Allowed",
+							"code": 405,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"vbW4\",\n   \"title\": \"MKZx\",\n   \"detail\": \"ONj3\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "A operação foi recusada, pois muitas solicitações foram feitas dentro de um determinado período ou o limite global de requisições concorrentes foi atingido",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/business/finantial-relations?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"business",
+										"finantial-relations"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Too Many Requests",
+							"code": 429,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"vbW4\",\n   \"title\": \"MKZx\",\n   \"detail\": \"ONj3\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "Cabeçalho de autenticação ausente/inválido ou token inválido",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/business/finantial-relations?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"business",
+										"finantial-relations"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"vbW4\",\n   \"title\": \"MKZx\",\n   \"detail\": \"ONj3\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "Dados sobre relacionamento pessoa jurídica",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/business/finantial-relations?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"business",
+										"finantial-relations"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-fapi-interaction-id",
+									"value": "d0eG",
+									"description": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"data\": {\n  \"requestDateTime\": \"2020-07-21T08:30:00Z\",\n  \"updateDateTime\": \"2020-07-21T08:30:00Z\",\n  \"startDate\": \"2020-07-21\",\n  \"procurators\": [\n   {\n    \"type\": \"PROCURADOR\",\n    \"cnpjCpfNumber\": \"73677831148\",\n    \"civilName\": \"Elza Milena Stefany Teixeira\",\n    \"socialName\": \"NA\"\n   }\n  ],\n  \"productsServicesType\": [\n   \"SEGURO\"\n  ]\n },\n \"links\": {\n  \"self\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\",\n  \"first\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\",\n  \"prev\": \"a\",\n  \"next\": \"e\",\n  \"last\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\"\n },\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "A solicitação continha um cabeçalho Accept diferente dos tipos de mídia permitidos ou um conjunto de caracteres diferente de UTF-8",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/business/finantial-relations?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"business",
+										"finantial-relations"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Not Acceptable",
+							"code": 406,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"vbW4\",\n   \"title\": \"MKZx\",\n   \"detail\": \"ONj3\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "Dados sobre relacionamento pessoa jurídica",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/business/finantial-relations?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"business",
+										"finantial-relations"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-fapi-interaction-id",
+									"value": "d0eG",
+									"description": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"data\": {\n  \"requestDateTime\": \"2020-07-21T08:30:00Z\",\n  \"updateDateTime\": \"2020-07-21T08:30:00Z\",\n  \"startDate\": \"2020-07-21\",\n  \"procurators\": [\n   {\n    \"type\": \"PROCURADOR\",\n    \"cnpjCpfNumber\": \"73677831148\",\n    \"civilName\": \"Elza Milena Stefany Teixeira\",\n    \"socialName\": \"NA\"\n   }\n  ],\n  \"productsServicesType\": [\n   \"SEGURO\"\n  ]\n },\n \"links\": {\n  \"self\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\",\n  \"first\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\",\n  \"prev\": \"a\",\n  \"next\": \"e\",\n  \"last\": \"https://api.banco.com.br/open-banking/<api>/v1/<resource>\"\n },\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						},
+						{
+							"name": "Ocorreu um erro no gateway da API ou no microsserviço",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Cabeçalho HTTP padrão. Permite que as credenciais sejam fornecidas dependendo do tipo de recurso solicitado",
+										"key": "Authorization",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Data em que o usuário logou pela última vez com o receptor. Representada de acordo com a [RFC7231](https://tools.ietf.org/html/rfc7231).Exemplo: Sun, 10 Sep 2017 19:43:31 UTC",
+										"key": "x-fapi-auth-date",
+										"value": "Sat,"
+									},
+									{
+										"description": "O endereço IP do usuário se estiver atualmente logado com o receptor.",
+										"key": "x-fapi-customer-ip-address",
+										"value": "ITfQ"
+									},
+									{
+										"description": "Um UID [RFC4122](https://tools.ietf.org/html/rfc4122) usado como um ID de correlação. Se fornecido, o transmissor deve \"reproduzir\" esse valor no cabeçalho de resposta.",
+										"key": "x-fapi-interaction-id",
+										"value": "d0eG"
+									},
+									{
+										"description": "Indica o user-agent que o usuário utiliza.",
+										"key": "x-customer-user-agent",
+										"value": "ITfQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/business/finantial-relations?page=1&page-size=25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"business",
+										"finantial-relations"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page-size",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errors\": [\n  {\n   \"code\": \"vbW4\",\n   \"title\": \"MKZx\",\n   \"detail\": \"ONj3\"\n  }\n ],\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://api.banco.com.br/open-banking/customers/v1"
+		}
+	]
+}

@@ -1,0 +1,376 @@
+{
+	"info": {
+		"_postman_id": "69932a5f-04f6-4b1a-b8de-9e489031a356",
+		"name": "API - Canais de atendimento",
+		"description": "As APIs descritas neste documento são referentes as APIs da fase OpenData do Open Banking Brasil.\n\nContact Support:\n Email: apiteam@swagger.io",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Obtém a lista de correspondentes bancários da instituição financeira.",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/banking-agents?page=1&page-size=25",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"banking-agents"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "Número da página que está sendo requisitada (o valor da primeira página é 1)."
+						},
+						{
+							"key": "page-size",
+							"value": "25",
+							"description": "Quantidade total de registros por páginas."
+						}
+					]
+				},
+				"description": "Método para obter a lista de correspondentes bancários da instituição financeira."
+			},
+			"response": [
+				{
+					"name": "Lista de correspondentes bancários obtida com sucesso.",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/banking-agents?page=1&page-size=25",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"banking-agents"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "page-size",
+									"value": "25"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"data\": {\n  \"brand\": {\n   \"name\": \"Organização A\",\n   \"companies\": [\n    {\n     \"name\": \"Empresa A1\",\n     \"cnpjNumber\": \"45086338000178\",\n     \"contractors\": [\n      {\n       \"name\": \"Empresa Contratante 1\",\n       \"cnpjNumber\": \"99558332000137\",\n       \"bankingAgents\": [\n        {\n         \"identification\": {\n          \"corporationName\": \"Empresa Correspondente A\",\n          \"groupName\": \"Grupo Master\",\n          \"cnpjNumber\": \"02345876000299\",\n          \"isUnderestablishment\": true\n         },\n         \"locations\": [\n          {\n           \"postalAddress\": {\n            \"address\": \"Av Tasuko Ykeda, 25\",\n            \"districtName\": \"Centro\",\n            \"townName\": \"Marília\",\n            \"countrySubDivision\": \"SP\",\n            \"postCode\": \"17500001\",\n            \"additionalInfo\": \"Loja B.\",\n            \"ibgeCode\": \"3550308\",\n            \"country\": \"Brasil\",\n            \"countryCode\": \"BRA\",\n            \"geographicCoordinates\": {\n             \"latitude\": \"-90.8365180\",\n             \"longitude\": \"-180.836519\"\n            }\n           },\n           \"phones\": [\n            {\n             \"type\": \"FIXO\",\n             \"countryCallingCode\": \"55\",\n             \"areaCode\": \"14\",\n             \"number\": \"35721199\"\n            },\n            {\n             \"type\": \"MOVEL\",\n             \"countryCallingCode\": \"55\",\n             \"areaCode\": \"14\",\n             \"number\": \"997865532\"\n            }\n           ],\n           \"availability\": {\n            \"standards\": [\n             {\n              \"weekday\": \"SEGUNDA_FEIRA\",\n              \"openingTime\": \"10:00:57Z\",\n              \"closingTime\": \"16:00:57Z\"\n             },\n             {\n              \"weekday\": \"TERCA_FEIRA\",\n              \"openingTime\": \"10:00:57Z\",\n              \"closingTime\": \"16:00:57Z\"\n             },\n             {\n              \"weekday\": \"QUARTA_FEIRA\",\n              \"openingTime\": \"10:00:57Z\",\n              \"closingTime\": \"16:00:57Z\"\n             },\n             {\n              \"weekday\": \"QUINTA_FEIRA\",\n              \"openingTime\": \"10:00:57Z\",\n              \"closingTime\": \"16:00:57Z\"\n             },\n             {\n              \"weekday\": \"SEXTA_FEIRA\",\n              \"openingTime\": \"10:00:57Z\",\n              \"closingTime\": \"16:00:57Z\"\n             }\n            ],\n            \"exception\": \"Exceto feriados municipais, estaduais e nacionais\",\n            \"isPublicAccessAllowed\": true\n           }\n          },\n          {\n           \"postalAddress\": {\n            \"address\": \"R Yroshima Takasi, 72\",\n            \"districtName\": \"Altos da Colina\",\n            \"townName\": \"Marília\",\n            \"countrySubDivision\": \"SP\",\n            \"postCode\": \"17526760\",\n            \"additionalInfo\": \"Loja 2.\",\n            \"ibgeCode\": \"3550308\",\n            \"country\": \"Brasil\",\n            \"countryCode\": \"BRA\",\n            \"geographicCoordinates\": {\n             \"latitude\": \"-90.8365180\",\n             \"longitude\": \"-180.836519\"\n            }\n           },\n           \"phones\": [\n            {\n             \"type\": \"FIXO\",\n             \"countryCallingCode\": \"55\",\n             \"areaCode\": \"14\",\n             \"number\": \"64721199\"\n            }\n           ],\n           \"availability\": {\n            \"standards\": [\n             {\n              \"weekday\": \"SEGUNDA_FEIRA\",\n              \"openingTime\": \"10:00:57Z\",\n              \"closingTime\": \"16:00:57Z\"\n             },\n             {\n              \"weekday\": \"TERCA_FEIRA\",\n              \"openingTime\": \"10:00:57Z\",\n              \"closingTime\": \"16:00:57Z\"\n             },\n             {\n              \"weekday\": \"QUARTA_FEIRA\",\n              \"openingTime\": \"10:00:57Z\",\n              \"closingTime\": \"16:00:57Z\"\n             },\n             {\n              \"weekday\": \"QUINTA_FEIRA\",\n              \"openingTime\": \"10:00:57Z\",\n              \"closingTime\": \"16:00:57Z\"\n             },\n             {\n              \"weekday\": \"SEXTA_FEIRA\",\n              \"openingTime\": \"10:00:57Z\",\n              \"closingTime\": \"16:00:57Z\"\n             }\n            ],\n            \"exception\": \"Exceto feriados municipais, estaduais e nacionais\",\n            \"isPublicAccessAllowed\": true\n           }\n          },\n          {\n           \"postalAddress\": {\n            \"address\": \"Al Nasso Origami, 15, bloco A\",\n            \"districtName\": \"Centro\",\n            \"townName\": \"Marília\",\n            \"countrySubDivision\": \"SP\",\n            \"postCode\": \"17500001\",\n            \"additionalInfo\": \"Loja B.\",\n            \"ibgeCode\": \"3550308\",\n            \"country\": \"Brasil\",\n            \"countryCode\": \"BRA\",\n            \"geographicCoordinates\": {\n             \"latitude\": \"-90.8365180\",\n             \"longitude\": \"-180.836519\"\n            }\n           },\n           \"availability\": {\n            \"standards\": [\n             {\n              \"weekday\": \"SEGUNDA_FEIRA\",\n              \"openingTime\": \"10:00:57Z\",\n              \"closingTime\": \"16:00:57Z\"\n             },\n             {\n              \"weekday\": \"TERCA_FEIRA\",\n              \"openingTime\": \"10:00:57Z\",\n              \"closingTime\": \"16:00:57Z\"\n             },\n             {\n              \"weekday\": \"QUARTA_FEIRA\",\n              \"openingTime\": \"10:00:57Z\",\n              \"closingTime\": \"16:00:57Z\"\n             },\n             {\n              \"weekday\": \"QUINTA_FEIRA\",\n              \"openingTime\": \"10:00:57Z\",\n              \"closingTime\": \"16:00:57Z\"\n             },\n             {\n              \"weekday\": \"SEXTA_FEIRA\",\n              \"openingTime\": \"10:00:57Z\",\n              \"closingTime\": \"16:00:57Z\"\n             }\n            ],\n            \"exception\": \"Exceto feriados municipais, estaduais e nacionais\",\n            \"isPublicAccessAllowed\": true\n           }\n          }\n         ],\n         \"services\": [\n          {\n           \"name\": \"RECEPCAO_ENCAMINHAMENTO_PROPOSTAS_ABERTURA_CONTAS_DEPOSITOS_VISTA_PRAZO_POUPANCA_MANTIDOS_INSTITUICAO_CONTRATANTE\",\n           \"code\": \"RECEBE_ENCAMINHA_PROPOSTAS_ABERTURA_CONTAS\",\n           \"additionalInfo\": \"NA\"\n          },\n          {\n           \"name\": \"REALIZACAO_RECEBIMENTOS_PAGAMENTOS_TRANSFERENCIAS_ELETRONICAS_VISANDO_MOVIMENTACAO_CONTAS_DEPOSITOS_TITULARIDADE_CLIENTES_MANTIDAS_INSTITUICAO_CONTRATANTE\",\n           \"code\": \"REALIZA_RECEBIMENTOS_PAGAMENTOS_TRANSFERENCIAS_ELETRONICAS\",\n           \"additionalInfo\": \"NA\"\n          },\n          {\n           \"name\": \"RECEBIMENTOS_PAGAMENTOS_QUALQUER_NATUREZA_OUTRAS_ATIVIDADES_DECORRENTES_EXECUCAO_CONTRATOS_CONVENIOS_PRESTACAO_SERVICOS\",\n           \"code\": \"RECEBIMENTOS_PAGAMENTOS_QUALQUER_NATUREZA_EXECUCAO_CONTRATOS_CONVENIO\",\n           \"additionalInfo\": \"NA\"\n          }\n         ]\n        }\n       ]\n      }\n     ]\n    }\n   ]\n  }\n },\n \"links\": {\n  \"self\": \"https://api.banco.com.br/open-banking/channels/v1/banking-agents\",\n  \"first\": \"https://api.banco.com.br/open-banking/channels/v1/banking-agents\",\n  \"prev\": \"null\",\n  \"next\": \"null\",\n  \"last\": \"https://api.banco.com.br/open-banking/channels/v1/banking-agents\"\n },\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtém a lista de dependências próprias da instituição financeira.",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/branches?page=1&page-size=25",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"branches"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "Número da página que está sendo requisitada (o valor da primeira página é 1)."
+						},
+						{
+							"key": "page-size",
+							"value": "25",
+							"description": "Quantidade total de registros por páginas."
+						}
+					]
+				},
+				"description": "Método para obter a lista de dependências próprias da instituição financeira."
+			},
+			"response": [
+				{
+					"name": "Lista de dependências próprias obtida com sucesso.",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/branches?page=1&page-size=25",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"branches"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "page-size",
+									"value": "25"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"data\": {\n  \"brand\": {\n   \"name\": \"Organização A\",\n   \"companies\": [\n    {\n     \"name\": \"Empresa A1\",\n     \"cnpjNumber\": \"45086338000178\",\n     \"urlComplementaryList\": \"https://empresaa1.com/branches-banking\",\n     \"branches\": [\n      {\n       \"identification\": {\n        \"type\": \"AGENCIA\",\n        \"code\": \"0001\",\n        \"checkDigit\": \"9\",\n        \"name\": \"Marília\",\n        \"relatedBranch\": \"0001\",\n        \"openingDate\": \"2010-01-02\"\n       },\n       \"postalAddress\": {\n        \"address\": \"Av Naburo Ykesaki, 1270\",\n        \"additionalInfo\": \"Loja B\",\n        \"districtName\": \"Centro\",\n        \"townName\": \"Marília\",\n        \"ibgeCode\": \"3550308\",\n        \"countrySubDivision\": \"SP\",\n        \"postCode\": \"17500-001\",\n        \"country\": \"Brasil\",\n        \"countryCode\": \"BRA\",\n        \"geographicCoordinates\": {\n         \"latitude\": \"-90.8365180\",\n         \"longitude\": \"-180.836519\"\n        }\n       },\n       \"availability\": {\n        \"standards\": [\n         {\n          \"weekday\": \"SEGUNDA_FEIRA\",\n          \"openingTime\": \"10:00:57Z\",\n          \"closingTime\": \"16:00:57Z\"\n         },\n         {\n          \"weekday\": \"TERCA_FEIRA\",\n          \"openingTime\": \"10:00:57Z\",\n          \"closingTime\": \"16:00:57Z\"\n         },\n         {\n          \"weekday\": \"QUARTA_FEIRA\",\n          \"openingTime\": \"10:00:57Z\",\n          \"closingTime\": \"16:00:57Z\"\n         },\n         {\n          \"weekday\": \"QUINTA_FEIRA\",\n          \"openingTime\": \"10:00:57Z\",\n          \"closingTime\": \"16:00:57Z\"\n         },\n         {\n          \"weekday\": \"SEXTA_FEIRA\",\n          \"openingTime\": \"10:00:57Z\",\n          \"closingTime\": \"16:00:57Z\"\n         }\n        ],\n        \"exception\": \"Exceto feriados municipais, estaduais e nacionais\",\n        \"isPublicAccessAllowed\": true\n       },\n       \"phones\": [\n        {\n         \"type\": \"FIXO\",\n         \"countryCallingCode\": \"55\",\n         \"areaCode\": \"14\",\n         \"number\": \"35721199\"\n        },\n        {\n         \"type\": \"MOVEL\",\n         \"countryCallingCode\": \"55\",\n         \"areaCode\": \"14\",\n         \"number\": \"997865532\"\n        }\n       ],\n       \"services\": [\n        {\n         \"name\": \"RECEBIMENTOS_PAGAMENTOS_QUALQUER_NATUREZA\",\n         \"code\": \"RECEBE_PAGA_QUALQUER_NATUREZA\"\n        },\n        {\n         \"name\": \"OUTROS_PRODUTOS_SERVICOS\",\n         \"code\": \"OUTROS_PRODUTOS_SERVICOS\",\n         \"additionalInfo\": \"Renegociação\"\n        }\n       ]\n      }\n     ]\n    }\n   ]\n  }\n },\n \"links\": {\n  \"self\": \"https://api.banco.com.br/open-banking/channels/v1/branches\",\n  \"first\": \"https://api.banco.com.br/open-banking/channels/v1/branches\",\n  \"prev\": \"null\",\n  \"next\": \"null\",\n  \"last\": \"https://api.banco.com.br/open-banking/channels/v1/branches\"\n },\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtém a lista de canais eletrônicos de atendimento da instituição financeira.",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/electronic-channels?page=1&page-size=25",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"electronic-channels"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "Número da página que está sendo requisitada (o valor da primeira página é 1)."
+						},
+						{
+							"key": "page-size",
+							"value": "25",
+							"description": "Quantidade total de registros por páginas."
+						}
+					]
+				},
+				"description": "Método para obter a lista de canais eletrônicos de atendimento da instituição financeira."
+			},
+			"response": [
+				{
+					"name": "Lista de canais eletrônicos de atendimento obtida com sucesso.",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/electronic-channels?page=1&page-size=25",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"electronic-channels"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "page-size",
+									"value": "25"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"data\": {\n  \"brand\": {\n   \"name\": \"Organização A\",\n   \"companies\": [\n    {\n     \"name\": \"Empresa A1\",\n     \"cnpjNumber\": \"45086338000178\",\n     \"urlComplementaryList\": \"https://empresaa1.com/branches-banking\",\n     \"electronicChannels\": [\n      {\n       \"identification\": {\n        \"type\": \"INTERNET_BANKING\",\n        \"additionalInfo\": \"NA\",\n        \"urls\": [\n         \"https://empresaa1.com/internet-banking\"\n        ]\n       },\n       \"services\": [\n        {\n         \"name\": \"ABERTURA_CONTAS_DEPOSITOS_OU_PAGAMENTO_PRE_PAGA\",\n         \"code\": \"ABRE_CONTA_DEPOSITO_OU_PRE_PAGA\",\n         \"additionalInfo\": \"NA\"\n        },\n        {\n         \"name\": \"SEGUROS\",\n         \"code\": \"SEGUROS\",\n         \"additionalInfo\": \"NA\"\n        }\n       ]\n      }\n     ]\n    }\n   ]\n  }\n },\n \"links\": {\n  \"self\": \"https://api.banco.com.br/open-banking/channels/v1/electronic-channels\",\n  \"first\": \"https://api.banco.com.br/open-banking/channels/v1/electronic-channels\",\n  \"prev\": \"null\",\n  \"next\": \"null\",\n  \"last\": \"https://api.banco.com.br/open-banking/channels/v1/electronic-channels\"\n },\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtém a lista de canais telefônicos de atendimento da instituição financeira.",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/phone-channels?page=1&page-size=25",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"phone-channels"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "Número da página que está sendo requisitada (o valor da primeira página é 1)."
+						},
+						{
+							"key": "page-size",
+							"value": "25",
+							"description": "Quantidade total de registros por páginas."
+						}
+					]
+				},
+				"description": "Método para obter a lista de canais telefônicos de atendimento da instituição financeira."
+			},
+			"response": [
+				{
+					"name": "Lista de canais telefônicos de atendimento obtida com sucesso.",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/phone-channels?page=1&page-size=25",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"phone-channels"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "page-size",
+									"value": "25"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"data\": {\n  \"brand\": {\n   \"name\": \"Organização A\",\n   \"companies\": [\n    {\n     \"name\": \"Empresa A1\",\n     \"cnpjNumber\": \"45086338000178\",\n     \"urlComplementaryList\": \"https://empresaa1.com/branches-banking\",\n     \"phoneChannels\": [\n      {\n       \"identification\": {\n        \"type\": \"CENTRAL_TELEFONICA\",\n        \"phones\": [\n         {\n          \"countryCallingCode\": \"55\",\n          \"areaCode\": \"14\",\n          \"number\": \"35721199\",\n          \"additionalInfo\": \"NA\"\n         },\n         {\n          \"countryCallingCode\": \"55\",\n          \"areaCode\": \"14\",\n          \"number\": \"997865532\",\n          \"additionalInfo\": \"NA\"\n         }\n        ]\n       },\n       \"services\": [\n        {\n         \"name\": \"ABERTURA_CONTAS_DEPOSITOS_OU_PAGAMENTO_PRE_PAGA\",\n         \"code\": \"ABRE_CONTA_DEPOSITO_OU_PRE_PAGA\"\n        },\n        {\n         \"name\": \"RECEBIMENTOS_PAGAMENTOS_QUALQUER_NATUREZA\",\n         \"code\": \"RECEBE_PAGA_QUALQUER_NATUREZA\"\n        },\n        {\n         \"name\": \"OUTROS_PRODUTOS_SERVICOS\",\n         \"code\": \"OUTROS_PRODUTOS_SERVICOS\",\n         \"additionalInfo\": \"Atendimento em outros idiomas\"\n        }\n       ]\n      },\n      {\n       \"identification\": {\n        \"type\": \"SAC\",\n        \"phones\": [\n         {\n          \"countryCallingCode\": \"55\",\n          \"areaCode\": \"14\",\n          \"number\": \"40044828\",\n          \"additionalInfo\": \"DDI '55'; DDD '11', 40044828, 'Para clientes no exterior'\"\n         },\n         {\n          \"countryCallingCode\": \"55\",\n          \"areaCode\": \"14\",\n          \"number\": \"40044828\",\n          \"additionalInfo\": \"DDI ' ', DDD ' ', 40044828, 'Para regiões metropolitanas'\"\n         },\n         {\n          \"countryCallingCode\": \"55\",\n          \"areaCode\": \"14\",\n          \"number\": \"40044828\",\n          \"additionalInfo\": \"DDI ' ', DDD ' ', 40044828, 'Para demais localidades'\"\n         }\n        ]\n       },\n       \"services\": [\n        {\n         \"name\": \"RECLAMACOES\",\n         \"code\": \"RECLAMACOES\"\n        },\n        {\n         \"name\": \"INFORMACOES\",\n         \"code\": \"INFORMACOES\"\n        },\n        {\n         \"name\": \"CANCELAMENTO\",\n         \"code\": \"CANCELAMENTO\"\n        }\n       ]\n      },\n      {\n       \"identification\": {\n        \"type\": \"OUVIDORIA\",\n        \"phones\": [\n         {\n          \"countryCallingCode\": \"55\",\n          \"areaCode\": \"14\",\n          \"number\": \"40045555\",\n          \"additionalInfo\": \"DDI '55'; DDD '11', 40045555, 'Para clientes no exterior'\"\n         },\n         {\n          \"countryCallingCode\": \"55\",\n          \"areaCode\": \"14\",\n          \"number\": \"40045555\",\n          \"additionalInfo\": \"DDI ' ', DDD ' ', 40045555, 'Para regiões metropolitanas'\"\n         },\n         {\n          \"countryCallingCode\": \"55\",\n          \"areaCode\": \"14\",\n          \"number\": \"40045555\",\n          \"additionalInfo\": \"DDI ' ', DDD ' ', 40045555, 'Para demais localidades'\"\n         }\n        ]\n       },\n       \"services\": [\n        {\n         \"name\": \"RECLAMACOES\",\n         \"code\": \"RECLAMACOES\"\n        },\n        {\n         \"name\": \"INFORMACOES\",\n         \"code\": \"INFORMACOES\"\n        }\n       ]\n      },\n      {\n       \"identification\": {\n        \"type\": \"OUTROS\",\n        \"additionalInfo\": \"Receptivo\",\n        \"phones\": [\n         {\n          \"countryCallingCode\": \"55\",\n          \"areaCode\": \"NA\",\n          \"number\": \"40043277\",\n          \"additionalInfo\": \"DDI '55'; DDD '11', 40043277, 'Para clientes no metropolitanas'\"\n         },\n         {\n          \"countryCallingCode\": \"NA\",\n          \"areaCode\": \"NA\",\n          \"number\": \"40043277\",\n          \"additionalInfo\": \"DDI ' ', DDD ' ', 40043277, 'Para regiões localidades'\"\n         }\n        ]\n       },\n       \"services\": [\n        {\n         \"name\": \"OUTROS_PRODUTOS_SERVICOS\",\n         \"code\": \"OUTROS_PRODUTOS_SERVICOS\",\n         \"additionalInfo\": \"Previdência Privada\"\n        }\n       ]\n      }\n     ]\n    }\n   ]\n  }\n },\n \"links\": {\n  \"self\": \"https://api.banco.com.br/open-banking/channels/v1/phone-channels\",\n  \"first\": \"https://api.banco.com.br/open-banking/channels/v1/phone-channels\",\n  \"prev\": \"null\",\n  \"next\": \"null\",\n  \"last\": \"https://api.banco.com.br/open-banking/channels/v1/phone-channels\"\n },\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtém a lista de terminais compartilhados de autoatendimento.",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/shared-automated-teller-machines?page=1&page-size=25",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"shared-automated-teller-machines"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "Número da página que está sendo requisitada (o valor da primeira página é 1)."
+						},
+						{
+							"key": "page-size",
+							"value": "25",
+							"description": "Quantidade total de registros por páginas."
+						}
+					]
+				},
+				"description": "Método para obter a lista de terminais compartilhados de autoatendimento da instituição financeira."
+			},
+			"response": [
+				{
+					"name": "Lista de terminais compartilhados de autoatendimento obtida com sucesso.",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/shared-automated-teller-machines?page=1&page-size=25",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"shared-automated-teller-machines"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "page-size",
+									"value": "25"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"data\": {\n  \"brand\": {\n   \"name\": \"Organização A\"\n  }\n },\n \"links\": {\n  \"self\": \"https://api.banco.com.br/open-banking/channels/v1/<resource>\",\n  \"first\": \"https://api.banco.com.br/open-banking/channels/v1/<resource>\",\n  \"prev\": \"ad eiusmod do minim\",\n  \"next\": \"aute in mollit in\",\n  \"last\": \"https://api.banco.com.br/open-banking/channels/v1/<resource>\"\n },\n \"meta\": {\n  \"totalRecords\": 1,\n  \"totalPages\": 1\n }\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://api.banco.com.br/open-banking/channels/v1"
+		}
+	]
+}
