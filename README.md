@@ -39,3 +39,4 @@ Obs.: É possível importar as coleções do Postman disponíveis neste reposit�
 - [Artigo sobre o Open Banking](https://blog.gft.com/br/2021/02/23/como-o-open-banking-funciona-na-pratica/)
 - [Ferramenta Postman](https://www.postman.com/downloads/)
 - [Collection do Open Banking no Postman](https://app.getpostman.com/join-team?invite_code=c9b7529ae11f615366a03067558e9c44&ws=0234a02b-34b1-4f4d-af57-e0ffab23a8e9)
+- [Open Banking Banco Central do Brasil](https://www.bcb.gov.br/estabilidadefinanceira/openbanking)
