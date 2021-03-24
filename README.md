@@ -19,7 +19,7 @@ Este repositório contém o código fonte utilizado na palestra da GFT sobre Ope
 
 ## Passo a passo parte 2
 
-1. Executar o seguinte comando na pasta `prism-multi-example`: `docker-compose up`
+1. Executar o seguinte comando na pasta **prism-multi-example**: `docker-compose up`
 2. Realizar as requisições para qualquer API do Open Banking utilizando a ferramenta Postman;
 
 Obs.: É possível importar as coleções do Postman disponíveis neste repositório (pasta `collections-postman`) para facilitar a navegação;
