@@ -14,7 +14,7 @@ Este repositório contém o código fonte utilizado na palestra da GFT sobre Ope
 
 ## Passo a passo
 
-1. Executar o seguinte comando: `prism mock https://github.com/OpenBanking-Brasil/areadesenvolvedor/blob/master/documentation/source/swagger/swagger_channels_apis.yaml`;
+1. Executar o seguinte comando: `prism mock https://raw.githubusercontent.com/OpenBanking-Brasil/areadesenvolvedor/master/documentation/source/swagger/swagger_channels_apis.yaml`;
 2. Realizar as requisições para a API utilizando a ferramenta Postman;
 
 Obs.: É possível importar o arquivo no Postman `api-canais-atendimento.postman_collection.json` (pasta `collections-postman`) que já contém as requisições para a API pré configuradas;
